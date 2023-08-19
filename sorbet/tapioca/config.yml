@@ -1,0 +1,12 @@
+gem:
+  exclude:
+    - syntax_tree 
+    - spoom
+  doc: false
+  workers: 10
+dsl:
+  # Add your `dsl` command parameters here:
+  #
+  # exclude:
+  # - SomeGeneratorName
+  # workers: 5
