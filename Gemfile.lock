@@ -89,6 +89,11 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
+    elm-compiler (0.5.1)
+    elm-rails (0.4.2)
+      elm-compiler (>= 0.4.0)
+      rails (>= 6.0)
+      sprockets-rails (~> 3.0)
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -100,6 +105,8 @@ GEM
     io-console (0.6.0)
     irb (1.7.4)
       reline (>= 0.3.6)
+    jass-rollup (0.6.0)
+      nodo (>= 1.5.4)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -128,6 +135,7 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.5.9)
+    nodo (1.6.4)
     nokogiri (1.15.4-arm64-darwin)
       racc (~> 1.4)
     parallel (1.23.0)
@@ -257,7 +265,9 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  elm-rails (~> 0.4.2)
   importmap-rails
+  jass-rollup (~> 0.6.0)
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.7)

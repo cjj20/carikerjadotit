@@ -1,0 +1,27 @@
+{
+  "name": "hackathon-app",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copysimpledotcss": "cp node_modules/simpledotcss/simple.min.css vendor/assets/stylesheets/",
+    "postinstall": "npm run copysimpledotcss"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.0",
+    "elm": "^0.19.1-5",
+    "elm-format": "^0.8.7",
+    "elm-test": "^0.19.1-revision12",
+    "rollup": "^3.28.0",
+    "simpledotcss": "^2.2.1"
+  }
+}

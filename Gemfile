@@ -7,7 +7,7 @@ ruby "3.0.3"
 gem "rails", "~> 7.0.7"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
@@ -72,3 +72,7 @@ group :test do
 end
 
 gem "tapioca", "~> 0.11.7"
+
+gem "elm-rails", "~> 0.4.2"
+
+gem "jass-rollup", "~> 0.6.0"
