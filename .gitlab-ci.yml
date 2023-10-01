@@ -10,15 +10,16 @@ unit-test:
     RAILS_DB_PORT: 26257
     RAILS_DB_USER: root
     RAILS_DB_NAME: defaultdb
-    RAILS_DB_SSL: false
+    RAILS_DB_SSL: "false"
     RAILS_ENV: test
     COVERAGE: "true"
   before_script:
     - bundle
   script:
     - rails t
-  coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
   artifacts:
     reports:
-      cobertura: coverage/coverage.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/coverage.xml
 
