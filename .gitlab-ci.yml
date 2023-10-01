@@ -1,0 +1,24 @@
+unit-test:
+  image: ruby:3.0.3
+  services:
+    - name: cockroachdb/cockroach
+      alias: cockroach
+      command: ["start-single-node", "--insecure"]
+  stage: test
+  variables:
+    RAILS_DB_HOST: cockroach
+    RAILS_DB_PORT: 26257
+    RAILS_DB_USER: root
+    RAILS_DB_NAME: defaultdb
+    RAILS_DB_SSL: false
+    RAILS_ENV: test
+    COVERAGE: "true"
+  before_script:
+    - bundle
+  script:
+    - rails t
+  coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
+  artifacts:
+    reports:
+      cobertura: coverage/coverage.xml
+
