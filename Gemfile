@@ -81,3 +81,9 @@ gem "jass-rollup", "~> 0.6.0"
 
 gem "simplecov", "~> 0.22.0"
 gem "simplecov-cobertura", "~> 2.1"
+
+gem "activeadmin", "~> 3.0"
+
+gem "devise", "~> 4.9"
+
+gem "sassc-rails", "~> 2.1"
