@@ -78,3 +78,6 @@ gem "tapioca", "~> 0.11.7"
 gem "elm-rails", "~> 0.4.2"
 
 gem "jass-rollup", "~> 0.6.0"
+
+gem "simplecov", "~> 0.22.0"
+gem "simplecov-cobertura", "~> 2.1"
