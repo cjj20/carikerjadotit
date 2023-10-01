@@ -37,3 +37,6 @@
 # Ignore elm related stuff
 /elm-stuff
 node_modules/
+
+# dotenv
+.env
