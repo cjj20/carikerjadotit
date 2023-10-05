@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_01_203731) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_05_142050) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -42,6 +42,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_01_203731) do
     t.string "image"
     t.string "country"
     t.string "hq_location"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.decimal "salary_min"
+    t.decimal "salary_max"
+    t.boolean "salary_is_undisclosed"
+    t.bigint "employment_type"
+    t.bigint "location_type"
+    t.boolean "is_new"
+    t.bigint "experience_level"
+    t.bigint "type_of_work"
+    t.text "job_description"
+    t.text "apply_link"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
