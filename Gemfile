@@ -87,3 +87,5 @@ gem "activeadmin", "~> 3.0"
 gem "devise", "~> 4.9"
 
 gem "sassc-rails", "~> 2.1"
+
+gem "geocoder", "~> 1.8"
