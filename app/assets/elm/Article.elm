@@ -1,4 +1,4 @@
-module Article exposing (main)
+module Article exposing (..)
 
 import Browser
 import Html exposing (..)

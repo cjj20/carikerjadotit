@@ -1,1 +1,1 @@
-//= require Article
+//= require Home
