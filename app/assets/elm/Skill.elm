@@ -28,4 +28,11 @@ listSkill =
         , { name = "Python", icon = "fa-brands fa-python"}
         , { name = "Java", icon = "fa-brands fa-java"}
         , { name = "HTML", icon = "fa-brands fa-html5"}
+        , { name = "HTML", icon = "fa-brands fa-html5"}
+        , { name = "HTML", icon = "fa-brands fa-html5"}
+        , { name = "HTML", icon = "fa-brands fa-html5"}
+        , { name = "HTML", icon = "fa-brands fa-html5"}
+        , { name = "HTML", icon = "fa-brands fa-html5"}
+        , { name = "HTML", icon = "fa-brands fa-html5"}
+        , { name = "HTML", icon = "fa-brands fa-html5"}
     ]

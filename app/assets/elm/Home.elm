@@ -2,7 +2,8 @@ module Home exposing (..)
 
 import Browser
 import Html exposing (..)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, src, width, height, style, type_)
+import Html.Events exposing (keyCode, on, onClick, onInput)
 import Json.Decode as Decode exposing (Decoder, int, string, Value, decodeValue, list, bool)
 import Json.Decode.Pipeline exposing (required)
 import Navbar
@@ -33,8 +34,10 @@ type alias Job =
 
 
 type alias Model =
-    List Job
-
+    {
+        listJob : List Job
+        , remoteToggle : Bool
+    }
 
 type alias Flags =
     {
@@ -43,7 +46,7 @@ type alias Flags =
 
 
 type Msg
-    = None
+    = RemoteToggle
 
 
 -- INIT
@@ -52,11 +55,14 @@ type Msg
 init : Flags -> ( Model, Cmd Msg )
 init { jobs } =
     case decodeValue jobsDecoder jobs of
-        Ok records ->
-            ( records, Cmd.none )
+            Ok records ->
+                ( { listJob = records, remoteToggle = False }, Cmd.none )
 
-        Err _ ->
-            ( [], Cmd.none )
+            Err _ ->
+                ( { listJob = [], remoteToggle = False }, Cmd.none )
+
+
+
 
 
 
@@ -66,8 +72,8 @@ init { jobs } =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        None ->
-            ( model, Cmd.none )
+        RemoteToggle ->
+            ( { model | remoteToggle = not model.remoteToggle }, Cmd.none )
 
 
 
@@ -103,59 +109,93 @@ jobsDecoder =
 
 view : Model -> Html Msg
 view model =
-    div [ class "relative" ]
+    div [ class "" ]
         [
-            Navbar.view
-            , FilterJob.view
-            , div [ class "relative" ]
+            div [ class "sticky top-0 z-50" ]
+            [
+                Navbar.view
+                , FilterJob.view
+            ]
+            , div [ class "" ]
             [
                 div [ class "grid grid-cols-1 lg:grid-cols-2" ]
                 [
-                    div [ class "order-last lg:order-first" ]
+                    div [ class "" ]
                     [
-                        div [ class "flex justify-between bg-white px-4" ]
+                        div [ class "pb-2.5 bg-gray-100 sticky z-50" ]
                         [
-                            div [ class "flex space-x-8" ]
+                            div [ class "flex justify-between bg-white px-4" ]
                             [
-                                div []
+                                div [ class "flex bg-white " ]
                                 [
-                                    div []
+                                    div [ class "px-4 md:px-6 bg-gray-100 rounded-t-xl md:rounded-t-3xl md:py-1.5" ]
                                     [
-                                        span [ class "text-sm text-slate-500" ] [ text "With salary" ]
+                                        span [ class "text-sm text-slate-500 truncate" ] [ text "With salary" ]
+                                    ]
+                                    , div [ class "px-4 md:px-6 md:py-1.5" ]
+                                    [
+                                        span [ class "text-sm text-slate-500 truncate" ] [ text "All offers", span [ class "text-pink-500 pl-2" ] [ text "13 433 offers" ] ]
                                     ]
                                 ]
-                                , div []
+                                , div [ class "flex justify-center items-center space-x-6" ]
                                 [
-                                    div []
+                                    div [ class "flex items-center space-x-2", onClick RemoteToggle ]
                                     [
-                                        span [ class "text-sm text-slate-500" ] [ text "All offers", span [ class "text-pink-500 pl-2" ] [ text "13 433 offers" ] ]
+                                        span [ class "text-sm text-slate-500" ] [ text "Remote" ]
+                                        , i [ if model.remoteToggle then class "hidden fa-solid fa-toggle-on text-slate-400 text-xl lg:block" else class "hidden fa-solid fa-toggle-off text-slate-400 text-xl lg:block" ] []
+                                    ]
+                                    , div [ class "hidden items-center space-x-2 lg:flex" ]
+                                    [
+                                        span [ class "text-sm text-slate-500" ] [ text "Default" ]
+                                        , i [ class "hidden fa-solid fa-chevron-down text-slate-500 text-sm lg:block" ] []
                                     ]
                                 ]
                             ]
-                            , div []
+                        ]
+                        , div [ class "" ]
+                        [
+                            div [ class "px-4" ]
                             [
-                                div []
-                                [
-                                    span [ class "text-sm text-slate-500" ] [ text "Remote" ]
-                                ]
+                                span [ class "text-sm text-slate-500 lg:text-base" ] [ text "Work 8 674 offers" ]
                             ]
-                        ]
-                        , div [ class "py-2 px-4" ]
-                        [
-                            span [ class "text-slate-500" ] [ text "Work 8 674 offers" ]
-                        ]
-                        , div [ class "px-4 " ]
-                        [
-                            div [ class "w-full space-y-2" ]
+                            , div [ class "overflow-y-scroll no-scrollbar h-[calc(100vh-190px)] md:h-[calc(100vh-225px)]" ]
                             [
-                                div [] [ Job.view ]
-                                , div [] [ Job.view ]
-                                , div [] [ Job.view ]
-                                , div [] [ Job.view ]
+                                div [ class "block px-4 py-2 relative lg:hidden" ]
+                                [
+                                    div [ class "relative overflow-hidden flex items-center justify-center"]
+                                    [
+                                        img [ src "https://justjoin.it/shared-gfx/map-button/shared/map-button-light.png", class "object-cover h-16", style "width" "100%" ] []
+                                        , div [ class "absolute w-full h-full top-0 bottom-0 left-0 right-0 flex items-center justify-center" ]
+                                        [
+                                            a [ class "no-underline bg-white rounded-xl flex justify-center items-center space-x-2 h-10 w-40", type_ "button" ]
+                                            [
+                                              i [ class "fa-regular fa-map text-slate-700" ] []
+                                              , span [ class "text-xs text-slate-700 font-semibold" ] [ text "Look on the map" ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                                , div [ class "space-y-1.5 px-4 py-2" ]
+                                [
+                                    div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                    , div [] [ Job.view ]
+                                ]
                             ]
                         ]
                     ]
-                    , div [ class "" ]
+                    , div [ class "hidden lg:block" ]
                     [
                         OpenStreetMap.view
                     ]
