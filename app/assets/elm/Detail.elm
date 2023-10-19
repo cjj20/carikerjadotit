@@ -389,7 +389,7 @@ view model =
                     [
                         OpenStreetMap.view
                     ]
-                    , div [ class "block px-4 sticky top-3" ]
+                    , div [ class "block px-4 sticky top-36" ]
                     [
                         SimilarOffers.main
                     ]
