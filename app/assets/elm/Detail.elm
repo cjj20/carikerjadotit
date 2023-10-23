@@ -5,10 +5,10 @@ import Html exposing (..)
 import Html.Attributes exposing (class, src)
 import Json.Decode as Decode exposing (Decoder, Error, Value, bool, decodeValue, int, string)
 import Json.Decode.Pipeline exposing (required)
-import Navbar
-import OpenStreetMap
-import SimilarOffers
-import Footer
+import Shared.Footer as Footer
+import Shared.Navbar as Navbar
+import Shared.OpenStreetMap as OpenStreetMap
+import Shared.SimilarOffers as SimilarOffers
 
 
 
@@ -38,6 +38,7 @@ type alias Model =
         job : Maybe Job
         , errorMessage : Maybe Error
     }
+
 
 type alias Flags =
     {
@@ -128,7 +129,7 @@ view model =
             ]
             , div [ class "grid grid-cols-1 lg:grid-cols-2" ]
             [
-                div [ class "mb-3 space-y-6 md:px-4" ]
+                div [ class "my-3 space-y-6 md:px-4" ]
                 [
                     div [ class "flex flex-col" ]
                     [
@@ -376,7 +377,7 @@ view model =
                     ]
                     , div [ class "bg-white px-4 py-6 space-y-4 md:rounded-lg lg:hidden" ]
                     [
-                        SimilarOffers.main
+                        SimilarOffers.view
                     ]
                     , div [ class "flex items-center justify-center" ]
                     [
@@ -391,13 +392,13 @@ view model =
                     ]
                     , div [ class "block px-4 sticky top-36" ]
                     [
-                        SimilarOffers.main
+                        SimilarOffers.view
                     ]
                 ]
             ]
             , div [ class "pt-4" ]
             [
-                Footer.main
+                Footer.view
             ]
         ]
 
