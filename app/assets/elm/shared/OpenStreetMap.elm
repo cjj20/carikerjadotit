@@ -1,4 +1,4 @@
-module OpenStreetMap exposing (..)
+module Shared.OpenStreetMap exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
