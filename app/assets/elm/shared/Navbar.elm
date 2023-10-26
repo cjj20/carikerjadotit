@@ -57,7 +57,7 @@ view model =
                     , span [ class "hidden my-auto text-xs text-slate-700 lg:block" ] [ text "#1 Job Board for tech industry in Indonesia and SEA" ]
                     ]
                 , div [ class "flex flex-row gap-x-4 items-center" ]
-                    [ a [ class "hidden no-underline rounded-xl text-sm text-red-400 hover:bg-slate-100 hover:cursor-pointer lg:flex" ]
+                    [ a [ class "font-medium hidden no-underline rounded-xl text-sm text-primary-2 hover:bg-slate-100 hover:cursor-pointer lg:flex" ]
                         [ span [ class "p-2" ] [ text "Job offers" ]
                         ]
                     , a [ class "hidden no-underline rounded-xl text-sm text-slate-500 hover:bg-slate-100 hover:cursor-pointer lg:flex" ]
