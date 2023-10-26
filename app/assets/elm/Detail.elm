@@ -322,7 +322,7 @@ view model =
                     [ SimilarOffers.view
                     ]
                 , div [ class "flex items-center justify-center" ]
-                    [ div [ class "bg-pink-500 py-2 w-64 flex items-center justify-center rounded-2xl text-white" ] [ text "Apply" ]
+                    [ div [ class "bg-primary-2 py-2 w-64 flex items-center justify-center rounded-2xl text-white" ] [ text "Apply" ]
                     ]
                 ]
             , div [ class "hidden lg:flex lg:flex-col lg:gap-y-6" ]
