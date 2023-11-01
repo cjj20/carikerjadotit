@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @jobs = []
+    @jobs = Job.all.to_json
   end
 end

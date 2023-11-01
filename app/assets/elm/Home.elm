@@ -1,10 +1,10 @@
 module Home exposing (..)
 
 import Browser
+import DataModels.Job as DataModelsJob
 import Html exposing (..)
 import Html.Attributes exposing (class, src, style, type_)
-import Json.Decode as Decode exposing (Decoder, Value, bool, decodeValue, int, list, string)
-import Json.Decode.Pipeline exposing (required)
+import Json.Decode exposing (decodeString)
 import Shared.FilterJob as FilterJob
 import Shared.Job as Job
 import Shared.Navbar as Navbar
@@ -12,36 +12,14 @@ import Shared.OpenStreetMap as OpenStreetMap
 import Shared.TabJob as TabJob
 
 
-
--- TYPES
-
-
-type alias Job =
-    { id : Int
-    , title : String
-    , salary_min : String
-    , salary_max : String
-    , salary_is_undisclosed : Bool
-    , employment_type : String
-    , location_type : String
-    , is_new : Bool
-    , experience_level : String
-    , type_of_work : String
-    , job_description : String
-    , apply_link : String
-    , created_at : String
-    , updated_at : String
-    }
-
-
 type alias Model =
-    { listJob : List Job
+    { listJob : List DataModelsJob.Job
     , navbarModel : Navbar.Model
     }
 
 
 type alias Flags =
-    { jobs : Value
+    { jobs : String
     }
 
 
@@ -56,7 +34,7 @@ type Msg
 
 init : Flags -> ( Model, Cmd Msg )
 init flags =
-    case decodeValue jobsDecoder flags.jobs of
+    case decodeString DataModelsJob.jobsDecoder flags.jobs of
         Ok records ->
             ( { listJob = records, navbarModel = Navbar.init }, Cmd.none )
 
@@ -76,38 +54,10 @@ update msg model =
 
         NavbarUpdateMsg msg_ ->
             let
-                ( newUpdateModel, newCmd ) =
+                ( newUpdateModel, _ ) =
                     Navbar.update msg_ model.navbarModel
             in
             ( { model | navbarModel = newUpdateModel }, Cmd.none )
-
-
-
--- DECODER
-
-
-jobDecoder : Decoder Job
-jobDecoder =
-    Decode.succeed Job
-        |> required "id" int
-        |> required "title" string
-        |> required "salary_min" string
-        |> required "salary_max" string
-        |> required "salary_is_undisclosed" bool
-        |> required "employment_type" string
-        |> required "location_type" string
-        |> required "is_new" bool
-        |> required "experience_level" string
-        |> required "type_of_work" string
-        |> required "job_description" string
-        |> required "apply_link" string
-        |> required "created_at" string
-        |> required "updated_at" string
-
-
-jobsDecoder : Decoder (List Job)
-jobsDecoder =
-    list jobDecoder
 
 
 
@@ -139,29 +89,13 @@ view model =
                                 ]
                             ]
                         ]
-                    , div [ class "flex flex-col gap-y-1.5 px-4 pb-4" ]
-                        [ div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        , div [] [ Job.view ]
-                        ]
+                    , div [ class "flex flex-col gap-y-1.5 px-4 pb-4" ] <|
+                        List.map (\data -> div [] [ Job.viewJobDetail data ]) model.listJob
                     ]
                 ]
             , div [ class "hidden lg:block lg:h-[calc(100vh-170px)]" ]
                 [ OpenStreetMap.view
                 ]
-
-            --, ul [] <| List.map (\data -> renderMyData data) model.listJob
             ]
         ]
 
