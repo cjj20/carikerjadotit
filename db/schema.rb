@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_05_142050) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_23_072741) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -60,6 +60,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_05_142050) do
     t.text "apply_link"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.string "main_technology"
+    t.boolean "online_interview"
+    t.string "skills"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
+  add_foreign_key "jobs", "companies"
 end

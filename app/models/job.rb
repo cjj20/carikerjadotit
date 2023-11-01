@@ -4,7 +4,13 @@ class Job < ApplicationRecord
   enum experience_level: [:junior, :mid, :senior]
   enum type_of_work: [:full_time, :part_time, :internship]
 
+  belongs_to :company
+
   def type_of_work
     read_attribute(:type_of_work).titleize
+  end
+
+  def skills
+    JSON.parse(read_attribute(:skills))
   end
 end
