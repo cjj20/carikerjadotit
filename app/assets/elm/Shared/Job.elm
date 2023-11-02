@@ -1,8 +1,11 @@
 module Shared.Job exposing (..)
 
+import Array exposing (Array, fromList, slice, toList)
 import DataModels.Job as DataModelsJob
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import List exposing (length)
+import String exposing (toInt)
 
 
 
@@ -13,7 +16,7 @@ salaryUndisclosed : DataModelsJob.Job -> String
 salaryUndisclosed job =
     case job.salary_is_undisclosed of
         True ->
-            ""
+            "Undisclosed Salary"
 
         False ->
             job.salary_min ++ " - " ++ job.salary_max ++ " IDR"
@@ -27,6 +30,16 @@ isNew job =
 
         False ->
             div [] []
+
+
+maxSkills : DataModelsJob.Job -> List String
+maxSkills job =
+    case length job.skills > 2 of
+        True ->
+            toList (slice 0 3 (fromList job.skills))
+
+        False ->
+            job.skills
 
 
 
@@ -66,7 +79,7 @@ viewJobDetail job =
                         [ span [ class "text-[10px] text-slate-500 truncate" ] [ text "Warszawa, +3," ]
                         , span [ class "text-[10px] text-slate-500 truncate" ] [ text "Remote" ]
                         ]
-                    , div [ class "gap-x-2 hidden justify-end md:flex" ] <| List.map (\data -> span [ class "border border-slate-300 rounded-xl px-1 py-1 text-xs text-slate-700 truncate" ] [ text data ]) job.skills
+                    , div [ class "gap-x-2 hidden justify-end md:flex" ] <| List.map (\data -> span [ class "border border-slate-300 rounded-xl px-1 py-1 text-xs text-slate-700 truncate" ] [ text data ]) (maxSkills job)
                     ]
                 ]
             ]
