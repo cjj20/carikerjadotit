@@ -37,7 +37,7 @@ update msg model =
     case msg of
         SidebarMenuUpdateMsg msg_ ->
             let
-                ( newUpdateModel, newCmd ) =
+                ( newUpdateModel, _ ) =
                     SidebarMenu.update msg_ model.sidebarMenuModel
             in
             ( { model | sidebarMenuModel = newUpdateModel }, Cmd.none )

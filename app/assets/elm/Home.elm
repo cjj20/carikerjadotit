@@ -15,6 +15,8 @@ import Shared.TabJob as TabJob
 type alias Model =
     { listJob : List DataModelsJob.Job
     , navbarModel : Navbar.Model
+    , tabJobModel : TabJob.Model
+    , filterJobModel : FilterJob.Model
     }
 
 
@@ -26,6 +28,8 @@ type alias Flags =
 type Msg
     = None
     | NavbarUpdateMsg Navbar.Msg
+    | TabJobUpdateMsg TabJob.Msg
+    | FilterJobUpdateMsg FilterJob.Msg
 
 
 
@@ -36,10 +40,10 @@ init : Flags -> ( Model, Cmd Msg )
 init flags =
     case decodeString DataModelsJob.jobsDecoder flags.jobs of
         Ok records ->
-            ( { listJob = records, navbarModel = Navbar.init }, Cmd.none )
+            ( { listJob = records, navbarModel = Navbar.init, tabJobModel = TabJob.init, filterJobModel = FilterJob.init }, Cmd.none )
 
         Err _ ->
-            ( { listJob = [], navbarModel = Navbar.init }, Cmd.none )
+            ( { listJob = [], navbarModel = Navbar.init, tabJobModel = TabJob.init, filterJobModel = FilterJob.init }, Cmd.none )
 
 
 
@@ -59,6 +63,20 @@ update msg model =
             in
             ( { model | navbarModel = newUpdateModel }, Cmd.none )
 
+        TabJobUpdateMsg msg_ ->
+            let
+                ( newUpdateModel, _ ) =
+                    TabJob.update msg_ model.tabJobModel
+            in
+            ( { model | tabJobModel = newUpdateModel }, Cmd.none )
+
+        FilterJobUpdateMsg msg_ ->
+            let
+                ( newUpdateModel, _ ) =
+                    FilterJob.update msg_ model.filterJobModel
+            in
+            ( { model | filterJobModel = newUpdateModel }, Cmd.none )
+
 
 
 -- VIEW
@@ -69,11 +87,11 @@ view model =
     div [ class "flex flex-col" ]
         [ div [ class "sticky top-0 z-50" ]
             [ Html.map NavbarUpdateMsg <| Navbar.view model.navbarModel
-            , FilterJob.view
+            , Html.map FilterJobUpdateMsg <| FilterJob.view model.filterJobModel
             ]
         , div [ class "grid grid-cols-1 lg:grid-cols-2" ]
             [ div [ class "flex flex-col gap-y-2" ]
-                [ TabJob.view
+                [ Html.map TabJobUpdateMsg <| TabJob.view model.tabJobModel
                 , div [ class "px-4" ]
                     [ span [ class "text-sm text-slate-500 lg:text-base" ] [ text "Work 8 674 offers" ]
                     ]
