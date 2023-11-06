@@ -1,6 +1,6 @@
 class Api::V1::JobsController < ApplicationController
   def index
-    source = Job
+    source = Job.all
 
     if params[:salary_is_undisclosed] && params[:salary_is_undisclosed] != ""
       source = source.where(
