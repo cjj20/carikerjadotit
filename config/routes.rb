@@ -9,4 +9,10 @@ Rails.application.routes.draw do
   get "/", to: "home#index"
   get "/detail", to: "jobs#index"
   get "/articles", to: "articles#index"
+
+  namespace :api do
+    namespace :v1 do
+      resources :jobs
+    end
+  end
 end
