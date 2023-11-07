@@ -1,8 +1,12 @@
 module DataModels.Job exposing (..)
 
 import DataModels.Company as DataModelsCompany
-import Json.Decode as Decode exposing (Decoder, Value, bool, int, list, string)
+import Json.Decode as Decode exposing (Decoder, Value, bool, decodeString, field, int, list, map, map2, string)
 import Json.Decode.Pipeline exposing (required)
+
+
+
+-- MODEL
 
 
 type alias Job =
@@ -26,6 +30,15 @@ type alias Job =
     , updated_at : String
     , company : DataModelsCompany.Company
     }
+
+
+type alias ApiResponse =
+    { data : List Job
+    }
+
+
+
+-- DECODER
 
 
 jobDecoder : Decoder Job
@@ -55,3 +68,23 @@ jobDecoder =
 jobsDecoder : Decoder (List Job)
 jobsDecoder =
     list jobDecoder
+
+
+apiDecoder : Decoder ApiResponse
+apiDecoder =
+    map ApiResponse
+        (field "data" jobsDecoder)
+
+
+
+-- EXPRESSION
+
+
+jobsDecodeString : String -> List Job
+jobsDecodeString data =
+    case decodeString apiDecoder data of
+        Ok records ->
+            records.data
+
+        Err _ ->
+            []
