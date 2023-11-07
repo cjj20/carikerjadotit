@@ -50,7 +50,7 @@ viewJobDetail : DataModelsJob.Job -> Html msg
 viewJobDetail job =
     div [ class "bg-white px-2 rounded-lg shadow-lg md:px-4 md:py-2" ]
         [ div [ class "flex gap-x-2 h-16 items-center" ]
-            [ img [ src job.company.image, class "p-1 w-20" ] []
+            [ div [ class "px-1 md:px-3 md:py-4" ] [ img [ src job.company.image, class "w-14 md:w-20" ] [] ]
             , div [ class "flex items-center justify-between truncate w-full md:space-x-4" ]
                 [ div [ class "text-slate-700 truncate md:space-y-1" ]
                     [ span [ class "font-semibold text-sm text-slate-700 md:text-lg" ] [ text job.title ]
