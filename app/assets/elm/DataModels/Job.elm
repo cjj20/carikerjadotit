@@ -1,7 +1,7 @@
 module DataModels.Job exposing (..)
 
 import DataModels.Company as DataModelsCompany
-import Json.Decode as Decode exposing (Decoder, Value, bool, decodeString, field, int, list, map, map2, string)
+import Json.Decode as Decode exposing (Decoder, Value, bool, decodeString, field, int, list, map, string)
 import Json.Decode.Pipeline exposing (required)
 
 

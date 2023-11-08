@@ -1,10 +1,13 @@
 module Shared.FilterJob exposing (..)
 
+import Api.Job as ApiJob
+import DataModels.Job as DataModelsJob
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import Shared.Skill exposing (listSkill)
-import Shared.TabJob as TabJob
+import Shared.SortDropDown as SortDropDown
+import Shared.TabJob as TabJob exposing (RemoteToggleMsg(..))
 
 
 
@@ -12,12 +15,16 @@ import Shared.TabJob as TabJob
 
 
 type alias Model =
-    { tabJobModel : TabJob.Model
+    { apiJobParameters : ApiJob.Parameters
+    , sortDropDownModel : SortDropDown.Model
+    , tabJobModel : TabJob.Model
     }
 
 
 type Msg
-    = TabJobSortDropdownOpenUpdateMsg TabJob.Msg
+    = SortDropDownUpdateMsg SortDropDown.Msg
+    | TabJobUpdateMsg TabJob.Msg
+    | UpdateBoth TabJob.Msg
 
 
 
@@ -26,7 +33,7 @@ type Msg
 
 init : Model
 init =
-    { tabJobModel = TabJob.init }
+    { apiJobParameters = ApiJob.initParameters, sortDropDownModel = SortDropDown.init, tabJobModel = TabJob.init }
 
 
 
@@ -36,12 +43,29 @@ init =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        TabJobSortDropdownOpenUpdateMsg msg_ ->
+        SortDropDownUpdateMsg msg_ ->
             let
-                ( newUpdateModel, _ ) =
+                ( newUpdateTabJobModel, _ ) =
+                    SortDropDown.update msg_ model.sortDropDownModel
+            in
+            ( { model | sortDropDownModel = newUpdateTabJobModel }, Cmd.none )
+
+        TabJobUpdateMsg msg_ ->
+            let
+                ( newUpdateTabJobModel, _ ) =
                     TabJob.update msg_ model.tabJobModel
             in
-            ( { model | tabJobModel = newUpdateModel }, Cmd.none )
+            ( { model | tabJobModel = newUpdateTabJobModel }, Cmd.none )
+
+        UpdateBoth msg_ ->
+            let
+                ( newUpdateTabJobModel, _ ) =
+                    TabJob.update msg_ model.tabJobModel
+
+                --( newUpdateTabJobModel2, _ ) =
+                --    SortDropDown.update msg2_ model.sortDropDownModel
+            in
+            ( { model | tabJobModel = newUpdateTabJobModel }, Cmd.none )
 
 
 
@@ -49,7 +73,7 @@ update msg model =
 
 
 view : Model -> Html Msg
-view model =
+view { sortDropDownModel } =
     div [ class "bg-white p-2 md:pt-2 md:pb-4" ]
         [ div [ class "md:grid md:grid-cols-3 md:gap-x-4" ]
             [ div [ class "flex items-center overflow-x-scroll no-scrollbar p-1.5 gap-x-2 md:gap-x-4" ]
@@ -80,8 +104,8 @@ view model =
                     [ span [ class "px-4 text-sm text-slate-700 truncate" ] [ text "More filters" ]
                     ]
                 , a [ class "flex h-8 items-center no-underline outline outline-slate-200 rounded-3xl md:hidden" ]
-                    [ div [ class "px-4 text-sm text-slate-700 truncate", onClick (TabJobSortDropdownOpenUpdateMsg TabJob.SortDropdownOpen) ] [ text "Sort by: Default" ]
-                    , Html.map TabJobSortDropdownOpenUpdateMsg <| TabJob.sortDropdownView model.tabJobModel
+                    [ div [ class "px-4 text-sm text-slate-700 truncate" ] [ text "Sort by: Default" ]
+                    , Html.map SortDropDownUpdateMsg <| SortDropDown.sortDropDownView sortDropDownModel.sortDropDown sortDropDownModel.selectedSort
                     ]
                 ]
             , div [ class "hidden gap-x-4 md:col-span-2 md:flex md:justify-end" ]

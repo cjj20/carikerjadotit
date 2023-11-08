@@ -10,6 +10,7 @@ import Shared.FilterJob as FilterJob
 import Shared.Job as Job
 import Shared.Navbar as Navbar
 import Shared.OpenStreetMap as OpenStreetMap
+import Shared.SortDropDown as SortDropDown
 import Shared.TabJob as TabJob exposing (Msg(..), RemoteToggleMsg(..), TabMsg(..))
 
 
@@ -21,6 +22,7 @@ type alias Model =
     , error : Maybe Error
     , apiJobParameters : ApiJob.Parameters
     , apiJobListJob : ApiJob.ListJob
+    , sortDropDownModel : SortDropDown.Model
     }
 
 
@@ -31,6 +33,7 @@ type Msg
     | FilterJobUpdateMsg FilterJob.Msg
     | ApiJobParametersMsg ApiJob.ParametersMsg
     | ApiJobGetJobRequestMsg ApiJob.Msg
+    | SortDropDownUpdateMsg SortDropDown.Msg
 
 
 
@@ -46,6 +49,7 @@ init _ =
       , error = Nothing
       , apiJobParameters = ApiJob.initParameters
       , apiJobListJob = []
+      , sortDropDownModel = SortDropDown.init
       }
     , Cmd.map ApiJobGetJobRequestMsg <| ApiJob.initListJob
     )
@@ -116,30 +120,23 @@ update msg model =
                     , Cmd.map ApiJobGetJobRequestMsg <| ApiJob.getJobs newUpdateApiJobModel
                     )
 
-                SortDropDown ->
+                SortDropDownMsg mssg_ ->
                     let
                         ( newUpdateTabJobModel, _ ) =
                             TabJob.update msg_ model.tabJobModel
-                    in
-                    ( { model
-                        | tabJobModel = newUpdateTabJobModel
-                      }
-                    , Cmd.none
-                    )
 
-                SelectSort _ ->
-                    let
-                        ( newUpdateTabJobModel, _ ) =
-                            TabJob.update msg_ model.tabJobModel
+                        ( newUpdateTabJobModel2, _ ) =
+                            SortDropDown.update mssg_ model.sortDropDownModel
 
                         newUpdateSortColumn =
-                            ApiJob.Sort model.tabJobModel.selectedSort.column model.tabJobModel.selectedSort.direction
+                            ApiJob.Sort model.sortDropDownModel.selectedSort.column model.sortDropDownModel.selectedSort.direction
 
                         ( newUpdateApiJobModel, _ ) =
                             ApiJob.updateParameters newUpdateSortColumn model.apiJobParameters
                     in
                     ( { model
                         | tabJobModel = newUpdateTabJobModel
+                        , sortDropDownModel = newUpdateTabJobModel2
                         , apiJobParameters = newUpdateApiJobModel
                       }
                     , Cmd.map ApiJobGetJobRequestMsg <| ApiJob.getJobs newUpdateApiJobModel
@@ -147,10 +144,29 @@ update msg model =
 
         FilterJobUpdateMsg msg_ ->
             let
-                ( newUpdateModel, _ ) =
-                    FilterJob.update msg_ model.filterJobModel
+                tabJobMsg =
+                    msg
             in
-            ( { model | filterJobModel = newUpdateModel }, Cmd.none )
+            case msg_ of
+                FilterJob.SortDropDownUpdateMsg mssg_ ->
+                    let
+                        ( newUpdateModel, _ ) =
+                            FilterJob.update msg_ model.filterJobModel
+
+                        ( newUpdateTabJobModel2, _ ) =
+                            SortDropDown.update mssg_ model.sortDropDownModel
+                    in
+                    ( { model | filterJobModel = newUpdateModel, sortDropDownModel = newUpdateTabJobModel2 }, Cmd.none )
+
+                FilterJob.TabJobUpdateMsg mssg_ ->
+                    let
+                        ( newUpdateModel, _ ) =
+                            TabJob.update mssg_ model.tabJobModel
+                    in
+                    ( { model | tabJobModel = newUpdateModel }, Cmd.none )
+
+                FilterJob.UpdateBoth _ ->
+                    ( model, Cmd.none )
 
         ApiJobGetJobRequestMsg msg_ ->
             case msg_ of
@@ -174,6 +190,24 @@ update msg model =
 
         ApiJobParametersMsg _ ->
             ( model, Cmd.none )
+
+        SortDropDownUpdateMsg msg_ ->
+            let
+                ( newUpdateTabJobModel, _ ) =
+                    SortDropDown.update msg_ model.sortDropDownModel
+
+                newUpdateSortColumn =
+                    ApiJob.Sort model.sortDropDownModel.selectedSort.column model.sortDropDownModel.selectedSort.direction
+
+                ( newUpdateApiJobModel, _ ) =
+                    ApiJob.updateParameters newUpdateSortColumn model.apiJobParameters
+            in
+            ( { model
+                | sortDropDownModel = newUpdateTabJobModel
+                , apiJobParameters = newUpdateApiJobModel
+              }
+            , Cmd.map ApiJobGetJobRequestMsg <| ApiJob.getJobs newUpdateApiJobModel
+            )
 
 
 
