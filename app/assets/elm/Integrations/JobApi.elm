@@ -1,16 +1,20 @@
-module Api.Job exposing (..)
+module Integrations.JobApi exposing (..)
 
-import DataModels.Job exposing (Job)
 import Http exposing (get)
 import String exposing (String)
 
 
 
+-- CONFIG
+
+
+baseUrl : String
+baseUrl =
+    "http://127.0.0.1:3000"
+
+
+
 -- MODEL
-
-
-type alias ListJob =
-    List Job
 
 
 type alias Parameters =
@@ -110,6 +114,6 @@ getJobs parameters =
             parametersToString parameters
     in
     get
-        { url = "http://127.0.0.1:3000/api/v1/jobs?" ++ parametersString
+        { url = baseUrl ++ "/api/v1/jobs?" ++ parametersString
         , expect = Http.expectString GetJobRequest
         }

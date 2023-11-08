@@ -1,29 +1,16 @@
-module Shared.Job exposing (..)
+module Components.JobView exposing (..)
 
-import Array exposing (Array, fromList, slice, toList)
-import DataModels.Job as DataModelsJob
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import List exposing (length)
-import String exposing (toInt)
+import Models.Job exposing (Job, maxSkills, salaryUndisclosed)
 
 
 
 -- EXPRESSION
 
 
-salaryUndisclosed : DataModelsJob.Job -> String
-salaryUndisclosed job =
-    case job.salary_is_undisclosed of
-        True ->
-            "Undisclosed Salary"
-
-        False ->
-            job.salary_min ++ " - " ++ job.salary_max ++ " IDR"
-
-
-isNew : DataModelsJob.Job -> Html msg
-isNew job =
+viewIsNew : Job -> Html msg
+viewIsNew job =
     case job.is_new of
         True ->
             div [ class "bg-slate-300 px-1.5 py-0.5 rounded-xl text-xs text-slate-700 md:px-1.5" ] [ text "New" ]
@@ -32,22 +19,12 @@ isNew job =
             div [] []
 
 
-maxSkills : DataModelsJob.Job -> List String
-maxSkills job =
-    case length job.skills > 2 of
-        True ->
-            toList (slice 0 3 (fromList job.skills))
-
-        False ->
-            job.skills
-
-
 
 -- VIEW
 
 
-viewJobDetail : DataModelsJob.Job -> Html msg
-viewJobDetail job =
+viewJob : Job -> Html msg
+viewJob job =
     div [ class "bg-white px-2 rounded-lg shadow-lg md:px-4 md:py-2" ]
         [ div [ class "flex gap-x-2 h-16 items-center" ]
             [ div [ class "px-1 md:px-3 md:py-4" ] [ img [ src job.company.image, class "w-14 md:w-20" ] [] ]
@@ -73,7 +50,7 @@ viewJobDetail job =
                 , div [ class "space-y-1 truncate md:gap-y-1" ]
                     [ div [ class "flex items-center justify-end md:gap-x-2" ]
                         [ span [ class "hidden text-sm text-green-500 truncate md:block md:text-base" ] [ text (salaryUndisclosed job) ]
-                        , isNew job
+                        , viewIsNew job
                         ]
                     , div [ class "flex gap-x-1 items-center justify-end md:hidden" ]
                         [ span [ class "text-[10px] text-slate-500 truncate" ] [ text "Warszawa, +3," ]

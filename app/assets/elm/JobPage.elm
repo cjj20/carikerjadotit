@@ -1,4 +1,4 @@
-module Detail exposing (..)
+module JobPage exposing (..)
 
 import Browser
 import Html exposing (..)

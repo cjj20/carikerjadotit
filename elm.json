@@ -2,8 +2,10 @@
     "type": "application",
     "source-directories": [
         "app/assets/elm",
-        "app/assets/elm/Shared",
-        "app/assets/elm/DataModels"
+        "app/assets/elm/Components",
+        "app/assets/elm/Integrations",
+        "app/assets/elm/Models",
+        "app/assets/elm/Shared"
     ],
     "elm-version": "0.19.1",
     "dependencies": {

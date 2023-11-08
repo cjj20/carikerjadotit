@@ -1,4 +1,4 @@
-module Shared.TabJob exposing (..)
+module Components.JobTab exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)

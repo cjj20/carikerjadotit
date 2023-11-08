@@ -1,8 +1,34 @@
-module DataModels.Job exposing (..)
+module Models.Job exposing (..)
 
-import DataModels.Company as DataModelsCompany
+import Array exposing (fromList, slice, toList)
 import Json.Decode as Decode exposing (Decoder, Value, bool, decodeString, field, int, list, map, string)
 import Json.Decode.Pipeline exposing (required)
+import List exposing (length)
+import Models.Company exposing (Company, companyDecoder)
+
+
+
+-- Helpers
+
+
+maxSkills : Job -> List String
+maxSkills job =
+    case length job.skills > 2 of
+        True ->
+            toList (slice 0 3 (fromList job.skills))
+
+        False ->
+            job.skills
+
+
+salaryUndisclosed : Job -> String
+salaryUndisclosed job =
+    case job.salary_is_undisclosed of
+        True ->
+            "Undisclosed Salary"
+
+        False ->
+            job.salary_min ++ " - " ++ job.salary_max ++ " IDR"
 
 
 
@@ -28,12 +54,16 @@ type alias Job =
     , company_id : Int
     , created_at : String
     , updated_at : String
-    , company : DataModelsCompany.Company
+    , company : Company
     }
 
 
+type alias ListJob =
+    List Job
+
+
 type alias ApiResponse =
-    { data : List Job
+    { data : ListJob
     }
 
 
@@ -62,7 +92,7 @@ jobDecoder =
         |> required "company_id" int
         |> required "created_at" string
         |> required "updated_at" string
-        |> required "company" DataModelsCompany.companyDecoder
+        |> required "company" companyDecoder
 
 
 jobsDecoder : Decoder (List Job)

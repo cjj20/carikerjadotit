@@ -1,2 +1,2 @@
-//= require Home
-//= require Detail
+//= require HomePage
+//= require JobPage

@@ -1,4 +1,4 @@
-module DataModels.Company exposing (..)
+module Models.Company exposing (..)
 
 import Json.Decode as Decode exposing (Decoder, Value, bool, int, list, string)
 import Json.Decode.Pipeline exposing (required)

@@ -1,13 +1,11 @@
-module Shared.FilterJob exposing (..)
+module Components.JobFilter exposing (..)
 
-import Api.Job as ApiJob
-import DataModels.Job as DataModelsJob
+import Components.JobTab as JobTab exposing (RemoteToggleMsg(..))
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onClick)
+import Integrations.JobApi as JobApi
 import Shared.Skill exposing (listSkill)
 import Shared.SortDropDown as SortDropDown
-import Shared.TabJob as TabJob exposing (RemoteToggleMsg(..))
 
 
 
@@ -15,16 +13,16 @@ import Shared.TabJob as TabJob exposing (RemoteToggleMsg(..))
 
 
 type alias Model =
-    { apiJobParameters : ApiJob.Parameters
+    { apiJobParameters : JobApi.Parameters
     , sortDropDownModel : SortDropDown.Model
-    , tabJobModel : TabJob.Model
+    , tabJobModel : JobTab.Model
     }
 
 
 type Msg
     = SortDropDownUpdateMsg SortDropDown.Msg
-    | TabJobUpdateMsg TabJob.Msg
-    | UpdateBoth TabJob.Msg
+    | JobTabUpdateMsg JobTab.Msg
+    | UpdateBoth JobTab.Msg
 
 
 
@@ -33,7 +31,7 @@ type Msg
 
 init : Model
 init =
-    { apiJobParameters = ApiJob.initParameters, sortDropDownModel = SortDropDown.init, tabJobModel = TabJob.init }
+    { apiJobParameters = JobApi.initParameters, sortDropDownModel = SortDropDown.init, tabJobModel = JobTab.init }
 
 
 
@@ -45,27 +43,27 @@ update msg model =
     case msg of
         SortDropDownUpdateMsg msg_ ->
             let
-                ( newUpdateTabJobModel, _ ) =
+                ( newUpdateJobTabModel, _ ) =
                     SortDropDown.update msg_ model.sortDropDownModel
             in
-            ( { model | sortDropDownModel = newUpdateTabJobModel }, Cmd.none )
+            ( { model | sortDropDownModel = newUpdateJobTabModel }, Cmd.none )
 
-        TabJobUpdateMsg msg_ ->
+        JobTabUpdateMsg msg_ ->
             let
-                ( newUpdateTabJobModel, _ ) =
-                    TabJob.update msg_ model.tabJobModel
+                ( newUpdateJobTabModel, _ ) =
+                    JobTab.update msg_ model.tabJobModel
             in
-            ( { model | tabJobModel = newUpdateTabJobModel }, Cmd.none )
+            ( { model | tabJobModel = newUpdateJobTabModel }, Cmd.none )
 
         UpdateBoth msg_ ->
             let
-                ( newUpdateTabJobModel, _ ) =
-                    TabJob.update msg_ model.tabJobModel
+                ( newUpdateJobTabModel, _ ) =
+                    JobTab.update msg_ model.tabJobModel
 
-                --( newUpdateTabJobModel2, _ ) =
+                --( newUpdateJobTabModel2, _ ) =
                 --    SortDropDown.update msg2_ model.sortDropDownModel
             in
-            ( { model | tabJobModel = newUpdateTabJobModel }, Cmd.none )
+            ( { model | tabJobModel = newUpdateJobTabModel }, Cmd.none )
 
 
 

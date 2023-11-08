@@ -1,27 +1,27 @@
-module Home exposing (..)
+module HomePage exposing (..)
 
-import Api.Job as ApiJob
 import Browser
-import DataModels.Job as DataModelsJob
+import Components.JobFilter as JobFilter
+import Components.JobTab as JobTab exposing (Msg(..), RemoteToggleMsg(..), TabMsg(..))
+import Components.JobView as JobView
 import Html exposing (..)
 import Html.Attributes exposing (class, src, style, type_)
 import Http exposing (Error)
-import Shared.FilterJob as FilterJob
-import Shared.Job as Job
+import Integrations.JobApi as JobApi
+import Models.Job as DataModelsJob exposing (ListJob)
 import Shared.Navbar as Navbar
 import Shared.OpenStreetMap as OpenStreetMap
 import Shared.SortDropDown as SortDropDown
-import Shared.TabJob as TabJob exposing (Msg(..), RemoteToggleMsg(..), TabMsg(..))
 
 
 type alias Model =
     { navbarModel : Navbar.Model
-    , tabJobModel : TabJob.Model
-    , filterJobModel : FilterJob.Model
+    , tabJobModel : JobTab.Model
+    , filterJobModel : JobFilter.Model
     , loadingGetJobs : Bool
     , error : Maybe Error
-    , apiJobParameters : ApiJob.Parameters
-    , apiJobListJob : ApiJob.ListJob
+    , apiJobParameters : JobApi.Parameters
+    , apiJobListJob : ListJob
     , sortDropDownModel : SortDropDown.Model
     }
 
@@ -29,10 +29,10 @@ type alias Model =
 type Msg
     = None
     | NavbarUpdateMsg Navbar.Msg
-    | TabJobMsg TabJob.Msg
-    | FilterJobUpdateMsg FilterJob.Msg
-    | ApiJobParametersMsg ApiJob.ParametersMsg
-    | ApiJobGetJobRequestMsg ApiJob.Msg
+    | JobTabMsg JobTab.Msg
+    | JobFilterUpdateMsg JobFilter.Msg
+    | JobApiParametersMsg JobApi.ParametersMsg
+    | JobApiGetJobRequestMsg JobApi.Msg
     | SortDropDownUpdateMsg SortDropDown.Msg
 
 
@@ -43,15 +43,15 @@ type Msg
 init : () -> ( Model, Cmd Msg )
 init _ =
     ( { navbarModel = Navbar.init
-      , tabJobModel = TabJob.init
-      , filterJobModel = FilterJob.init
+      , tabJobModel = JobTab.init
+      , filterJobModel = JobFilter.init
       , loadingGetJobs = True
       , error = Nothing
-      , apiJobParameters = ApiJob.initParameters
+      , apiJobParameters = JobApi.initParameters
       , apiJobListJob = []
       , sortDropDownModel = SortDropDown.init
       }
-    , Cmd.map ApiJobGetJobRequestMsg <| ApiJob.initListJob
+    , Cmd.map JobApiGetJobRequestMsg <| JobApi.initListJob
     )
 
 
@@ -72,105 +72,105 @@ update msg model =
             in
             ( { model | navbarModel = newUpdateModel }, Cmd.none )
 
-        TabJobMsg msg_ ->
+        JobTabMsg msg_ ->
             case msg_ of
                 ActiveTab _ ->
                     let
-                        ( newUpdateTabJobModel, _ ) =
-                            TabJob.update msg_ model.tabJobModel
+                        ( newUpdateJobTabModel, _ ) =
+                            JobTab.update msg_ model.tabJobModel
 
                         newUpdateActiveTab =
-                            if newUpdateTabJobModel.activeTab == WithSalary then
-                                ApiJob.SalaryIsUndisclosed "false"
+                            if newUpdateJobTabModel.activeTab == WithSalary then
+                                JobApi.SalaryIsUndisclosed "false"
 
                             else
-                                ApiJob.SalaryIsUndisclosed ""
+                                JobApi.SalaryIsUndisclosed ""
 
-                        ( newUpdateApiJobModel, _ ) =
-                            ApiJob.updateParameters newUpdateActiveTab model.apiJobParameters
+                        ( newUpdateJobApiModel, _ ) =
+                            JobApi.updateParameters newUpdateActiveTab model.apiJobParameters
                     in
                     ( { model
-                        | tabJobModel = newUpdateTabJobModel
+                        | tabJobModel = newUpdateJobTabModel
                         , loadingGetJobs = True
-                        , apiJobParameters = newUpdateApiJobModel
+                        , apiJobParameters = newUpdateJobApiModel
                       }
-                    , Cmd.map ApiJobGetJobRequestMsg <| ApiJob.getJobs newUpdateApiJobModel
+                    , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newUpdateJobApiModel
                     )
 
                 RemoteToggle ->
                     let
-                        ( newUpdateTabJobModel, _ ) =
-                            TabJob.update msg_ model.tabJobModel
+                        ( newUpdateJobTabModel, _ ) =
+                            JobTab.update msg_ model.tabJobModel
 
                         newUpdateRemoteToggle =
-                            if newUpdateTabJobModel.remoteToggle == On then
-                                ApiJob.LocationType "remote"
+                            if newUpdateJobTabModel.remoteToggle == On then
+                                JobApi.LocationType "remote"
 
                             else
-                                ApiJob.LocationType ""
+                                JobApi.LocationType ""
 
-                        ( newUpdateApiJobModel, _ ) =
-                            ApiJob.updateParameters newUpdateRemoteToggle model.apiJobParameters
+                        ( newUpdateJobApiModel, _ ) =
+                            JobApi.updateParameters newUpdateRemoteToggle model.apiJobParameters
                     in
                     ( { model
-                        | tabJobModel = newUpdateTabJobModel
+                        | tabJobModel = newUpdateJobTabModel
                         , loadingGetJobs = True
-                        , apiJobParameters = newUpdateApiJobModel
+                        , apiJobParameters = newUpdateJobApiModel
                       }
-                    , Cmd.map ApiJobGetJobRequestMsg <| ApiJob.getJobs newUpdateApiJobModel
+                    , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newUpdateJobApiModel
                     )
 
                 SortDropDownMsg mssg_ ->
                     let
-                        ( newUpdateTabJobModel, _ ) =
-                            TabJob.update msg_ model.tabJobModel
+                        ( newUpdateJobTabModel, _ ) =
+                            JobTab.update msg_ model.tabJobModel
 
-                        ( newUpdateTabJobModel2, _ ) =
+                        ( newUpdateJobTabModel2, _ ) =
                             SortDropDown.update mssg_ model.sortDropDownModel
 
                         newUpdateSortColumn =
-                            ApiJob.Sort model.sortDropDownModel.selectedSort.column model.sortDropDownModel.selectedSort.direction
+                            JobApi.Sort model.sortDropDownModel.selectedSort.column model.sortDropDownModel.selectedSort.direction
 
-                        ( newUpdateApiJobModel, _ ) =
-                            ApiJob.updateParameters newUpdateSortColumn model.apiJobParameters
+                        ( newUpdateJobApiModel, _ ) =
+                            JobApi.updateParameters newUpdateSortColumn model.apiJobParameters
                     in
                     ( { model
-                        | tabJobModel = newUpdateTabJobModel
-                        , sortDropDownModel = newUpdateTabJobModel2
-                        , apiJobParameters = newUpdateApiJobModel
+                        | tabJobModel = newUpdateJobTabModel
+                        , sortDropDownModel = newUpdateJobTabModel2
+                        , apiJobParameters = newUpdateJobApiModel
                       }
-                    , Cmd.map ApiJobGetJobRequestMsg <| ApiJob.getJobs newUpdateApiJobModel
+                    , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newUpdateJobApiModel
                     )
 
-        FilterJobUpdateMsg msg_ ->
+        JobFilterUpdateMsg msg_ ->
             let
                 tabJobMsg =
                     msg
             in
             case msg_ of
-                FilterJob.SortDropDownUpdateMsg mssg_ ->
+                JobFilter.SortDropDownUpdateMsg mssg_ ->
                     let
                         ( newUpdateModel, _ ) =
-                            FilterJob.update msg_ model.filterJobModel
+                            JobFilter.update msg_ model.filterJobModel
 
-                        ( newUpdateTabJobModel2, _ ) =
+                        ( newUpdateJobTabModel2, _ ) =
                             SortDropDown.update mssg_ model.sortDropDownModel
                     in
-                    ( { model | filterJobModel = newUpdateModel, sortDropDownModel = newUpdateTabJobModel2 }, Cmd.none )
+                    ( { model | filterJobModel = newUpdateModel, sortDropDownModel = newUpdateJobTabModel2 }, Cmd.none )
 
-                FilterJob.TabJobUpdateMsg mssg_ ->
+                JobFilter.JobTabUpdateMsg mssg_ ->
                     let
                         ( newUpdateModel, _ ) =
-                            TabJob.update mssg_ model.tabJobModel
+                            JobTab.update mssg_ model.tabJobModel
                     in
                     ( { model | tabJobModel = newUpdateModel }, Cmd.none )
 
-                FilterJob.UpdateBoth _ ->
+                JobFilter.UpdateBoth _ ->
                     ( model, Cmd.none )
 
-        ApiJobGetJobRequestMsg msg_ ->
+        JobApiGetJobRequestMsg msg_ ->
             case msg_ of
-                ApiJob.GetJobRequest response ->
+                JobApi.GetJobRequest response ->
                     case response of
                         Ok data ->
                             ( { model
@@ -188,25 +188,25 @@ update msg model =
                             , Cmd.none
                             )
 
-        ApiJobParametersMsg _ ->
+        JobApiParametersMsg _ ->
             ( model, Cmd.none )
 
         SortDropDownUpdateMsg msg_ ->
             let
-                ( newUpdateTabJobModel, _ ) =
+                ( newUpdateJobTabModel, _ ) =
                     SortDropDown.update msg_ model.sortDropDownModel
 
                 newUpdateSortColumn =
-                    ApiJob.Sort model.sortDropDownModel.selectedSort.column model.sortDropDownModel.selectedSort.direction
+                    JobApi.Sort model.sortDropDownModel.selectedSort.column model.sortDropDownModel.selectedSort.direction
 
-                ( newUpdateApiJobModel, _ ) =
-                    ApiJob.updateParameters newUpdateSortColumn model.apiJobParameters
+                ( newUpdateJobApiModel, _ ) =
+                    JobApi.updateParameters newUpdateSortColumn model.apiJobParameters
             in
             ( { model
-                | sortDropDownModel = newUpdateTabJobModel
-                , apiJobParameters = newUpdateApiJobModel
+                | sortDropDownModel = newUpdateJobTabModel
+                , apiJobParameters = newUpdateJobApiModel
               }
-            , Cmd.map ApiJobGetJobRequestMsg <| ApiJob.getJobs newUpdateApiJobModel
+            , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newUpdateJobApiModel
             )
 
 
@@ -219,19 +219,19 @@ view model =
     let
         listJobView =
             if model.loadingGetJobs then
-                List.map Job.loadingView (List.range 1 10)
+                List.map JobView.loadingView (List.range 1 10)
 
             else
-                List.map (\data -> div [] [ Job.viewJobDetail data ]) model.apiJobListJob
+                List.map (\data -> div [] [ JobView.viewJob data ]) model.apiJobListJob
     in
     div [ class "flex flex-col" ]
         [ div [ class "sticky top-0 z-50" ]
             [ Html.map NavbarUpdateMsg <| Navbar.view model.navbarModel
-            , Html.map FilterJobUpdateMsg <| FilterJob.view model.filterJobModel
+            , Html.map JobFilterUpdateMsg <| JobFilter.view model.filterJobModel
             ]
         , div [ class "grid grid-cols-1 lg:grid-cols-2" ]
             [ div [ class "flex flex-col gap-y-2" ]
-                [ Html.map TabJobMsg <| TabJob.view model.tabJobModel
+                [ Html.map JobTabMsg <| JobTab.view model.tabJobModel
                 , div [ class "px-4" ]
                     [ span [ class "text-sm text-slate-500 lg:text-base" ] [ text "Work 8 674 offers" ]
                     ]
