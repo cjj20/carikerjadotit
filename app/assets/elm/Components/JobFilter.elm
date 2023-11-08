@@ -1,11 +1,11 @@
 module Components.JobFilter exposing (..)
 
 import Components.JobTab as JobTab exposing (RemoteToggleMsg(..))
+import Components.Skill exposing (listSkill)
+import Components.SortDropDown as SortDropDown
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Integrations.JobApi as JobApi
-import Shared.Skill exposing (listSkill)
-import Shared.SortDropDown as SortDropDown
 
 
 

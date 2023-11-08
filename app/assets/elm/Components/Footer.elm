@@ -1,8 +1,8 @@
-module Shared.Footer exposing (..)
+module Components.Footer exposing (..)
 
+import Components.SocialMedia as SocialMedia
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Shared.SocialMedia as SocialMedia
 
 
 

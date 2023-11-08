@@ -4,14 +4,14 @@ import Browser
 import Components.JobFilter as JobFilter
 import Components.JobTab as JobTab exposing (Msg(..), RemoteToggleMsg(..), TabMsg(..))
 import Components.JobView as JobView
+import Components.Navbar as Navbar
+import Components.OpenStreetMap as OpenStreetMap
+import Components.SortDropDown as SortDropDown
 import Html exposing (..)
 import Html.Attributes exposing (class, src, style, type_)
 import Http exposing (Error)
 import Integrations.JobApi as JobApi
 import Models.Job as DataModelsJob exposing (ListJob)
-import Shared.Navbar as Navbar
-import Shared.OpenStreetMap as OpenStreetMap
-import Shared.SortDropDown as SortDropDown
 
 
 type alias Model =

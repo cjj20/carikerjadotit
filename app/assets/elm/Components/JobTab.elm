@@ -1,9 +1,9 @@
 module Components.JobTab exposing (..)
 
+import Components.SortDropDown as SortDropDown
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
-import Shared.SortDropDown as SortDropDown
 
 
 

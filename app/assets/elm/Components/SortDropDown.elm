@@ -1,4 +1,4 @@
-module Shared.SortDropDown exposing (..)
+module Components.SortDropDown exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
