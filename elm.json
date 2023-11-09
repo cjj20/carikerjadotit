@@ -4,8 +4,7 @@
         "app/assets/elm",
         "app/assets/elm/Components",
         "app/assets/elm/Integrations",
-        "app/assets/elm/Models",
-        "app/assets/elm/Shared"
+        "app/assets/elm/Models"
     ],
     "elm-version": "0.19.1",
     "dependencies": {
