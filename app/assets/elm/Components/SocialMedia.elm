@@ -1,4 +1,4 @@
-module Shared.SocialMedia exposing (..)
+module Components.SocialMedia exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)

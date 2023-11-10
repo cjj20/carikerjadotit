@@ -1,8 +1,7 @@
-module Shared.SimilarOffers exposing (..)
+module Components.SimilarOffers exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Shared.Job as Job
 
 
 

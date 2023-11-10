@@ -1,14 +1,14 @@
-module Detail exposing (..)
+module JobPage exposing (..)
 
 import Browser
+import Components.Footer as Footer
+import Components.Navbar as Navbar
+import Components.OpenStreetMap as OpenStreetMap
+import Components.SimilarOffers as SimilarOffers
 import Html exposing (..)
 import Html.Attributes exposing (class, src)
 import Json.Decode as Decode exposing (Decoder, Error, Value, bool, decodeValue, int, string)
 import Json.Decode.Pipeline exposing (required)
-import Shared.Footer as Footer
-import Shared.Navbar as Navbar
-import Shared.OpenStreetMap as OpenStreetMap
-import Shared.SimilarOffers as SimilarOffers
 
 
 

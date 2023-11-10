@@ -1,9 +1,9 @@
-module Shared.SidebarMenu exposing (..)
+module Components.SidebarMenu exposing (..)
 
+import Components.SocialMedia as SocialMedia
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
-import Shared.SocialMedia as SocialMedia
 
 
 

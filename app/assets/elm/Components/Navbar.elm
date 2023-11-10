@@ -1,9 +1,9 @@
-module Shared.Navbar exposing (..)
+module Components.Navbar exposing (..)
 
+import Components.SidebarMenu as SidebarMenu
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
-import Shared.SidebarMenu as SidebarMenu
 
 
 
