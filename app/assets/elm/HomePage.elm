@@ -267,7 +267,7 @@ view { jobLoading, jobList, navbarModel, jobFilterModel, jobTabModel } =
                 , div [ class "flex flex-col gap-y-2 h-[calc(100vh-210px)] no-scrollbar overflow-y-scroll md:h-[calc(100vh-250px)]" ]
                     [ div [ class "block px-4 relative lg:hidden" ]
                         [ div [ class "flex items-center justify-center overflow-hidden relative" ]
-                            [ img [ src "https://justjoin.it/shared-gfx/map-button/shared/map-button-light.png", class "h-16 object-cover", style "width" "100%" ] []
+                            [ img [ src "/images/maps-background.png", class "h-16 object-cover", style "width" "100%" ] []
                             , div [ class "absolute bottom-0 flex items-center justify-center h-full left-0 right-0 top-0 w-full" ]
                                 [ a [ class "bg-white flex gap-x-2 h-10 items-center justify-center no-underline rounded-xl w-40", type_ "button" ]
                                     [ i [ class "fa-regular fa-map text-slate-700" ] []
