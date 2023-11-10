@@ -1,6 +1,6 @@
 module Components.JobTab exposing (..)
 
-import Components.SortDropDown as SortDropDown
+import Components.JobSortDropDown as JobSortDropDown exposing (DropDownStateMsg(..))
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
@@ -13,14 +13,18 @@ import Html.Events exposing (onClick)
 type alias Model =
     { activeTab : TabMsg
     , remoteToggle : RemoteToggleMsg
-    , sortDropDownModel : SortDropDown.Model
+    , jobSortDropDownModel : JobSortDropDown.Model
     }
+
+
+
+-- MSG
 
 
 type Msg
     = ActiveTab TabMsg
     | RemoteToggle
-    | SortDropDownMsg SortDropDown.Msg
+    | JobSortDropDownUpdateMsg JobSortDropDown.Msg
 
 
 type TabMsg
@@ -41,7 +45,7 @@ init : Model
 init =
     { activeTab = WithSalary
     , remoteToggle = Off
-    , sortDropDownModel = SortDropDown.init
+    , jobSortDropDownModel = JobSortDropDown.init
     }
 
 
@@ -52,10 +56,10 @@ init =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        ActiveTab activedTab ->
+        ActiveTab msg_ ->
             let
                 newModel =
-                    { model | activeTab = activedTab }
+                    { model | activeTab = msg_ }
             in
             ( newModel, Cmd.none )
 
@@ -70,12 +74,12 @@ update msg model =
             in
             ( newModel, Cmd.none )
 
-        SortDropDownMsg msg_ ->
+        JobSortDropDownUpdateMsg msg_ ->
             let
-                ( newUpdateTabJobModel, _ ) =
-                    SortDropDown.update msg_ model.sortDropDownModel
+                ( newJobSortDropDownUpdate, _ ) =
+                    JobSortDropDown.update msg_ model.jobSortDropDownModel
             in
-            ( { model | sortDropDownModel = newUpdateTabJobModel }, Cmd.none )
+            ( { model | jobSortDropDownModel = newJobSortDropDownUpdate }, Cmd.none )
 
 
 
@@ -83,7 +87,7 @@ update msg model =
 
 
 view : Model -> Html Msg
-view { activeTab, remoteToggle, sortDropDownModel } =
+view { activeTab, remoteToggle, jobSortDropDownModel } =
     let
         activeTabWithSalaryClass =
             if activeTab == WithSalary then
@@ -106,8 +110,8 @@ view { activeTab, remoteToggle, sortDropDownModel } =
             else
                 class "fa-toggle-off"
     in
-    div [ class "bg-white flex gap-x-1.5 justify-between no-scrollbar overflow-x-scroll px-4" ]
-        [ div [ class "flex" ]
+    div [ class "bg-white px-4 flex gap-x-1.5 justify-between no-scrollbar overflow-x-scroll" ]
+        [ div [ class "flex gap-x-1.5 justify-between no-scrollbar overflow-x-scroll" ]
             [ div
                 [ class "cursor-pointer flex items-center px-4 py-2 md:px-6 md:py-2.5"
                 , activeTabWithSalaryClass
@@ -120,22 +124,33 @@ view { activeTab, remoteToggle, sortDropDownModel } =
                 , activeTabAllOffersClass
                 , onClick (ActiveTab AllOffers)
                 ]
-                [ span [ class "text-sm text-slate-500 truncate" ] [ text "All offers", span [ class "font-medium pl-2 text-primary-2" ] [ text "13 433 offers" ] ]
-                ]
-            ]
-        , div [ class "flex gap-x-4 items-center justify-end" ]
-            [ div [ class "cursor-pointer flex gap-x-2 items-center", onClick RemoteToggle ]
-                [ span [ class "text-sm text-slate-500" ] [ text "Remote" ]
-                , i
-                    [ class "hidden fa-solid text-xl text-slate-400 lg:block", remoteToggleClass ]
-                    []
-                ]
-            , div [ class "hidden md:block" ]
-                [ div [ class "cursor-pointer flex gap-x-2 items-center px-2.5 py-1 rounded-xl hover:bg-gray-200", onClick (SortDropDownMsg SortDropDown.SortDropDown) ]
-                    [ span [ class "text-sm text-slate-500" ] [ text "Default" ]
-                    , i [ class "fa-solid fa-chevron-down text-sm text-slate-500" ] []
+                [ span [ class "text-sm text-slate-500 truncate" ]
+                    [ text "All offers"
+                    , span [ class "font-medium pl-2 text-primary-2" ] [ text "13 433 offers" ]
                     ]
                 ]
-            , Html.map SortDropDownMsg <| SortDropDown.sortDropDownView sortDropDownModel.sortDropDown sortDropDownModel.selectedSort
+            ]
+        , div []
+            [ div [ class "flex gap-x-4 items-center justify-end" ]
+                [ div [ class "cursor-pointer flex gap-x-2 items-center", onClick RemoteToggle ]
+                    [ span [ class "text-sm text-slate-500" ] [ text "Remote" ]
+                    , i
+                        [ class "hidden fa-solid text-xl text-slate-400 lg:block", remoteToggleClass ]
+                        []
+                    ]
+                , div [ class "hidden md:block" ]
+                    [ div
+                        [ class "cursor-pointer flex gap-x-2 items-center px-2.5 py-1 rounded-xl hover:bg-gray-200"
+                        , onClick (JobSortDropDownUpdateMsg JobSortDropDown.DropDownState)
+                        ]
+                        [ span [ class "text-sm text-slate-500" ] [ text "Default" ]
+                        , i [ class "fa-solid fa-chevron-down text-sm text-slate-500" ] []
+                        ]
+                    ]
+                ]
+            , div [ class "hidden md:flex md:justify-end" ]
+                [ Html.map JobSortDropDownUpdateMsg <|
+                    JobSortDropDown.dropDownView jobSortDropDownModel
+                ]
             ]
         ]

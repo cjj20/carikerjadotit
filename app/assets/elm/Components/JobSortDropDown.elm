@@ -1,4 +1,4 @@
-module Components.SortDropDown exposing (..)
+module Components.JobSortDropDown exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -10,8 +10,8 @@ import Html.Events exposing (onClick, onMouseLeave)
 
 
 type alias Model =
-    { sortDropDown : SortDropDownMsg
-    , selectedSort : SortModel
+    { dropDownState : DropDownStateMsg
+    , selected : SortModel
     }
 
 
@@ -23,16 +23,16 @@ type alias SortModel =
     }
 
 
-type alias ListSortMsg =
-    List SortMsg
+
+-- MSG
 
 
 type Msg
-    = SortDropDown
-    | SelectSort SortMsg
+    = DropDownState
+    | Select SortMsg
 
 
-type SortDropDownMsg
+type DropDownStateMsg
     = Open
     | Close
 
@@ -50,8 +50,8 @@ type SortMsg
 
 init : Model
 init =
-    { sortDropDown = Close
-    , selectedSort =
+    { dropDownState = Close
+    , selected =
         { name = Default, text = "Default", column = "created_at", direction = "asc" }
     }
 
@@ -63,21 +63,21 @@ init =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        SortDropDown ->
+        DropDownState ->
             let
                 newModel =
-                    if model.sortDropDown == Open then
-                        { model | sortDropDown = Close }
+                    if model.dropDownState == Open then
+                        { model | dropDownState = Close }
 
                     else
-                        { model | sortDropDown = Open }
+                        { model | dropDownState = Open }
             in
             ( newModel, Cmd.none )
 
-        SelectSort selectedSort ->
+        Select msg_ ->
             let
                 newModel =
-                    { model | selectedSort = sortMsgToSortModel selectedSort }
+                    { model | selected = sortMsgToSortModel msg_, dropDownState = Close }
             in
             ( newModel, Cmd.none )
 
@@ -102,50 +102,53 @@ sortMsgToSortModel sortMsg =
             { name = LowestSalary, text = "Lowest Salary", column = "salary_min", direction = "asc" }
 
 
-listSortMsg : ListSortMsg
+listSortMsg : List SortMsg
 listSortMsg =
     [ Default, Latest, HighestSalary, LowestSalary ]
 
 
-sortDropDownView : SortDropDownMsg -> SortModel -> Html Msg
-sortDropDownView sortDropDownMsg sortModel =
+
+-- VIEW
+
+
+dropDownView : Model -> Html Msg
+dropDownView model =
     let
         dropDownClass =
-            if sortDropDownMsg == Open then
+            if model.dropDownState == Open then
                 class "absolute"
 
             else
                 class "hidden"
 
-        listDropDownItems =
-            List.map (\sortMsg -> sortDropDownItemView sortMsg sortModel) listSortMsg
+        dropDownItems =
+            List.map (\sortMsg -> dropDownItemView sortMsg model.selected) listSortMsg
     in
     div
-        [ class "bg-white mr-4 mt-2 rounded-xl shadow-lg w-[140px] z-50 fixed top-28 md:top-[200px] md:right-0 md:right-auto md:mr-0"
+        [ class "bg-white mr-4 mt-2 rounded-xl shadow-lg w-[140px] z-50 fixed top-28 md:top-[200px] md:right-auto md:mr-0"
         , dropDownClass
-        , onMouseLeave SortDropDown
         ]
         [ div [ class "flex flex-col px-2 py-2 max-w-sm" ]
-            listDropDownItems
+            dropDownItems
         ]
 
 
-sortDropDownItemView : SortMsg -> SortModel -> Html Msg
-sortDropDownItemView sortMsg sortModel =
+dropDownItemView : SortMsg -> SortModel -> Html Msg
+dropDownItemView sortMsg sortModel =
     let
-        textColorActiveSort =
+        sortActiveTextColor =
             if sortMsg == sortModel.name then
                 class "text-primary-2"
 
             else
                 class "text-slate-400"
 
-        textSort =
+        sortText =
             (sortMsgToSortModel sortMsg).text
     in
     span
         [ class "cursor-pointer px-2 py-1 text-base text-primary-2 hover:bg-gray-100 hover:rounded-lg"
-        , textColorActiveSort
-        , onClick (SelectSort sortMsg)
+        , sortActiveTextColor
+        , onClick (Select sortMsg)
         ]
-        [ text textSort ]
+        [ text sortText ]
