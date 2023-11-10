@@ -1,8 +1,8 @@
 module Models.Job exposing (..)
 
 import Array exposing (fromList, slice, toList)
-import Json.Decode as Decode exposing (Decoder, Value, bool, decodeString, field, int, list, map, string)
-import Json.Decode.Pipeline exposing (required)
+import Json.Decode as Decode exposing (Decoder, Value, bool, decodeString, field, int, list, map2, string)
+import Json.Decode.Pipeline exposing (optional, required)
 import List exposing (length)
 import Models.Company exposing (Company, companyDecoder)
 
@@ -58,12 +58,21 @@ type alias Job =
     }
 
 
+type alias Meta =
+    { limit_value : Int
+    , total_pages : Int
+    , total_undisclosed_salary_jobs : Int
+    , total_all_jobs : Int
+    }
+
+
 type alias ListJob =
     List Job
 
 
 type alias ApiResponse =
-    { data : ListJob
+    { meta : Meta
+    , data : ListJob
     }
 
 
@@ -100,9 +109,19 @@ jobsDecoder =
     list jobDecoder
 
 
+metaDecoder : Decoder Meta
+metaDecoder =
+    Decode.succeed Meta
+        |> optional "limit_value" int 0
+        |> optional "total_pages" int 0
+        |> optional "total_undisclosed_salary_jobs" int 0
+        |> optional "total_all_jobs" int 0
+
+
 apiDecoder : Decoder ApiResponse
 apiDecoder =
-    map ApiResponse
+    map2 ApiResponse
+        (field "meta" metaDecoder)
         (field "data" jobsDecoder)
 
 
@@ -110,11 +129,18 @@ apiDecoder =
 -- EXPRESSION
 
 
-jobsDecodeString : String -> List Job
+jobsDecodeString : String -> ApiResponse
 jobsDecodeString data =
     case decodeString apiDecoder data of
         Ok records ->
-            records.data
+            records
 
         Err _ ->
-            []
+            { meta =
+                { limit_value = 0
+                , total_pages = 0
+                , total_undisclosed_salary_jobs = 0
+                , total_all_jobs = 0
+                }
+            , data = []
+            }

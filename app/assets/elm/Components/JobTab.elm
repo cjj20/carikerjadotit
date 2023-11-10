@@ -4,6 +4,7 @@ import Components.JobSortDropDown as JobSortDropDown exposing (DropDownStateMsg(
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
+import String exposing (fromInt)
 
 
 
@@ -14,6 +15,7 @@ type alias Model =
     { activeTab : TabMsg
     , remoteToggle : RemoteToggleMsg
     , jobSortDropDownModel : JobSortDropDown.Model
+    , jobAllTotal : Int
     }
 
 
@@ -25,6 +27,7 @@ type Msg
     = ActiveTab TabMsg
     | RemoteToggle
     | JobSortDropDownUpdateMsg JobSortDropDown.Msg
+    | JobAllTotal Int
 
 
 type TabMsg
@@ -46,6 +49,7 @@ init =
     { activeTab = WithSalary
     , remoteToggle = Off
     , jobSortDropDownModel = JobSortDropDown.init
+    , jobAllTotal = 0
     }
 
 
@@ -81,13 +85,20 @@ update msg model =
             in
             ( { model | jobSortDropDownModel = newJobSortDropDownUpdate }, Cmd.none )
 
+        JobAllTotal msg_ ->
+            let
+                newModel =
+                    { model | jobAllTotal = msg_ }
+            in
+            ( newModel, Cmd.none )
+
 
 
 -- VIEW
 
 
 view : Model -> Html Msg
-view { activeTab, remoteToggle, jobSortDropDownModel } =
+view { activeTab, remoteToggle, jobSortDropDownModel, jobAllTotal } =
     let
         activeTabWithSalaryClass =
             if activeTab == WithSalary then
@@ -109,6 +120,9 @@ view { activeTab, remoteToggle, jobSortDropDownModel } =
 
             else
                 class "fa-toggle-off"
+
+        jobAllTotalText =
+            fromInt jobAllTotal
     in
     div [ class "bg-white px-4 flex gap-x-1.5 justify-between no-scrollbar overflow-x-scroll" ]
         [ div [ class "flex gap-x-1.5 justify-between no-scrollbar overflow-x-scroll" ]
@@ -126,7 +140,7 @@ view { activeTab, remoteToggle, jobSortDropDownModel } =
                 ]
                 [ span [ class "text-sm text-slate-500 truncate" ]
                     [ text "All offers"
-                    , span [ class "font-medium pl-2 text-primary-2" ] [ text "13 433 offers" ]
+                    , span [ class "font-medium pl-2 text-primary-2" ] [ text (jobAllTotalText ++ " offers") ]
                     ]
                 ]
             ]

@@ -12,6 +12,7 @@ import Html.Attributes exposing (class, src, style, type_)
 import Http exposing (Error)
 import Integrations.JobApi as JobApi
 import Models.Job as DataModelsJob exposing (ListJob)
+import String exposing (fromInt)
 
 
 
@@ -26,6 +27,8 @@ type alias Model =
     , jobLoading : Bool
     , jobApiParameters : JobApi.Parameters
     , jobList : ListJob
+    , jobAllTotal : Int
+    , jobUndisclosedSalaryTotal : Int
     , navbarModel : Navbar.Model
     }
 
@@ -56,6 +59,8 @@ init _ =
       , jobApiParameters = JobApi.initParameters
       , jobList = []
       , jobSortDropDownModel = JobSortDropDown.init
+      , jobAllTotal = 0
+      , jobUndisclosedSalaryTotal = 0
       }
     , Cmd.map JobApiGetJobRequestMsg <| JobApi.initListJob
     )
@@ -165,6 +170,9 @@ update msg model =
                                       }
                                     , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newJobApiModel
                                     )
+
+                        JobAllTotal _ ->
+                            ( model, Cmd.none )
             in
             jobCmdUpdate
 
@@ -223,9 +231,28 @@ update msg model =
                 JobApi.GetJobRequest response ->
                     case response of
                         Ok data ->
+                            let
+                                jobDecoded =
+                                    DataModelsJob.jobsDecodeString data
+
+                                jobList =
+                                    jobDecoded.data
+
+                                jobAllTotal =
+                                    jobDecoded.meta.total_all_jobs
+
+                                jobUndisclosedSalaryTotal =
+                                    jobDecoded.meta.total_undisclosed_salary_jobs
+
+                                ( newJobTabModel, _ ) =
+                                    JobTab.update (JobTab.JobAllTotal jobAllTotal) model.jobTabModel
+                            in
                             ( { model
                                 | jobLoading = False
-                                , jobList = DataModelsJob.jobsDecodeString data
+                                , jobTabModel = newJobTabModel
+                                , jobList = jobList
+                                , jobAllTotal = jobAllTotal
+                                , jobUndisclosedSalaryTotal = jobUndisclosedSalaryTotal
                               }
                             , Cmd.none
                             )
@@ -244,7 +271,7 @@ update msg model =
 
 
 view : Model -> Html Msg
-view { jobLoading, jobList, navbarModel, jobFilterModel, jobTabModel } =
+view { jobLoading, jobList, navbarModel, jobFilterModel, jobTabModel, jobAllTotal, jobUndisclosedSalaryTotal } =
     let
         listJobView =
             if jobLoading then
@@ -252,6 +279,13 @@ view { jobLoading, jobList, navbarModel, jobFilterModel, jobTabModel } =
 
             else
                 List.map (\data -> div [] [ JobView.viewJob data ]) jobList
+
+        jobAllTotalText =
+            if jobTabModel.activeTab == WithSalary then
+                fromInt jobUndisclosedSalaryTotal
+
+            else
+                fromInt jobAllTotal
     in
     div [ class "flex flex-col" ]
         [ div [ class "sticky top-0 z-50" ]
@@ -262,7 +296,7 @@ view { jobLoading, jobList, navbarModel, jobFilterModel, jobTabModel } =
             [ div [ class "flex flex-col gap-y-2" ]
                 [ Html.map JobTabUpdateMsg <| JobTab.view jobTabModel
                 , div [ class "px-4" ]
-                    [ span [ class "text-sm text-slate-500 lg:text-base" ] [ text "Work 8 674 offers" ]
+                    [ span [ class "text-sm text-slate-500 lg:text-base" ] [ text ("Work: " ++ jobAllTotalText ++ " offers") ]
                     ]
                 , div [ class "flex flex-col gap-y-2 h-[calc(100vh-210px)] no-scrollbar overflow-y-scroll md:h-[calc(100vh-250px)]" ]
                     [ div [ class "block px-4 relative lg:hidden" ]
