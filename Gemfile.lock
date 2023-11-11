@@ -130,6 +130,8 @@ GEM
     geocoder (1.8.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    gutentag (2.6.2)
+      activerecord (>= 3.2.0)
     has_scope (0.8.1)
       actionpack (>= 5.2)
       activesupport (>= 5.2)
@@ -370,6 +372,7 @@ DEPENDENCIES
   dotenv-rails
   elm-rails (~> 0.4.2)
   geocoder (~> 1.8)
+  gutentag (~> 2.6)
   importmap-rails
   jass-rollup (~> 0.6.0)
   jbuilder
