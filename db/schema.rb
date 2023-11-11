@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_23_072741) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_11_161604) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -46,6 +46,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_072741) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
+  create_table "gutentag_taggings", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "taggable_id", null: false
+    t.string "taggable_type", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["tag_id"], name: "index_gutentag_taggings_on_tag_id"
+    t.index ["taggable_type", "taggable_id", "tag_id"], name: "unique_taggings", unique: true
+    t.index ["taggable_type", "taggable_id"], name: "index_gutentag_taggings_on_taggable_type_and_taggable_id"
+  end
+
+  create_table "gutentag_tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.bigint "taggings_count", default: 0, null: false
+    t.index ["name"], name: "index_gutentag_tags_on_name", unique: true
+    t.index ["taggings_count"], name: "index_gutentag_tags_on_taggings_count"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.decimal "salary_min"
@@ -62,7 +82,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_072741) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "main_technology"
     t.boolean "online_interview"
-    t.string "skills"
     t.bigint "company_id"
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end

@@ -91,3 +91,5 @@ gem "sassc-rails", "~> 2.1"
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "geocoder", "~> 1.8"
+
+gem 'gutentag', '~> 2.6'
