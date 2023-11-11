@@ -6,6 +6,8 @@ class Job < ApplicationRecord
 
   belongs_to :company
 
+  Gutentag::ActiveRecord.call self
+
   def type_of_work
     read_attribute(:type_of_work).titleize
   end
