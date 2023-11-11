@@ -13,12 +13,12 @@ import Models.Company exposing (Company, companyDecoder)
 
 maxSkills : Job -> List String
 maxSkills job =
-    case length job.skills > 2 of
+    case length job.tag_names > 2 of
         True ->
-            toList (slice 0 3 (fromList job.skills))
+            toList (slice 0 3 (fromList job.tag_names))
 
         False ->
-            job.skills
+            job.tag_names
 
 
 salaryUndisclosed : Job -> String
@@ -50,7 +50,7 @@ type alias Job =
     , apply_link : String
     , main_technology : String
     , online_interview : Bool
-    , skills : List String
+    , tag_names : List String
     , company_id : Int
     , created_at : String
     , updated_at : String
@@ -97,7 +97,7 @@ jobDecoder =
         |> required "apply_link" string
         |> required "main_technology" string
         |> required "online_interview" bool
-        |> required "skills" (list string)
+        |> required "tag_names" (list string)
         |> required "company_id" int
         |> required "created_at" string
         |> required "updated_at" string

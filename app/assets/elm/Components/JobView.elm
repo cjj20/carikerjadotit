@@ -56,7 +56,13 @@ viewJob job =
                         [ span [ class "text-[10px] text-slate-500 truncate" ] [ text "Warszawa, +3," ]
                         , span [ class "text-[10px] text-slate-500 truncate" ] [ text "Remote" ]
                         ]
-                    , div [ class "gap-x-2 hidden justify-end md:flex" ] <| List.map (\data -> span [ class "border border-slate-300 rounded-xl px-1 py-1 text-xs text-slate-700 truncate" ] [ text data ]) (maxSkills job)
+                    , div [ class "gap-x-2 hidden justify-end md:flex" ] <|
+                        List.map
+                            (\data ->
+                                span [ class "border border-slate-300 capitalize rounded-xl px-1 py-1 text-xs text-slate-700 truncate" ]
+                                    [ text data ]
+                            )
+                            (maxSkills job)
                     ]
                 ]
             ]
