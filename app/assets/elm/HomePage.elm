@@ -226,6 +226,16 @@ update msg model =
                             , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newJobApiModel
                             )
 
+                JobFilter.JobMoreFilterUpdateMsg jobMoreFilterMsg ->
+                    let
+                        newJobMoreFilterMsg =
+                            JobFilter.JobMoreFilterUpdateMsg jobMoreFilterMsg
+
+                        ( newJobFilterModel, _ ) =
+                            JobFilter.update newJobMoreFilterMsg model.jobFilterModel
+                    in
+                    ( { model | jobFilterModel = newJobFilterModel }, Cmd.none )
+
         JobApiGetJobRequestMsg msg_ ->
             case msg_ of
                 JobApi.GetJobRequest response ->
