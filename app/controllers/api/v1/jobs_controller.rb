@@ -10,8 +10,7 @@ class Api::V1::JobsController < ApplicationController
     end
 
     if params[:location] && params[:location] != ""
-      array_experience = JSON.parse(params[:location])
-      source = source.where(experience_level: array_experience)
+      source = source.joins(:company).where("companies.country ILIKE ?", params[:location] + "%")
     end
 
     if params[:salary_min] && params[:salary_min] != "" && params[:salary_max] && params[:salary_max] != ""
