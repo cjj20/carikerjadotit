@@ -1,5 +1,17 @@
 module Integrations.JobApi exposing (..)
 
+import Components.JobMoreFilter
+    exposing
+        ( EmploymentTypeMsg
+        , ExperienceMsg
+        , TypeOfWorkMsg
+        )
+import Helpers.JobHelper
+    exposing
+        ( listEmploymentTypeMsgToString
+        , listExperienceMsgToString
+        , listTypeOfWorkMsgToString
+        )
 import Http exposing (get)
 import String exposing (String)
 
@@ -25,6 +37,11 @@ type alias Parameters =
     , sort_column : String
     , sort_direction : String
     , title : String
+    , salary_min : String
+    , salary_max : String
+    , experience : List ExperienceMsg
+    , employment_type : List EmploymentTypeMsg
+    , type_of_work : List TypeOfWorkMsg
     }
 
 
@@ -39,6 +56,12 @@ type ParametersMsg
     | SalaryIsUndisclosed String
     | Sort String String
     | Title String
+    | SalaryMinState String
+    | SalaryMaxState String
+    | ExperienceState (List ExperienceMsg)
+    | EmploymentTypeState (List EmploymentTypeMsg)
+    | TypeOfWorkState (List TypeOfWorkMsg)
+    | ClearMoreFilterState
 
 
 
@@ -52,7 +75,19 @@ initListJob =
 
 initParameters : Parameters
 initParameters =
-    { company_name = "", location_type = "", main_technology = "", salary_is_undisclosed = "false", sort_column = "created_at", sort_direction = "desc", title = "" }
+    { company_name = ""
+    , location_type = ""
+    , main_technology = ""
+    , salary_is_undisclosed = "false"
+    , sort_column = "created_at"
+    , sort_direction = "desc"
+    , title = ""
+    , salary_min = ""
+    , salary_max = ""
+    , experience = []
+    , employment_type = []
+    , type_of_work = []
+    }
 
 
 
@@ -80,6 +115,32 @@ updateParameters parametersMsg parameters =
         Title msg_ ->
             ( { parameters | title = msg_ }, Cmd.none )
 
+        SalaryMinState msg_ ->
+            ( { parameters | salary_min = msg_ }, Cmd.none )
+
+        SalaryMaxState msg_ ->
+            ( { parameters | salary_max = msg_ }, Cmd.none )
+
+        ExperienceState msg_ ->
+            ( { parameters | experience = msg_ }, Cmd.none )
+
+        EmploymentTypeState msg_ ->
+            ( { parameters | employment_type = msg_ }, Cmd.none )
+
+        TypeOfWorkState msg_ ->
+            ( { parameters | type_of_work = msg_ }, Cmd.none )
+
+        ClearMoreFilterState ->
+            ( { parameters
+                | salary_min = ""
+                , salary_max = ""
+                , experience = []
+                , employment_type = []
+                , type_of_work = []
+              }
+            , Cmd.none
+            )
+
 
 
 -- EXPRESSION
@@ -101,6 +162,16 @@ parametersToString jobParameters =
         ++ jobParameters.sort_direction
         ++ "&title="
         ++ jobParameters.title
+        ++ "&salary_min="
+        ++ jobParameters.salary_min
+        ++ "&salary_max="
+        ++ jobParameters.salary_max
+        ++ "&experience="
+        ++ listExperienceMsgToString jobParameters.experience
+        ++ "&employment_type="
+        ++ listEmploymentTypeMsgToString jobParameters.employment_type
+        ++ "&type_of_work="
+        ++ listTypeOfWorkMsgToString jobParameters.type_of_work
 
 
 

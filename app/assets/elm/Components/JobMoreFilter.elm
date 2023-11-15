@@ -1,5 +1,6 @@
 module Components.JobMoreFilter exposing (..)
 
+import Helpers.Converter exposing (floatToString, isValueInArray, stringToFloat)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput)
@@ -40,6 +41,7 @@ type Msg
     | EmploymentTypeState EmploymentTypeMsg
     | TypeOfWorkState TypeOfWorkMsg
     | ClearFilterState
+    | ShowOffers
 
 
 type ModalStateMsg
@@ -109,12 +111,15 @@ update msg model =
             let
                 newModel =
                     if stringToFloat msg_ < model.salaryMaxValue - model.salarySliderMinRange then
-                        { model | salaryMinValue = stringToFloat msg_, salarySliderMin = sliderPercentage msg_ model }
+                        { model
+                            | salaryMinValue = stringToFloat msg_
+                            , salarySliderMin = sliderPercentagePosition msg_ model
+                        }
 
                     else
                         { model
                             | salaryMinValue = model.salaryMaxValue - model.salarySliderMinRange
-                            , salarySliderMin = sliderPercentage (fromFloat model.salaryMinValue) model
+                            , salarySliderMin = sliderPercentagePosition (fromFloat model.salaryMinValue) model
                         }
             in
             ( newModel, Cmd.none )
@@ -129,11 +134,17 @@ update msg model =
                         { model
                             | salaryMaxValue = model.salaryMinValue + model.salarySliderMinRange
                             , salarySliderMax =
-                                100 - sliderPercentage (fromFloat (model.salaryMinValue + model.salarySliderMinRange)) model
+                                100
+                                    - sliderPercentagePosition
+                                        (fromFloat (model.salaryMinValue + model.salarySliderMinRange))
+                                        model
                         }
 
                     else
-                        { model | salaryMaxValue = stringToFloat msg_, salarySliderMax = 100 - sliderPercentage msg_ model }
+                        { model
+                            | salaryMaxValue = stringToFloat msg_
+                            , salarySliderMax = 100 - sliderPercentagePosition msg_ model
+                        }
             in
             ( newModel, Cmd.none )
 
@@ -184,14 +195,12 @@ update msg model =
         ClearFilterState ->
             ( { init | modalState = Open }, Cmd.none )
 
+        ShowOffers ->
+            ( { model | modalState = Close }, Cmd.none )
 
 
--- EXPRESSION
 
-
-isValueInArray : a -> List a -> Bool
-isValueInArray value array =
-    List.member value array
+-- HELPERS
 
 
 experienceMsgToString : ExperienceMsg -> String
@@ -233,18 +242,8 @@ typeOfWorkMsgToString msg =
             "internship"
 
 
-stringToFloat : String -> Float
-stringToFloat value =
-    Maybe.withDefault 0 (String.toFloat value)
-
-
-floatToString : Float -> String
-floatToString value =
-    fromFloat value
-
-
-sliderPercentage : String -> Model -> Float
-sliderPercentage value model =
+sliderPercentagePosition : String -> Model -> Float
+sliderPercentagePosition value model =
     (stringToFloat value - model.salaryMin) / (model.salaryMax - model.salaryMin) * 100
 
 
@@ -443,6 +442,13 @@ view { modalState, salaryMin, salaryMax, salaryMinValue, salaryMaxValue, salaryS
                             , span [ class "text-base capitalize" ] [ text (typeOfWorkMsgToString value) ]
                             ]
                     )
+
+        showOffersButton =
+            div
+                [ class "bg-primary-2 cursor-pointer flex h-10 items-center justify-center py-2 rounded-3xl text-sm text-white w-48"
+                , onClick ShowOffers
+                ]
+                [ text "Show offers" ]
     in
     div [ class "relative z-10" ]
         [ div
@@ -508,7 +514,7 @@ view { modalState, salaryMin, salaryMax, salaryMinValue, salaryMaxValue, salaryS
                             ]
                         ]
                     , div [ class "bg-slate-200 flex h-20 items-center justify-center rounded-b-3xl" ]
-                        [ div [ class "bg-primary-2 flex h-10 items-center justify-center py-2 rounded-3xl text-sm text-white w-48" ] [ text "Show offers" ]
+                        [ showOffersButton
                         ]
                     ]
                 ]
@@ -574,8 +580,7 @@ view { modalState, salaryMin, salaryMax, salaryMinValue, salaryMaxValue, salaryS
                             ]
                         ]
                     , div [ class "bg-slate-200 flex h-20 items-center justify-center" ]
-                        [ div [ class "bg-primary-2 flex h-10 items-center justify-center py-2 rounded-3xl text-sm text-white w-48" ]
-                            [ text "Show offers" ]
+                        [ showOffersButton
                         ]
                     ]
                 ]
