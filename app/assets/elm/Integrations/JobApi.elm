@@ -6,6 +6,7 @@ import Components.JobMoreFilter
         , ExperienceMsg
         , TypeOfWorkMsg
         )
+import Components.MainTechnology exposing (MainTechnology, emptyMainTechnology)
 import Helpers.JobHelper
     exposing
         ( listEmploymentTypeMsgToString
@@ -32,7 +33,7 @@ baseUrl =
 type alias Parameters =
     { company_name : String
     , location_type : String
-    , main_technology : String
+    , main_technology : MainTechnology
     , salary_is_undisclosed : String
     , sort_column : String
     , sort_direction : String
@@ -50,12 +51,12 @@ type Msg
 
 
 type ParametersMsg
-    = CompanyName String
-    | LocationType String
-    | MainTechnology String
-    | SalaryIsUndisclosed String
-    | Sort String String
-    | Title String
+    = CompanyNameState String
+    | LocationTypeState String
+    | MainTechnologyState MainTechnology
+    | SalaryIsUndisclosedState String
+    | SortState String String
+    | TitleState String
     | SalaryMinState String
     | SalaryMaxState String
     | ExperienceState (List ExperienceMsg)
@@ -77,7 +78,7 @@ initParameters : Parameters
 initParameters =
     { company_name = ""
     , location_type = ""
-    , main_technology = ""
+    , main_technology = emptyMainTechnology
     , salary_is_undisclosed = "false"
     , sort_column = "created_at"
     , sort_direction = "desc"
@@ -97,22 +98,22 @@ initParameters =
 updateParameters : ParametersMsg -> Parameters -> ( Parameters, Cmd Msg )
 updateParameters parametersMsg parameters =
     case parametersMsg of
-        CompanyName msg_ ->
+        CompanyNameState msg_ ->
             ( { parameters | company_name = msg_ }, Cmd.none )
 
-        LocationType msg_ ->
+        LocationTypeState msg_ ->
             ( { parameters | location_type = msg_ }, getJobs parameters )
 
-        MainTechnology msg_ ->
+        MainTechnologyState msg_ ->
             ( { parameters | main_technology = msg_ }, Cmd.none )
 
-        SalaryIsUndisclosed msg_ ->
+        SalaryIsUndisclosedState msg_ ->
             ( { parameters | salary_is_undisclosed = msg_ }, Cmd.none )
 
-        Sort column direction ->
+        SortState column direction ->
             ( { parameters | sort_column = column, sort_direction = direction }, Cmd.none )
 
-        Title msg_ ->
+        TitleState msg_ ->
             ( { parameters | title = msg_ }, Cmd.none )
 
         SalaryMinState msg_ ->
@@ -153,7 +154,7 @@ parametersToString jobParameters =
         ++ "&location_type="
         ++ jobParameters.location_type
         ++ "&main_technology="
-        ++ jobParameters.main_technology
+        ++ jobParameters.main_technology.name
         ++ "&salary_is_undisclosed="
         ++ jobParameters.salary_is_undisclosed
         ++ "&sort_column="

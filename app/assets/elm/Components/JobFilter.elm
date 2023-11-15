@@ -2,7 +2,7 @@ module Components.JobFilter exposing (..)
 
 import Components.JobMoreFilter as JobMoreFilter
 import Components.JobSortDropDown as JobSortDropDown exposing (DropDownStateMsg(..))
-import Components.Skill exposing (listSkill)
+import Components.MainTechnology exposing (MainTechnology, emptyMainTechnology, listMainTechnology)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
@@ -15,6 +15,7 @@ import Html.Events exposing (onClick)
 type alias Model =
     { jobSortDropDownModel : JobSortDropDown.Model
     , jobMoreFilterModel : JobMoreFilter.Model
+    , selectedMainTechnology : MainTechnology
     }
 
 
@@ -25,6 +26,7 @@ type alias Model =
 type Msg
     = JobSortDropDownUpdateMsg JobSortDropDown.Msg
     | JobMoreFilterUpdateMsg JobMoreFilter.Msg
+    | SelectMainTechnologyState MainTechnology
 
 
 
@@ -35,6 +37,7 @@ init : Model
 init =
     { jobSortDropDownModel = JobSortDropDown.init
     , jobMoreFilterModel = JobMoreFilter.init
+    , selectedMainTechnology = emptyMainTechnology
     }
 
 
@@ -59,13 +62,54 @@ update msg model =
             in
             ( { model | jobMoreFilterModel = newJobMoreFilterUpdate }, Cmd.none )
 
+        SelectMainTechnologyState msg_ ->
+            let
+                newSelectedMainTechnology =
+                    if model.selectedMainTechnology == msg_ then
+                        { model | selectedMainTechnology = emptyMainTechnology }
+
+                    else
+                        { model | selectedMainTechnology = msg_ }
+            in
+            ( newSelectedMainTechnology, Cmd.none )
+
 
 
 -- VIEW
 
 
 view : Model -> Html Msg
-view { jobSortDropDownModel, jobMoreFilterModel } =
+view { jobSortDropDownModel, jobMoreFilterModel, selectedMainTechnology } =
+    let
+        listMainTechnologyView =
+            listMainTechnology
+                |> List.map
+                    (\mainTechnology ->
+                        div
+                            [ class "flex flex-col gap-y-1"
+                            , onClick (SelectMainTechnologyState mainTechnology)
+                            ]
+                            [ div
+                                [ class "flex h-10 items-center justify-center rounded-full w-10 hover:cursor-pointer hover:outline hover:outline-4 hover:outline-slate-300"
+                                , if
+                                    selectedMainTechnology
+                                        == emptyMainTechnology
+                                        || selectedMainTechnology
+                                        == mainTechnology
+                                  then
+                                    class mainTechnology.bgColor
+
+                                  else
+                                    class "bg-slate-500"
+                                ]
+                                [ i [ class mainTechnology.icon ] []
+                                ]
+                            , div [ class "flex justify-center" ]
+                                [ span [ class "text-xs text-slate-500" ] [ text mainTechnology.name ]
+                                ]
+                            ]
+                    )
+    in
     div [ class "bg-white p-2 md:pt-2 md:pb-4" ]
         [ div []
             [ div [ class "md:grid md:grid-cols-3 md:gap-x-4" ]
@@ -115,22 +159,7 @@ view { jobSortDropDownModel, jobMoreFilterModel } =
                     ]
                 , div [ class "hidden gap-x-4 md:col-span-2 md:flex md:justify-end" ]
                     [ div [ class "flex flex-row gap-x-4 no-scrollbar overflow-x-scroll p-2" ]
-                        (listSkill
-                            |> List.map
-                                (\skill ->
-                                    div [ class "flex flex-col gap-y-1" ]
-                                        [ div
-                                            [ class "flex h-10 items-center justify-center rounded-full w-10 hover:cursor-pointer hover:outline hover:outline-4 hover:outline-slate-300"
-                                            , class skill.bgColor
-                                            ]
-                                            [ i [ class skill.icon ] []
-                                            ]
-                                        , div [ class "flex justify-center" ]
-                                            [ span [ class "text-xs text-slate-500" ] [ text skill.name ]
-                                            ]
-                                        ]
-                                )
-                        )
+                        listMainTechnologyView
 
                     --, div []
                     --[
