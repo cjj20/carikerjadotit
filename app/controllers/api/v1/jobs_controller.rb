@@ -9,7 +9,7 @@ class Api::V1::JobsController < ApplicationController
       )
     end
 
-    if params[:location] && params[:location] != []
+    if params[:location] && params[:location] != ""
       array_experience = JSON.parse(params[:location])
       source = source.where(experience_level: array_experience)
     end
@@ -18,18 +18,18 @@ class Api::V1::JobsController < ApplicationController
       source = source.where("salary_min >= ? AND salary_max <= ?", params[:salary_min].to_i, params[:salary_max].to_i)
     end
 
-    if params[:experience] && params[:experience] != []
-      array_experience = JSON.parse(params[:experience])
+    if params[:experience] && params[:experience] != ""
+      array_experience = params[:experience].split(",")
       source = source.where(experience_level: array_experience)
     end
 
-    if params[:employment_type] && params[:employment_type] != []
-      array_employment_type = JSON.parse(params[:employment_type])
+    if params[:employment_type] && params[:employment_type] != ""
+      array_employment_type = params[:employment_type].split(",")
       source = source.where(employment_type: array_employment_type)
     end
 
-    if params[:type_of_work] && params[:type_of_work] != []
-      array_type_of_work = JSON.parse(params[:type_of_work])
+    if params[:type_of_work] && params[:type_of_work] != ""
+      array_type_of_work = params[:type_of_work].split(",")
       source = source.where(type_of_work: array_type_of_work)
     end
 
