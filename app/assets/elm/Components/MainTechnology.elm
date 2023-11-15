@@ -1,25 +1,30 @@
-module Components.Skill exposing (..)
+module Components.MainTechnology exposing (..)
 
 -- TYPES
 
 
-type alias Skill =
+type alias MainTechnology =
     { name : String
     , icon : String
     , bgColor : String
     }
 
 
-type alias ListSkill =
-    List Skill
+type alias ListMainTechnology =
+    List MainTechnology
 
 
 
 -- VIEW
 
 
-listSkill : ListSkill
-listSkill =
+emptyMainTechnology : MainTechnology
+emptyMainTechnology =
+    { name = "", icon = "", bgColor = "" }
+
+
+listMainTechnology : ListMainTechnology
+listMainTechnology =
     [ { name = "JS", icon = "fa-brands fa-js", bgColor = "bg-gradient-to-r from-yellow-500 to-yellow-400" }
     , { name = "HTML", icon = "fa-brands fa-html5", bgColor = "bg-gradient-to-r from-orange-600 to-orange-500" }
     , { name = "PHP", icon = "fa-brands fa-php", bgColor = "bg-gradient-to-r from-blue-500 to-blue-400" }
