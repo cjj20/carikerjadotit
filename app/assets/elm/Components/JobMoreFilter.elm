@@ -374,6 +374,10 @@ view { modalState, salaryMin, salaryMax, salaryMinValue, salaryMaxValue, salaryS
                         [ i [ class "text-[12px] fa-solid fa-bars text-slate-500 rotate-90" ] []
                         ]
                     ]
+                , div [ class "flex justify-between text-sm mt-4 px-1 text-slate-600" ]
+                    [ span [] [ text (fromFloat salaryMinValue ++ " IDR") ]
+                    , span [] [ text (fromFloat salaryMaxValue ++ " IDR") ]
+                    ]
                 ]
 
         friendlyOfferToggle =
