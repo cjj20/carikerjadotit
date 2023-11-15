@@ -2,11 +2,13 @@ module HomePage exposing (..)
 
 import Browser
 import Components.JobFilter as JobFilter
+import Components.JobMoreFilter exposing (Msg(..))
 import Components.JobSortDropDown as JobSortDropDown
 import Components.JobTab as JobTab exposing (Msg(..), RemoteToggleMsg(..), TabMsg(..))
 import Components.JobView as JobView
 import Components.Navbar as Navbar
 import Components.OpenStreetMap as OpenStreetMap
+import Helpers.Converter exposing (floatToString)
 import Html exposing (..)
 import Html.Attributes exposing (class, src, style, type_)
 import Http exposing (Error)
@@ -94,10 +96,10 @@ update msg model =
                             let
                                 newActiveTab =
                                     if newJobTabModel.activeTab == WithSalary then
-                                        JobApi.SalaryIsUndisclosed "false"
+                                        JobApi.SalaryIsUndisclosedState "false"
 
                                     else
-                                        JobApi.SalaryIsUndisclosed ""
+                                        JobApi.SalaryIsUndisclosedState ""
 
                                 ( newJobApiModel, _ ) =
                                     JobApi.updateParameters newActiveTab model.jobApiParameters
@@ -114,10 +116,10 @@ update msg model =
                             let
                                 newRemoteToggle =
                                     if newJobTabModel.remoteToggle == On then
-                                        JobApi.LocationType "remote"
+                                        JobApi.LocationTypeState "remote"
 
                                     else
-                                        JobApi.LocationType ""
+                                        JobApi.LocationTypeState ""
 
                                 ( newJobApiModel, _ ) =
                                     JobApi.updateParameters newRemoteToggle model.jobApiParameters
@@ -149,11 +151,11 @@ update msg model =
                                         ( newJobSortDropDownModel, _ ) =
                                             JobSortDropDown.update jobSortDropDownMsg model.jobSortDropDownModel
 
-                                        newJobApiSortMsg =
-                                            JobApi.Sort model.jobSortDropDownModel.selected.column model.jobSortDropDownModel.selected.direction
+                                        newJobApiSortStateMsg =
+                                            JobApi.SortState model.jobSortDropDownModel.selected.column model.jobSortDropDownModel.selected.direction
 
                                         ( newJobApiModel, _ ) =
-                                            JobApi.updateParameters newJobApiSortMsg model.jobApiParameters
+                                            JobApi.updateParameters newJobApiSortStateMsg model.jobApiParameters
 
                                         newJobFilterMsg =
                                             JobFilter.JobSortDropDownUpdateMsg jobSortDropDownMsg
@@ -211,7 +213,7 @@ update msg model =
                                     JobSortDropDown.update jobSortDropDownMsg model.jobSortDropDownModel
 
                                 newJobApiSortDropDownMsg =
-                                    JobApi.Sort model.jobSortDropDownModel.selected.column model.jobSortDropDownModel.selected.direction
+                                    JobApi.SortState model.jobSortDropDownModel.selected.column model.jobSortDropDownModel.selected.direction
 
                                 ( newJobApiModel, _ ) =
                                     JobApi.updateParameters newJobApiSortDropDownMsg model.jobApiParameters
@@ -225,6 +227,142 @@ update msg model =
                               }
                             , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newJobApiModel
                             )
+
+                JobFilter.JobMoreFilterUpdateMsg jobMoreFilterMsg ->
+                    let
+                        newJobMoreFilterMsg =
+                            JobFilter.JobMoreFilterUpdateMsg jobMoreFilterMsg
+
+                        ( newJobFilterModel, _ ) =
+                            JobFilter.update newJobMoreFilterMsg model.jobFilterModel
+                    in
+                    case jobMoreFilterMsg of
+                        ModalState ->
+                            ( { model | jobFilterModel = newJobFilterModel }, Cmd.none )
+
+                        SalaryMinValueState _ ->
+                            let
+                                newJobApiSalaryMinStateMsg =
+                                    JobApi.SalaryMinState
+                                        (floatToString newJobFilterModel.jobMoreFilterModel.salaryMinValue)
+
+                                ( newJobApiModel, _ ) =
+                                    JobApi.updateParameters newJobApiSalaryMinStateMsg model.jobApiParameters
+                            in
+                            ( { model
+                                | jobFilterModel = newJobFilterModel
+                                , jobApiParameters = newJobApiModel
+                              }
+                            , Cmd.none
+                            )
+
+                        SalaryMaxValueState _ ->
+                            let
+                                newJobApiSalaryMaxStateMsg =
+                                    JobApi.SalaryMaxState (floatToString newJobFilterModel.jobMoreFilterModel.salaryMaxValue)
+
+                                ( newJobApiModel, _ ) =
+                                    JobApi.updateParameters newJobApiSalaryMaxStateMsg model.jobApiParameters
+                            in
+                            ( { model
+                                | jobFilterModel = newJobFilterModel
+                                , jobApiParameters = newJobApiModel
+                              }
+                            , Cmd.none
+                            )
+
+                        FriendlyOfferState ->
+                            ( model, Cmd.none )
+
+                        ExperienceState _ ->
+                            let
+                                newJobApiExperienceStateMsg =
+                                    JobApi.ExperienceState newJobFilterModel.jobMoreFilterModel.experience
+
+                                ( newJobApiModel, _ ) =
+                                    JobApi.updateParameters newJobApiExperienceStateMsg model.jobApiParameters
+                            in
+                            ( { model
+                                | jobFilterModel = newJobFilterModel
+                                , jobApiParameters = newJobApiModel
+                              }
+                            , Cmd.none
+                            )
+
+                        EmploymentTypeState _ ->
+                            let
+                                newJobApiEmploymentTypeStateMsg =
+                                    JobApi.EmploymentTypeState newJobFilterModel.jobMoreFilterModel.employmentType
+
+                                ( newJobApiModel, _ ) =
+                                    JobApi.updateParameters newJobApiEmploymentTypeStateMsg model.jobApiParameters
+                            in
+                            ( { model
+                                | jobFilterModel = newJobFilterModel
+                                , jobApiParameters = newJobApiModel
+                              }
+                            , Cmd.none
+                            )
+
+                        TypeOfWorkState _ ->
+                            let
+                                newJobApiTypeOfWorkStateMsg =
+                                    JobApi.TypeOfWorkState newJobFilterModel.jobMoreFilterModel.typeOfWork
+
+                                ( newJobApiModel, _ ) =
+                                    JobApi.updateParameters newJobApiTypeOfWorkStateMsg model.jobApiParameters
+                            in
+                            ( { model
+                                | jobFilterModel = newJobFilterModel
+                                , jobApiParameters = newJobApiModel
+                              }
+                            , Cmd.none
+                            )
+
+                        ClearFilterState ->
+                            let
+                                newJobApiClearMoreFilterStateMsg =
+                                    JobApi.ClearMoreFilterState
+
+                                ( newJobApiModel, _ ) =
+                                    JobApi.updateParameters newJobApiClearMoreFilterStateMsg model.jobApiParameters
+                            in
+                            ( { model
+                                | jobFilterModel = newJobFilterModel
+                                , jobApiParameters = newJobApiModel
+                              }
+                            , Cmd.none
+                            )
+
+                        ShowOffers ->
+                            ( { model
+                                | jobFilterModel = newJobFilterModel
+                                , jobLoading = True
+                              }
+                            , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs model.jobApiParameters
+                            )
+
+                JobFilter.SelectMainTechnologyState jobSelectMainTechnologyStateMsg ->
+                    let
+                        newJobFilterSelectMainTechnologyStateMsg =
+                            JobFilter.SelectMainTechnologyState jobSelectMainTechnologyStateMsg
+
+                        ( newJobFilterModel, _ ) =
+                            JobFilter.update newJobFilterSelectMainTechnologyStateMsg model.jobFilterModel
+
+                        newJobApiClearMoreFilterStateMsg =
+                            JobApi.MainTechnologyState newJobFilterModel.selectedMainTechnology
+
+                        ( newJobApiModel, _ ) =
+                            JobApi.updateParameters newJobApiClearMoreFilterStateMsg model.jobApiParameters
+                    in
+                    ( { model
+                        | jobFilterModel = newJobFilterModel
+                        , jobApiParameters = newJobApiModel
+                        , jobLoading = True
+                      }
+                    , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newJobApiModel
+                    )
 
         JobApiGetJobRequestMsg msg_ ->
             case msg_ of

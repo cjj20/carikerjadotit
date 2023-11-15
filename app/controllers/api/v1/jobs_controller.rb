@@ -2,16 +2,42 @@ class Api::V1::JobsController < ApplicationController
   def index
     source = Job.all
 
-    if params[:location_type] && params[:location_type] != ""
-      source = source.where(
-              location_type: params[:location_type]
-            )
-    end
-
     if params[:search] && params[:search] != ""
       source = source.where(
-        "title ILIKE ? OR main_technology ILIKE ?", params[:search] + "%", params[:search] + "%"
+        "title ILIKE ? OR main_technology ILIKE ? OR job_description ILIKE ?",
+        params[:search] + "%", params[:search] + "%", params[:search] + "%"
       )
+    end
+
+    if params[:location] && params[:location] != ""
+      source = source.joins(:company).where("companies.country ILIKE ?", params[:location] + "%")
+    end
+
+    if params[:main_technology] && params[:main_technology] != ""
+      source = source.where(main_technology: params[:main_technology])
+    end
+
+    if params[:salary_min] && params[:salary_min] != "" && params[:salary_max] && params[:salary_max] != ""
+      source = source.where("salary_min >= ? AND salary_max <= ?", params[:salary_min].to_i, params[:salary_max].to_i)
+    end
+
+    if params[:experience] && params[:experience] != ""
+      array_experience = params[:experience].split(",")
+      source = source.where(experience_level: array_experience)
+    end
+
+    if params[:employment_type] && params[:employment_type] != ""
+      array_employment_type = params[:employment_type].split(",")
+      source = source.where(employment_type: array_employment_type)
+    end
+
+    if params[:type_of_work] && params[:type_of_work] != ""
+      array_type_of_work = params[:type_of_work].split(",")
+      source = source.where(type_of_work: array_type_of_work)
+    end
+
+    if params[:location_type] && params[:location_type] != ""
+      source = source.where(location_type: params[:location_type])
     end
 
     # all jobs, combined with salary and undisclosed salary
