@@ -160,14 +160,6 @@ view { jobSortDropDownModel, jobMoreFilterModel, selectedMainTechnology } =
                 , div [ class "hidden gap-x-4 md:col-span-2 md:flex md:justify-end" ]
                     [ div [ class "flex flex-row gap-x-4 no-scrollbar overflow-x-scroll p-2" ]
                         listMainTechnologyView
-
-                    --, div []
-                    --[
-                    --   div [ class "flex items-center h-10 w-10 justify-center hover:bg-slate-300 rounded-full hover:cursor-pointer" ]
-                    --   [
-                    --       i [ class "fa-solid fa-ellipsis text-slate-500" ] []
-                    --   ]
-                    --]
                     , div [ class "flex items-center" ]
                         [ a
                             [ class "cursor-pointer h-8 items-center no-underline outline outline-slate-200 px-4 rounded-3xl w-40 md:flex md:gap-x-2 md:h-10"
