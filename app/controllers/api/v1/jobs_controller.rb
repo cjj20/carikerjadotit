@@ -13,6 +13,10 @@ class Api::V1::JobsController < ApplicationController
       source = source.joins(:company).where("companies.country ILIKE ?", params[:location] + "%")
     end
 
+    if params[:main_technology] && params[:main_technology] != ""
+      source = source.where(main_technology: params[:main_technology])
+    end
+
     if params[:salary_min] && params[:salary_min] != "" && params[:salary_max] && params[:salary_max] != ""
       source = source.where("salary_min >= ? AND salary_max <= ?", params[:salary_min].to_i, params[:salary_max].to_i)
     end
