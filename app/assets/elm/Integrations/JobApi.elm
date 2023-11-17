@@ -7,6 +7,7 @@ import Components.JobMoreFilter
         , TypeOfWorkMsg
         )
 import Components.MainTechnology exposing (MainTechnology, emptyMainTechnology)
+import Helpers.Converter exposing (listStringToString)
 import Helpers.JobHelper
     exposing
         ( listEmploymentTypeMsgToString
@@ -37,7 +38,7 @@ type alias Parameters =
     , salary_is_undisclosed : String
     , sort_column : String
     , sort_direction : String
-    , title : String
+    , search : List String
     , salary_min : String
     , salary_max : String
     , experience : List ExperienceMsg
@@ -56,7 +57,7 @@ type ParametersMsg
     | MainTechnologyState MainTechnology
     | SalaryIsUndisclosedState String
     | SortState String String
-    | TitleState String
+    | SearchState (List String)
     | SalaryMinState String
     | SalaryMaxState String
     | ExperienceState (List ExperienceMsg)
@@ -82,7 +83,7 @@ initParameters =
     , salary_is_undisclosed = "false"
     , sort_column = "created_at"
     , sort_direction = "desc"
-    , title = ""
+    , search = []
     , salary_min = ""
     , salary_max = ""
     , experience = []
@@ -113,8 +114,8 @@ updateParameters parametersMsg parameters =
         SortState column direction ->
             ( { parameters | sort_column = column, sort_direction = direction }, Cmd.none )
 
-        TitleState msg_ ->
-            ( { parameters | title = msg_ }, Cmd.none )
+        SearchState msg_ ->
+            ( { parameters | search = msg_ }, Cmd.none )
 
         SalaryMinState msg_ ->
             ( { parameters | salary_min = msg_ }, Cmd.none )
@@ -161,8 +162,8 @@ parametersToString jobParameters =
         ++ jobParameters.sort_column
         ++ "&sort_direction="
         ++ jobParameters.sort_direction
-        ++ "&title="
-        ++ jobParameters.title
+        ++ "&search="
+        ++ listStringToString jobParameters.search
         ++ "&salary_min="
         ++ jobParameters.salary_min
         ++ "&salary_max="
