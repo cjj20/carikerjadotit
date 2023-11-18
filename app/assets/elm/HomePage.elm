@@ -417,7 +417,7 @@ update msg model =
                         SearchState ->
                             let
                                 newJobApiSearchStateMsg =
-                                    JobApi.SearchState newJobFilterModel.jobSearchModel.lastSearchList
+                                    JobApi.SearchState newJobFilterModel.jobSearchModel.listInputValue
 
                                 ( newJobApiModel, _ ) =
                                     JobApi.updateParameters newJobApiSearchStateMsg model.jobApiParameters
