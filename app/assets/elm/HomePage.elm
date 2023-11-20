@@ -3,6 +3,7 @@ module HomePage exposing (..)
 import Browser
 import Components.JobFilter as JobFilter
 import Components.JobMoreFilter exposing (Msg(..))
+import Components.JobSearch exposing (InputGroupStateMsg(..), Msg(..))
 import Components.JobSortDropDown as JobSortDropDown
 import Components.JobTab as JobTab exposing (Msg(..), RemoteToggleMsg(..), TabMsg(..))
 import Components.JobView as JobView
@@ -364,6 +365,71 @@ update msg model =
                     , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newJobApiModel
                     )
 
+                JobFilter.JobSearchUpdateMsg jobSearchMsg ->
+                    let
+                        newJobSearchMsg =
+                            JobFilter.JobSearchUpdateMsg jobSearchMsg
+
+                        ( newJobFilterModel, _ ) =
+                            JobFilter.update newJobSearchMsg model.jobFilterModel
+                    in
+                    case jobSearchMsg of
+                        InputGroupState _ ->
+                            ( { model | jobFilterModel = newJobFilterModel }, Cmd.none )
+
+                        InputFocusState _ _ ->
+                            ( { model | jobFilterModel = newJobFilterModel }, Cmd.none )
+
+                        ListInputValueState _ _ ->
+                            let
+                                newJobApiSearchStateMsg =
+                                    JobApi.SearchState newJobFilterModel.jobSearchModel.listInputValue
+
+                                ( newJobApiModel, _ ) =
+                                    JobApi.updateParameters newJobApiSearchStateMsg model.jobApiParameters
+
+                                jobCmdUpdate =
+                                    if newJobFilterModel.jobSearchModel.inputGroupState == Close then
+                                        ( { model
+                                            | jobFilterModel = newJobFilterModel
+                                            , jobApiParameters = newJobApiModel
+                                            , jobLoading = True
+                                          }
+                                        , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newJobApiModel
+                                        )
+
+                                    else
+                                        ( { model
+                                            | jobFilterModel = newJobFilterModel
+                                            , jobApiParameters = newJobApiModel
+                                          }
+                                        , Cmd.none
+                                        )
+                            in
+                            jobCmdUpdate
+
+                        LastSearchListState _ ->
+                            ( { model | jobFilterModel = newJobFilterModel }, Cmd.none )
+
+                        KeywordState _ ->
+                            ( { model | jobFilterModel = newJobFilterModel }, Cmd.none )
+
+                        SearchState ->
+                            let
+                                newJobApiSearchStateMsg =
+                                    JobApi.SearchState newJobFilterModel.jobSearchModel.listInputValue
+
+                                ( newJobApiModel, _ ) =
+                                    JobApi.updateParameters newJobApiSearchStateMsg model.jobApiParameters
+                            in
+                            ( { model
+                                | jobFilterModel = newJobFilterModel
+                                , jobApiParameters = newJobApiModel
+                                , jobLoading = True
+                              }
+                            , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newJobApiModel
+                            )
+
         JobApiGetJobRequestMsg msg_ ->
             case msg_ of
                 JobApi.GetJobRequest response ->
@@ -451,7 +517,7 @@ view { jobLoading, jobList, navbarModel, jobFilterModel, jobTabModel, jobAllTota
                     , div [ class "flex flex-col gap-y-1.5 px-4 pb-4" ] <| listJobView
                     ]
                 ]
-            , div [ class "hidden lg:block lg:h-[calc(100vh-170px)]" ]
+            , div [ class "hidden lg:block lg:h-[calc(100vh-145px)]" ]
                 [ OpenStreetMap.view
                 ]
             ]
