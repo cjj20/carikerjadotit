@@ -9,6 +9,13 @@ class Job < ApplicationRecord
   belongs_to :company
 
   def type_of_work
-    read_attribute(:type_of_work).titleize
+    read_attribute(:type_of_work).titleize if read_attribute(:type_of_work)
+  end
+
+  def is_new
+    date_created_at = Time.zone.parse(self.created_at.to_s).to_date
+    date_today = Date.today
+
+    date_created_at == date_today
   end
 end

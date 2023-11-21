@@ -1,0 +1,3704 @@
+[
+  {
+    "rank": 44,
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/f73hinlJTaipXjKti3YmnzuvGXZlwNsUhNYwlfg4.jpeg",
+      "entity_id": "465f30e4-6006-43ef-8d9a-83bf142b54b7",
+      "entity_slug": "uena-pujasera-online",
+      "id": "33646320-3d6b-4fe3-9ae5-bf35615f8f47",
+      "name": "UENA"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p>Where you will tackle some challenges, such as :<br></p>\n<p>- Develop expansion plan, including finding and surveying location for new stores<br>\n  - Lead the renovation project of the location, starting with the design, layout, until the outlet is Live and ready to serve the customers<br>\n  - Hiring and monitoring contractors and vendors to implement design ideas, such as Carpenters, Painters, Plumbers, Electricians, etc<br>\n  - Review &amp; monitor business / growth performance from each store to compare them with the feasibility study<br></p>\n<p>And many more exciting challenges !</p>\n<p><br></p>\n<p>Architecture or Interior Design background is preferred.</p>\n<p><br></p>",
+    "experience": "0-1",
+    "experience_max": 1,
+    "experience_min": 0,
+    "expires_at": "2023-12-23 08:17:33",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "067253cc-b6c2-4697-a4ac-39f8863ab469",
+    "industries": [
+      {
+        "id": "812dc684-b94c-4cc5-b8d6-0dfb280775d1",
+        "name": "Restaurants & Food",
+        "slug": "restaurants-food",
+        "vertical_name": "Food tech"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "32388560-b37a-4501-8709-48ff41ce66f1",
+        "name": "Architect"
+      },
+      {
+        "id": "56ba3fb4-4c0a-49a8-a298-981b3beb5b0c",
+        "name": "Industrial Design"
+      },
+      {
+        "id": "8cee9310-a380-4d4d-ac76-a612cdb49e81",
+        "name": "Business Development"
+      },
+      {
+        "id": "d4935978-c55a-4c42-a2fe-031f0b623897",
+        "name": "Design Management"
+      },
+      {
+        "id": "f7e57b0a-9a01-4663-8fed-1fa5309f6bf8",
+        "name": "Project Management"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "58fd4d82-53e3-474f-9834-12b9494f3872",
+      "name": "Project & Product Management"
+    },
+    "published_at": "2023-10-24 08:17:33",
+    "salary_avg": 5625000,
+    "salary_max": 6000000,
+    "salary_min": 5250000,
+    "starts_featuring_at": "2023-11-20 07:54:16",
+    "taxonomies": [],
+    "title": "Project Expansion & Fit Out",
+    "vacancy_count": 1,
+    "objectID": "067253cc-b6c2-4697-a4ac-39f8863ab469",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "UENA",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Restaurants & Food",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Food tech",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Architect",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Industrial Design",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Business Development",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Design Management",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Project Management",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Project & Product Management",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "5625000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "5250000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Project Expansion & Fit Out",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 46,
+    "city": {
+      "country_id": "4ae2ddb6-b648-4c95-8beb-e6c95820bf94",
+      "country_name": "Malaysia",
+      "id": "3aae8b15-8116-4732-afbf-d6184b85f12e",
+      "name": "Kuala Lumpur",
+      "work_country_name": "Malaysia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/0PcQp3ap003rjVECbVkSjrOQTd3lMA2pvc9tsj7E.png",
+      "entity_id": "39d6ab51-ee6e-4a3b-befa-0a32cf229711",
+      "entity_slug": "dealls",
+      "id": "a0459603-12a3-4b86-a665-59ad11e226e3",
+      "name": "Dealls"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p>🙌🏻 <strong>About Us</strong></p>\n<p>Technology Partner with Software Engineering Capabilities in mobile &amp; web application development to complete software packages </p>\n<p>💰<strong>Salary</strong></p>\n<p>Rp 30,000,000 - 49,000,000</p>\n<p>👑 <strong>Job Role</strong></p>\n<ul><li>Act as the customer / IT liaison during analysis, requirements definition, and design activities</li>\n  <li>Provide strategic advice for business processes and solutions and collaborate with product managers and business stakeholders to define and document business requirements</li>\n  <li>Collaborate with stakeholders during the visioning and concept development of a product</li>\n  <li>Team up with scrum team i.e. software engineers, architects, devops engineers to develop convincing solution alternatives</li>\n  <li>Technically and functionally sounds in making decisions based on business impact and with that prioritize the backlog</li>\n  <li>Able to create user stories for requirements, write technical requirements, and continuously groom the existing backlog</li>\n  <li>Run and coordinate alignments between across scrums teams for any sprint items dependencies and other 3rd party vendor team</li>\n  <li>Provide advice and direction on the product</li>\n  <li>Drive adoption of the products within the business community based on real user needs &amp; strategic direction</li>\n</ul>\n\n<p>⛩️ <strong>Requirements</strong></p>\n<p>Qualifications:</p>\n<ul><li>Bachelor's Degree in Computer Science, Computer Engineering, or related field</li>\n  <li>Minimum 3 years of experience as a season Business Analyst in a distributed Agile Software Development setting experience utilizing agile delivery processes and relevant tools</li>\n</ul>\n\n<p>Must have technical skills:</p>\n<ul><li>Strong conceptual understanding of API service architecture</li>\n  <li>Open API, Microservice Architecture, and general API-based and Web-based technologies</li>\n</ul>\n\n<p>Must have soft skills:</p>\n<ul><li>Ability to effectively communicate complicated concepts to a non-technical and technical audience in English (verbal and written)</li>\n  <li>Strong interpersonal skills with the ability to connect with global partners to build bonds, inspire, influence, and accomplish goals</li>\n  <li>Bring excellent analytical capabilities, self-responsibility, and customer orientation paired with an entrepreneurial, can-do attitude and a strong sense of product quality</li>\n</ul>\n\n<p><strong>🎁 Perks</strong></p>\n<ul><li>Competitive Salary</li>\n  <li>Medical Insurance</li>\n  <li>THR / Bonus system</li>\n</ul>",
+    "experience": "4-7",
+    "experience_max": 7,
+    "experience_min": 4,
+    "expires_at": "2024-01-19 05:57:15",
+    "external_link": "https://dealls.com/role/senior-it-business-analyst~1?utm_source=tia&utm_medium=post&utm_campaign=promote&utm_content=655733fe3a5e5500125a6795",
+    "has_equity": 0,
+    "id": "faaeb062-46ce-4700-82dd-35aa88827048",
+    "industries": [
+      {
+        "id": "59c59c23-ac91-4fa9-b718-2af3b09500fb",
+        "name": "Social Recruiting",
+        "slug": "social-recruiting-2",
+        "vertical_name": "Professional services"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "700070fe-b981-4cc4-bc64-2a03af127fdf",
+        "name": "Business Analysis"
+      },
+      {
+        "id": "be093972-74ff-455e-99be-92ff15ca14ef",
+        "name": "APIs"
+      },
+      {
+        "id": "db83f508-bc81-4353-ba83-355aa012643d",
+        "name": "English Language"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "8f7f42f6-34c6-4dbe-a571-a0489d500bc0",
+      "name": "Sales & Business Development"
+    },
+    "published_at": "2023-11-20 05:57:15",
+    "salary_avg": 39500000,
+    "salary_max": 49000000,
+    "salary_min": 30000000,
+    "starts_featuring_at": "2023-11-20 06:00:36",
+    "taxonomies": [],
+    "title": "Senior IT Business Analyst (Develab)",
+    "vacancy_count": 2,
+    "objectID": "faaeb062-46ce-4700-82dd-35aa88827048",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Kuala Lumpur",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Malaysia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Dealls",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Social Recruiting",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Professional services",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Business Analysis",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "APIs",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "English Language",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Sales & Business Development",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "39500000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "30000000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Senior IT Business Analyst (Develab)",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 4,
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/Y7yWDVRwavmBow2xD8Su7Gy3a9oYDWBcSRMvJVsK.jpeg",
+      "entity_id": "5f86bf6f-4d1a-4893-bc68-8207bba7b453",
+      "entity_slug": "deliveree-on-demand-logistics-southeast-asia",
+      "id": "0576c940-ef68-4525-af5c-2ba3642b08bd",
+      "name": "Deliveree On-Demand Logistics (Southeast Asia)"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><em>If you just click apply, you will not receive a response. You must follow the instructions below under 'how to apply' for our team to review and respond to your application. Complete and qualified applications receive a response within 24 hours.</em></p>\n<p><strong>SUMMARY OF OPPORTUNITY</strong></p>\n<ul><li>Position: Young Professionals Fast Track</li>\n  <li>Location: Jakarta, Surabaya, Bandung, Semarang, Yogyakarta, Medan, or Lampung</li>\n</ul>\n\n<p>Deliveree is seeking ambitious, hard working, and career-focused candidates with 6-24 months of full-time prior working experience (contract work is acceptable). All types of working experience are welcome to apply. We accept candidates with any kind of work experience and in any kind of company. </p>\n<p>To qualify, you must have a strong interest in business or operations in a logistics technology environment. You must be willing to work very hard in a fast moving, accelerated environment with your career development as your top priority. </p>\n<p>When you interview with us, you will be considered for assignment in several possible departments including: enterprise sales, digital marketing, operational excellence, supply chain management, booking operations, fleet training, fleet recruiting, telemarketing, finance, human resources, and administration.</p>\n<p>You are encouraged to rotate to new departments once you have mastered your current assignment (this usually takes 2 years). While we expect you to be mobile and able to travel, your home base will be either our Jakarta HQ or satellite offices in Surabaya, Bandung, Semarang, Yogyakarta, Medan, or Lampung.</p>\n<p>If this description excites you, please read our qualification requirements below and then follow the instructions carefully under HOW TO APPLY.</p>\n<p><strong>QUALIFICATIONS</strong></p>\n<ul><li>Undergraduate GPA 3.0 or higher</li>\n  <li>6-24 months of full-time work experience (contract work is acceptable)</li>\n  <li>Excellent English skills</li>\n  <li>Excellent speaking and writing skills</li>\n  <li>Self-motivated, independent, and hard-working</li>\n  <li>Strong reasoning, logic, and analysis skills</li>\n</ul>\n\n<p><strong>BENEFITS</strong></p>\n<ul><li>Competitive monthly salary</li>\n  <li>Merit-based promotions</li>\n  <li>Full private healthcare coverage</li>\n  <li>Annual paid leave</li>\n  <li>13th-month bonus</li>\n  <li>Daily lunch allowance</li>\n  <li>Monthly mobile data allowance</li>\n  <li>Remote working for 6 weeks every year. Available during Ramadan and Christmas</li>\n</ul>\n\n<p><strong>HOW TO APPLY</strong></p>\n<p><strong>Submit</strong> the below items <strong>via email</strong> to <a href=\"mailto:christine@deliveree.com\"><u><strong>christine@deliveree.com</strong></u></a> - If you submit all the required materials and your qualifications fit our search, you will hear back from us within 24 hours.</p>\n<ol><li>Brief cover email</li>\n  <li>PDF resume</li>\n  <li>Completed pre-interview form</li>\n  <li>University grades or transcript</li>\n</ol>\n\n<p>Download Pre-Interview Form: <a href=\"https://dlvr.ee/YoungProfessionals\">https://dlvr.ee/YoungProfessionals</a></p>\n<p><strong>DELIVEREE NEWS</strong></p>\n<ul><li><a href=\"https://techcrunch.com/2022/06/26/deliveree-is-smoothing-southeast-asias-bumpy-logistics-landscape/\"><u>https://techcrunch.com/2022/06/26/deliveree-is-smoothing-southeast-asias-bumpy-logistics-landscape/</u></a> </li>\n  <li><a href=\"https://money.kompas.com/read/2022/06/27/103000726/deliveree-dapat-pendanaan-seri-c-senilai-70-juta-dollar-as-untuk-perkuat?page=all#page2\"><u>https://money.kompas.com/read/2022/06/27/103000726/deliveree-dapat-pendanaan-seri-c-senilai-70-juta-dollar-as-untuk-perkuat?page=all#page2</u></a> </li>\n  <li><a href=\"https://id.techinasia.com/deliveree-pendanaan-seri-c\"><u>https://id.techinasia.com/deliveree-pendanaan-seri-c</u></a> </li>\n  <li><a href=\"https://www.republika.co.id/berita/re4gns457/deliveree-raih-pendanaan-seri-c-senilai-rp-1-02-triliun\"><u>https://www.republika.co.id/berita/re4gns457/deliveree-raih-pendanaan-seri-c-senilai-rp-1-02-triliun</u></a> </li>\n  <li><a href=\"https://www.beritasatu.com/ekonomi/944497/wow-deliveree-raih-pendanaan-seri-c-senilai-us-70-juta\"><u>https://www.beritasatu.com/ekonomi/944497/wow-deliveree-raih-pendanaan-seri-c-senilai-us-70-juta</u></a> </li>\n</ul>\n\n<p><strong>DELIVEREE LINKS</strong></p>\n<ul><li><a href=\"https://www.deliveree.com/logistics-investment-summary/\"><u>https://www.deliveree.com/logistics-investment-summary/</u></a> </li>\n  <li><a href=\"https://www.linkedin.com/company/deliveree-on-demand-logistics-southeast-asia/\"><u>https://www.linkedin.com/company/deliveree-on-demand-logistics-southeast-asia/</u></a> </li>\n  <li><a href=\"https://www.crunchbase.com/organization/deliveree\"><u>https://www.crunchbase.com/organization/deliveree</u></a> </li>\n</ul>\n\n<p><strong>DELIVEREE OFFICE TOUR</strong></p>\n<ul><li><u>h</u><a href=\"https://www.youtube.com/watch?v=giz5WrjkRO0\"><u>ttps://www.youtube.com/watch?v=giz5WrjkRO0 </u></a></li>\n</ul>",
+    "experience": "1-4",
+    "experience_max": 4,
+    "experience_min": 1,
+    "expires_at": "2023-11-21 06:51:05",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "e759a0f3-a191-47da-8123-8e2e72634ebc",
+    "industries": [
+      {
+        "id": "7fea165a-40cd-4513-93ff-e38afc256a41",
+        "name": "Logistics",
+        "slug": "logistics-2",
+        "vertical_name": "Logistics & transportation"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "04712876-6722-4d28-b857-8f39ef064379",
+        "name": "Business Development & Partnerships"
+      },
+      {
+        "id": "700070fe-b981-4cc4-bc64-2a03af127fdf",
+        "name": "Business Analysis"
+      },
+      {
+        "id": "87c6b2bf-f4cc-436c-b2e1-7328b1050e9b",
+        "name": "Digital Marketing"
+      },
+      {
+        "id": "8cee9310-a380-4d4d-ac76-a612cdb49e81",
+        "name": "Business Development"
+      },
+      {
+        "id": "d8f72567-4cec-4afb-a353-7441b0182787",
+        "name": "Marketing"
+      },
+      {
+        "id": "f22d04b4-23d6-42fd-b0ad-255a491b08f3",
+        "name": "Marketing Communications"
+      },
+      {
+        "id": "f6ce96f7-3b51-4867-bab4-5a50aabc4a8c",
+        "name": "Sales & Marketing"
+      },
+      {
+        "id": "f7e57b0a-9a01-4663-8fed-1fa5309f6bf8",
+        "name": "Project Management"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "8841e5d1-af18-47a8-9eb6-ecbd12863b87",
+      "name": "Logistics & Operations"
+    },
+    "published_at": "2023-09-22 06:51:05",
+    "salary_avg": 7500000,
+    "salary_max": 9000000,
+    "salary_min": 6000000,
+    "starts_featuring_at": "2023-11-20 03:47:55",
+    "taxonomies": [],
+    "title": "Young Professionals Fast Track",
+    "vacancy_count": 5,
+    "objectID": "e759a0f3-a191-47da-8123-8e2e72634ebc",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Deliveree On-Demand Logistics (Southeast Asia)",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Logistics",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Logistics & transportation",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Business Development & Partnerships",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Business Analysis",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Digital Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Business Development",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Marketing Communications",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Sales & Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Project Management",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Logistics & Operations",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "7500000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "6000000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Young Professionals Fast Track",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/Tkm3jNCHpipmj6WOV3czUBu67WiPPlYIlRSWcMky.png",
+      "entity_id": "b271ae2d-e055-4d94-a157-68780a8d16bc",
+      "entity_slug": "deliveree-indonesia",
+      "id": "fb13630d-196e-42f1-91b7-380883b1c953",
+      "name": "Deliveree Indonesia"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><em>If you just click apply, you will not receive a response. You must follow the instructions below under 'how to apply' for our team to review and respond to your application. Complete and qualified applications receive a response within 24 hours.</em></p>\n<p><strong>SUMMARY OF OPPORTUNITY</strong></p>\n<ul><li>Rank: Associate/Senior Associate</li>\n  <li>Department: Digital Marketing</li>\n  <li>Reporting: Head of Marketing</li>\n  <li>Location: Kemang, South Jakarta</li>\n  <li>Experience: 1-3 years experience</li>\n</ul>\n\n<p><strong>JOB DESCRIPTION</strong></p>\n<p>Deliveree is a fast moving, rapidly growing, and very successful logistics technology company that is changing the cargo and trucking industry in Indonesia to reduce waste, grow the economy, create jobs, and make Indonesia more competitive.</p>\n<p>We are currently seeking a seasoned Senior Digital Marketing Associate with specialized experience in digital marketing, social media management, and engagement campaigns. If you have 1-3 years of full-time working experience, a passion for driving impactful digital marketing initiatives, and willingness to work very hard in a fast-moving &amp; accelerated environment with your career development as your top priority, we want to hear from you.</p>\n<p>As a Digital Marketing Associate, you will play a crucial role in shaping and implementing our digital marketing strategies across platforms and social media. You will also be in charge of our conversion and retargeting funnels. </p>\n<p>If this description excites you, please read our qualification requirements below and then follow the instructions carefully under <strong>HOW TO APPLY</strong>.</p>\n<p><strong>QUALIFICATIONS</strong></p>\n<ul><li>Bachelor’s degree in any major with a minimum CGPA of 3.00/4.00.</li>\n  <li>1-3 years of full-time working experience in launching, executing and reporting digital ad funnels.</li>\n  <li>Experience with marketing technology implementation such as events tracker, pixel implementation &amp; Google Tags Manager</li>\n  <li>Basic understanding of different marketing attribution models (last-click, first interaction etc), marketing funnel and customer journey stages</li>\n  <li>Strong analytical skills with the ability to derive actionable insights from data.</li>\n  <li>Attention to detail</li>\n  <li>Exceptional written and verbal communication skills.</li>\n  <li>Ability to thrive in a fast-paced, collaborative work environment.</li>\n</ul>\n\n<p><strong>BENEFITS</strong></p>\n<ul><li>Competitive monthly salary</li>\n  <li>Merit-based promotions</li>\n  <li>Full private healthcare coverage</li>\n  <li>Annual paid leave</li>\n  <li>13th-month bonus</li>\n  <li>Daily lunch allowance</li>\n  <li>Monthly mobile data allowance</li>\n  <li>Remote working for 6 weeks every year. Available during Ramadan and Christmas</li>\n</ul>\n\n<p><strong>HOW TO APPLY</strong></p>\n<p><strong>Submit</strong> the below items <strong>via email</strong> to <a href=\"mailto:christine@deliveree.com\"><u><strong>christine@deliveree.com</strong></u></a> - If you submit all the required materials and your qualifications fit our search, you will hear back from us within 24 hours.</p>\n<ol><li>Brief cover email</li>\n  <li>PDF resume</li>\n  <li>Completed pre-interview form</li>\n  <li>University grades or transcript</li>\n</ol>\n\n<p>Download Pre-Interview Form: <a href=\"https://dlvr.ee/YoungProfessionals\"><u>https://dlvr.ee/YoungProfessional</u></a><u>s</u></p>\n<p><strong>DELIVEREE NEWS</strong></p>\n<ul><li><a href=\"https://techcrunch.com/2022/06/26/deliveree-is-smoothing-southeast-asias-bumpy-logistics-landscape/\"><u>https://techcrunch.com/2022/06/26/deliveree-is-smoothing-southeast-asias-bumpy-logistics-landscape/</u></a> </li>\n  <li><a href=\"https://money.kompas.com/read/2022/06/27/103000726/deliveree-dapat-pendanaan-seri-c-senilai-70-juta-dollar-as-untuk-perkuat?page=all#page2\"><u>https://money.kompas.com/read/2022/06/27/103000726/deliveree-dapat-pendanaan-seri-c-senilai-70-juta-dollar-as-untuk-perkuat?page=all#page2</u></a> </li>\n  <li><a href=\"https://id.techinasia.com/deliveree-pendanaan-seri-c\"><u>https://id.techinasia.com/deliveree-pendanaan-seri-c</u></a> </li>\n  <li><a href=\"https://www.republika.co.id/berita/re4gns457/deliveree-raih-pendanaan-seri-c-senilai-rp-1-02-triliun\"><u>https://www.republika.co.id/berita/re4gns457/deliveree-raih-pendanaan-seri-c-senilai-rp-1-02-triliun</u></a> </li>\n  <li><a href=\"https://www.beritasatu.com/ekonomi/944497/wow-deliveree-raih-pendanaan-seri-c-senilai-us-70-juta\"><u>https://www.beritasatu.com/ekonomi/944497/wow-deliveree-raih-pendanaan-seri-c-senilai-us-70-juta</u></a> </li>\n</ul>\n\n<p><strong>DELIVEREE LINKS</strong></p>\n<ul><li><a href=\"https://www.deliveree.com/logistics-investment-summary/\"><u>https://www.deliveree.com/logistics-investment-summary/</u></a> </li>\n  <li><a href=\"https://www.linkedin.com/company/deliveree-on-demand-logistics-southeast-asia/\"><u>https://www.linkedin.com/company/deliveree-on-demand-logistics-southeast-asia/</u></a> </li>\n  <li><a href=\"https://www.crunchbase.com/organization/deliveree\"><u>https://www.crunchbase.com/organization/deliveree</u></a> </li>\n</ul>\n\n<p><strong>DELIVEREE OFFICE TOUR</strong></p>\n<ul><li><u>ht</u><a href=\"https://www.youtube.com/watch?v=giz5WrjkRO0\"><u>tps://www.youtube.com/watch?v=giz5WrjkRO0 </u></a></li>\n</ul>",
+    "experience": "1-4",
+    "experience_max": 4,
+    "experience_min": 1,
+    "expires_at": "2023-12-26 12:14:31",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "fdc17419-774f-425d-a974-ceeb54146c2e",
+    "industries": [
+      {
+        "id": "7fea165a-40cd-4513-93ff-e38afc256a41",
+        "name": "Logistics",
+        "slug": "logistics-2",
+        "vertical_name": "Logistics & transportation"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "43ef7615-cdee-4a97-9777-a4707cd68e82",
+        "name": "Event Planning"
+      },
+      {
+        "id": "44e1e9ac-25c3-4dfa-b415-544c145e1855",
+        "name": "Google Adwords"
+      },
+      {
+        "id": "662ac90f-6638-4552-ac0d-ab99f334a3bd",
+        "name": "Analytics & Reporting"
+      },
+      {
+        "id": "87c6b2bf-f4cc-436c-b2e1-7328b1050e9b",
+        "name": "Digital Marketing"
+      },
+      {
+        "id": "bc337481-0aee-4073-8eb7-3535d9441da4",
+        "name": "Google Analytics"
+      },
+      {
+        "id": "c93e386c-260a-41e1-aacb-b4772ffe54b5",
+        "name": "Communication Skills"
+      },
+      {
+        "id": "d8f72567-4cec-4afb-a353-7441b0182787",
+        "name": "Marketing"
+      },
+      {
+        "id": "f7e57b0a-9a01-4663-8fed-1fa5309f6bf8",
+        "name": "Project Management"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "8ba29919-9179-4981-8570-ab185d14f915",
+      "name": "Marketing & PR"
+    },
+    "published_at": "2023-10-27 12:14:31",
+    "salary_avg": 0,
+    "salary_max": 0,
+    "salary_min": 0,
+    "starts_featuring_at": "2023-11-20 03:47:38",
+    "taxonomies": [],
+    "title": "Digital Marketing Senior Associate",
+    "vacancy_count": 4,
+    "objectID": "fdc17419-774f-425d-a974-ceeb54146c2e",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Deliveree Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Logistics",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Logistics & transportation",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Event Planning",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Google Adwords",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Analytics & Reporting",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Digital Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Google Analytics",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Communication Skills",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Project Management",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Marketing & PR",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Digital Marketing Senior Associate",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/Tkm3jNCHpipmj6WOV3czUBu67WiPPlYIlRSWcMky.png",
+      "entity_id": "b271ae2d-e055-4d94-a157-68780a8d16bc",
+      "entity_slug": "deliveree-indonesia",
+      "id": "fb13630d-196e-42f1-91b7-380883b1c953",
+      "name": "Deliveree Indonesia"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><em>If you just click apply, you will not receive a response. You must follow the instructions below under 'how to apply' for our team to review and respond to your application. Complete and qualified applications receive a response within 24 hours.</em></p>\n<p><strong>SUMMARY OF OPPORTUNITY</strong></p>\n<ul><li>Position: Fresh Graduate Management Training Program</li>\n  <li>Location: Jakarta, Surabaya, Bandung, Semarang, Yogyakarta, Medan, Lampung, or Batam</li>\n</ul>\n\n<p>Deliveree is seeking ambitious, hard working, and career-focused candidates who have recently received their undergraduate degree from a recognized university in Indonesia or abroad. All majors are welcome to apply. </p>\n<p>To qualify, you must have a strong interest in business or operations in a logistics technology environment. You must be willing to work very hard in a fast moving, accelerated environment with your career development as your top priority. </p>\n<p>When you interview with us, you will be considered for assignment in several possible departments including: enterprise sales, digital marketing, operational excellence, supply chain management, booking operations, fleet training, fleet recruiting, telemarketing, finance, human resources, and administration.</p>\n<p>You are encouraged to rotate to new departments once you have mastered your current assignment (this usually takes 2 years). While we expect you to be mobile and able to travel, your home base will be either our Jakarta HQ or satellite offices in Surabaya, Bandung, Semarang, Yogyakarta, Medan, Lampung, or Batam.</p>\n<p>If this description excites you, please read our qualification requirements below and then follow the instructions carefully under HOW TO APPLY.</p>\n<p><strong>QUALIFICATIONS</strong></p>\n<ul><li>Undergraduate GPA 3.0 or higher</li>\n  <li>Fresh graduates or candidates with 1-2 years of experience are welcome to apply</li>\n  <li>Excellent English skills</li>\n  <li>Excellent speaking and writing skills</li>\n  <li>Self-motivated, independent, and hard-working</li>\n  <li>Strong reasoning, logic, and analysis skills</li>\n</ul>\n\n<p><strong>BENEFITS</strong></p>\n<ul><li>Competitive monthly salary</li>\n  <li>Merit-based promotions</li>\n  <li>Full private healthcare coverage</li>\n  <li>Annual paid leave</li>\n  <li>13th-month bonus</li>\n  <li>Daily lunch allowance</li>\n  <li>Monthly mobile data allowance</li>\n  <li>Remote working for 6 weeks every year. Available during Ramadan and Christmas</li>\n</ul>\n\n<p><strong>HOW TO APPLY</strong></p>\n<p><strong>Submit</strong> the below items <strong>via email</strong> to <a href=\"mailto:christine@deliveree.com\"><u><strong>christine@deliveree.com</strong></u></a> - If you submit all the required materials and your qualifications fit our search, you will hear back from us within 24 hours.</p>\n<ol><li>Brief cover email</li>\n  <li>PDF resume</li>\n  <li>Completed pre-interview form</li>\n  <li>University grades or transcript</li>\n</ol>\n\n<p>Download Pre-Interview Form: <a href=\"https://dlvr.ee/2xiE0v4\">https://dlvr.ee/2xiE0v4</a></p>\n<p><strong>DELIVEREE NEWS</strong></p>\n<ul><li><a href=\"https://techcrunch.com/2022/06/26/deliveree-is-smoothing-southeast-asias-bumpy-logistics-landscape/\"><u>https://techcrunch.com/2022/06/26/deliveree-is-smoothing-southeast-asias-bumpy-logistics-landscape/</u></a> </li>\n  <li><a href=\"https://money.kompas.com/read/2022/06/27/103000726/deliveree-dapat-pendanaan-seri-c-senilai-70-juta-dollar-as-untuk-perkuat?page=all#page2\"><u>https://money.kompas.com/read/2022/06/27/103000726/deliveree-dapat-pendanaan-seri-c-senilai-70-juta-dollar-as-untuk-perkuat?page=all#page2</u></a> </li>\n  <li><a href=\"https://id.techinasia.com/deliveree-pendanaan-seri-c\"><u>https://id.techinasia.com/deliveree-pendanaan-seri-c</u></a> </li>\n  <li><a href=\"https://www.republika.co.id/berita/re4gns457/deliveree-raih-pendanaan-seri-c-senilai-rp-1-02-triliun\"><u>https://www.republika.co.id/berita/re4gns457/deliveree-raih-pendanaan-seri-c-senilai-rp-1-02-triliun</u></a> </li>\n  <li><a href=\"https://www.beritasatu.com/ekonomi/944497/wow-deliveree-raih-pendanaan-seri-c-senilai-us-70-juta\"><u>https://www.beritasatu.com/ekonomi/944497/wow-deliveree-raih-pendanaan-seri-c-senilai-us-70-juta</u></a> </li>\n</ul>\n\n<p><strong>DELIVEREE LINKS</strong></p>\n<ul><li><a href=\"https://www.deliveree.com/logistics-investment-summary/\"><u>https://www.deliveree.com/logistics-investment-summary/</u></a> </li>\n  <li><a href=\"https://www.linkedin.com/company/deliveree-on-demand-logistics-southeast-asia/\"><u>https://www.linkedin.com/company/deliveree-on-demand-logistics-southeast-asia/</u></a> </li>\n  <li><a href=\"https://www.crunchbase.com/organization/deliveree\"><u>https://www.crunchbase.com/organization/deliveree</u></a> </li>\n</ul>\n\n<p><strong>DELIVEREE OFFICE TOUR</strong></p>\n<ul><li><u>h</u><a href=\"https://www.youtube.com/watch?v=giz5WrjkRO0\"><u>ttps://www.youtube.com/watch?v=giz5WrjkRO0 </u></a></li>\n</ul>",
+    "experience": "0-1",
+    "experience_max": 1,
+    "experience_min": 0,
+    "expires_at": "2023-12-26 03:55:45",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "a1f1123f-7367-4216-a26c-9ceac6b527c5",
+    "industries": [
+      {
+        "id": "7fea165a-40cd-4513-93ff-e38afc256a41",
+        "name": "Logistics",
+        "slug": "logistics-2",
+        "vertical_name": "Logistics & transportation"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "09ccd708-9e8e-4f09-be86-d4dccc45335e",
+        "name": "Business Operations"
+      },
+      {
+        "id": "87c6b2bf-f4cc-436c-b2e1-7328b1050e9b",
+        "name": "Digital Marketing"
+      },
+      {
+        "id": "8cee9310-a380-4d4d-ac76-a612cdb49e81",
+        "name": "Business Development"
+      },
+      {
+        "id": "f6ce96f7-3b51-4867-bab4-5a50aabc4a8c",
+        "name": "Sales & Marketing"
+      },
+      {
+        "id": "f7e57b0a-9a01-4663-8fed-1fa5309f6bf8",
+        "name": "Project Management"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "8841e5d1-af18-47a8-9eb6-ecbd12863b87",
+      "name": "Logistics & Operations"
+    },
+    "published_at": "2023-10-27 03:55:45",
+    "salary_avg": 5125000,
+    "salary_max": 5250000,
+    "salary_min": 5000000,
+    "starts_featuring_at": "2023-11-20 03:47:32",
+    "taxonomies": [],
+    "title": "Fresh Graduate Management Training Program",
+    "vacancy_count": 5,
+    "objectID": "a1f1123f-7367-4216-a26c-9ceac6b527c5",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Deliveree Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Logistics",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Logistics & transportation",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Business Operations",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Digital Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Business Development",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Sales & Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Project Management",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Logistics & Operations",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "5125000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "5000000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Fresh Graduate Management Training Program",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 2,
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/85bb60b4eb6dfd710cc8f67cba28bc32.jpg",
+      "entity_id": "8ffd0f2f-2f98-4202-ad30-128a4618eb85",
+      "entity_slug": "female-daily-network",
+      "id": "4fd344e7-0fe8-43c7-b6fc-73c4e2feb9af",
+      "name": "Female Daily Network"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p>IT Infrastructure &amp; Security Lead is responsible for the implementation and operations of all technology infrastructures which includes data center, network and server services, telephony, service monitoring, user support/help desk, workstation management, servers, storage, and related software. This position is operationally responsible for ensuring the availability, integrity, and security of all IT systems and infrastructure. </p>\n<p><strong>Job Descriptions :</strong></p>\n<p><br></p>\n<ul><li>Planning, project management and implementation leadership, identifying opportunities for automation, cost savings, and service quality improvement.  </li>\n  <li>Provides infrastructure services vision, enables innovation and seeks to leverage IT trends that can create business value consistent with the company’s requirements and expectations.  </li>\n  <li>Development of enterprise standards and technology architecture and the IT operations governance process.  </li>\n  <li>Conduct product and vendor evaluations ensuring best in class technologies and partners</li>\n  <li>Securing applications created and used by companies, by conducting analysis, testing, and providing improvement feedback to developers, related to security in applications used by companies</li>\n  <li>Ensure security against all attack surfaces related to applications created and used by the company</li>\n</ul>\n\n<p><strong>Requirements :</strong></p>\n<p><br></p>\n<ul><li>Have experience as a team lead for at least 3-5 years</li>\n  <li>Experience of leading overall infrastructure for a complex organization and network, VLAN setup for regulatory requirements, managing data protection, etc.  </li>\n  <li>Working knowledge of ERP Infrastructure</li>\n  <li>Working knowledge of Storage Area Network (SAN) and related technologies, network communications technology, High availability and disaster recovery architecture, communication and related technologies</li>\n  <li>Exposure to ITIL concepts and adoption.  </li>\n  <li>Experience with regulatory compliance issues, as well best practices in application and network security.</li>\n  <li>Experience in all technical aspects of Network Security Engineering</li>\n  <li>Understand and have knowledge of cloud infrastructures (AWS, Alibaba, Azure, or GCP)</li>\n  <li>Understand and have knowledge of on-premise infrastructures</li>\n  <li>Experience in technical aspects of Cloud Security</li>\n  <li>Preferable having cloud certification</li>\n  <li>Must have at least 3 security system certificates</li>\n  <li>Must have at least 5 vulnerability report certificates from companies that have been acknowledged for their reporting<br>\n </li>\n</ul>\n\n<p><br></p>",
+    "experience": "4-7",
+    "experience_max": 7,
+    "experience_min": 4,
+    "expires_at": "2024-01-19 03:36:28",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "9e1021ae-3574-442d-9c90-891afcb14789",
+    "industries": [
+      {
+        "id": "a5271ccb-1702-48f2-baaf-160f8213e47d",
+        "name": "Communities",
+        "slug": "communities",
+        "vertical_name": "Social networking & communication"
+      },
+      {
+        "id": "d1876c3f-03b7-46ae-9991-229e0ff1cd42",
+        "name": "Reviews & Recommendations",
+        "slug": "reviews-and-recommendations",
+        "vertical_name": "Search & discovery"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "3507d0cd-2b31-414b-9880-bf562cd5df62",
+        "name": "Information Security"
+      },
+      {
+        "id": "92a44b78-23c5-4cdb-87cf-8cf3bfe6e61f",
+        "name": "Enterprise Software"
+      },
+      {
+        "id": "ea786a99-729c-4899-b72a-b9cc9f08de93",
+        "name": "Network Security"
+      },
+      {
+        "id": "eca8d368-4b12-4489-93c8-5fbccde654b3",
+        "name": "Cloud Computing"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "d3036aeb-fffd-11e6-92bf-06a2e72c5bb9",
+      "name": "DevOps & Cloud Management"
+    },
+    "published_at": "2023-11-20 03:36:28",
+    "salary_avg": 0,
+    "salary_max": 0,
+    "salary_min": 0,
+    "starts_featuring_at": "2023-11-20 03:36:51",
+    "taxonomies": [],
+    "title": "Lead IT Infrastructure & Security",
+    "vacancy_count": 1,
+    "objectID": "9e1021ae-3574-442d-9c90-891afcb14789",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Female Daily Network",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Communities",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Social networking & communication",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Reviews & Recommendations",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Search & discovery",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Information Security",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Enterprise Software",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Network Security",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Cloud Computing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "DevOps & Cloud Management",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Lead IT Infrastructure & Security",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 11,
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/85bb60b4eb6dfd710cc8f67cba28bc32.jpg",
+      "entity_id": "8ffd0f2f-2f98-4202-ad30-128a4618eb85",
+      "entity_slug": "female-daily-network",
+      "id": "4fd344e7-0fe8-43c7-b6fc-73c4e2feb9af",
+      "name": "Female Daily Network"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><strong>Job Description</strong></p>\n<ul><li>Build and scale API and data processing services for our map, search, and navigation products</li>\n  <li>Build a backend system for our Female Daily Network Apps</li>\n  <li>Work with Node.js and Go Lang</li>\n</ul>\n\n<p><strong>Requirements</strong></p>\n<ul><li>A degree in computer science, software engineering, information technology or related fields.</li>\n  <li>Familiarity with data structures, storage systems, cloud infrastructure, back-end frameworks, front-end frameworks, and other technical tools.</li>\n  <li>Understanding of how technical decisions impact the user of what you’re building.</li>\n  <li>Proficiency with programming languages such as Typescript, JavaScript, Golang or similar languages. You are a strong coder—regardless of which language you use or how you learned it, we’re looking for people who can write clean, effective code.</li>\n  <li>Ability to work effectively in teams of technical and non-technical individuals. You enjoy collaboration with others—our work isn’t carried out in a vacuum, and everyone contributes to get the job done.</li>\n  <li>Experiencing in project-based web and mobile apps development is a plus</li>\n</ul>\n\n<p><br></p>",
+    "experience": "1-4",
+    "experience_max": 4,
+    "experience_min": 1,
+    "expires_at": "2024-01-13 01:11:25",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "17b6f434-f1eb-4b5e-b948-feda53b2b20c",
+    "industries": [
+      {
+        "id": "a5271ccb-1702-48f2-baaf-160f8213e47d",
+        "name": "Communities",
+        "slug": "communities",
+        "vertical_name": "Social networking & communication"
+      },
+      {
+        "id": "d1876c3f-03b7-46ae-9991-229e0ff1cd42",
+        "name": "Reviews & Recommendations",
+        "slug": "reviews-and-recommendations",
+        "vertical_name": "Search & discovery"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "2a4e9b28-dae5-461f-8678-adf2384a1abf",
+        "name": "Javascript"
+      },
+      {
+        "id": "70e6c52c-07ea-4179-94ab-3b57413a091c",
+        "name": "Golang"
+      },
+      {
+        "id": "c3f77bd8-340b-4f27-bdbb-26c16c764bfe",
+        "name": "Node.js"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "52698ef2-bfb6-4f8b-9eb0-fc2404f84ddd",
+      "name": "Web Development"
+    },
+    "published_at": "2023-11-14 01:11:25",
+    "salary_avg": 0,
+    "salary_max": 0,
+    "salary_min": 0,
+    "starts_featuring_at": "2023-11-20 03:30:51",
+    "taxonomies": [],
+    "title": "Back End Developer ",
+    "vacancy_count": 1,
+    "objectID": "17b6f434-f1eb-4b5e-b948-feda53b2b20c",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Female Daily Network",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Communities",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Social networking & communication",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Reviews & Recommendations",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Search & discovery",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Javascript",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Golang",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Node.js",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Web Development",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Back End Developer ",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 43,
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Remote"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/EtNarydey8ecZbB7alcB8CPOZjbk2FVDo5KlTDjq.png",
+      "entity_id": "47d98c8b-1933-4415-9c15-7367d4063250",
+      "entity_slug": "lion-parcel-1",
+      "id": "21603bf2-7c2e-4c47-8516-bd2a872b22de",
+      "name": "Lion Parcel"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><strong>Job Descriptions:</strong></p>\n<ul><li>Building reusable code and libraries for future use.</li>\n  <li>Creating technical requirement documentation and fixing code quality.</li>\n  <li>Ensuring technical feasibility of PRD and UI/UX design.</li>\n  <li>Estimating the story points needed and the timeline </li>\n  <li>Optimizing applications for maximum speed and scalability.</li>\n  <li>Continuously improving the efficiency, scalability, and reliability of our systems.</li>\n  <li>Reviewing and enforcing security best practices for all internal and external services.</li>\n  <li>Collaborating closely with engineering teams to ensure an overall efficient architecture of our product.</li>\n  <li>Having initiative and the ability to work independently.</li>\n  <li>Designing and implementing new features for our user-facing client front end.</li>\n  <li>Writing good, clean, readable, testable, and maintainable code.</li>\n  <li>Contributing and participating in all phases of the development life cycle including analysis, design, development, testing, and maintenance.</li>\n  <li>Integrating with partners and developing API for external services.</li>\n  <li>Developing scalable and efficient web-based applications and secure features.</li>\n  <li>Updating and researching new technologies, current state-of-the-art development tools and equipment, and opportunities for process improvement.</li>\n</ul>\n\n<p><br></p>\n<p><strong>Requirements:</strong></p>\n<ul><li>Bachelor's degree in Software Engineering, Computer Science, Electrical Engineering, or IT preferred.</li>\n  <li>Having engineering wisdom equivalent to 3 - 4 years of progressive experience and having experience as a lead will be an advantage.</li>\n  <li>Experienced in one/more of these programming languages/platforms: Golang, Python, and database tech: SQL, PostgreSQL.</li>\n  <li>Having a good grasp of microservices and Domain-Driven Design.</li>\n  <li>Knowing and implementing REST API.</li>\n</ul>\n\n<p><br></p>\n<p><br></p>",
+    "experience": "4-7",
+    "experience_max": 7,
+    "experience_min": 4,
+    "expires_at": "2023-12-26 09:06:40",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "548f65b2-e017-4f78-882d-e8e9dc6da82d",
+    "industries": [
+      {
+        "id": "7fea165a-40cd-4513-93ff-e38afc256a41",
+        "name": "Logistics",
+        "slug": "logistics-2",
+        "vertical_name": "Logistics & transportation"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 1,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "2727fde7-cfd0-41a0-803f-6d1ba8d67d18",
+        "name": "Software Architecture"
+      },
+      {
+        "id": "56ca8561-3668-4c22-aa99-6c7adab499af",
+        "name": "Python"
+      },
+      {
+        "id": "677e54b0-87fe-4b7f-bec8-053127f450d7",
+        "name": "REST APIs"
+      },
+      {
+        "id": "70e6c52c-07ea-4179-94ab-3b57413a091c",
+        "name": "Golang"
+      },
+      {
+        "id": "711403b6-bc0e-4ec9-8e58-0ad7b3933b5f",
+        "name": "SQL"
+      },
+      {
+        "id": "950d5136-0ea9-4579-97b1-c0e725a450c1",
+        "name": "PostgreSQL"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "d5c4cd55-c8dc-4892-a886-63c1241a3ed1",
+      "name": "Software Engineer"
+    },
+    "published_at": "2023-10-27 09:06:40",
+    "salary_avg": 0,
+    "salary_max": 0,
+    "salary_min": 0,
+    "starts_featuring_at": "2023-11-20 03:28:53",
+    "taxonomies": [],
+    "title": "Platform Engineer",
+    "vacancy_count": 2,
+    "objectID": "548f65b2-e017-4f78-882d-e8e9dc6da82d",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Remote",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Lion Parcel",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Logistics",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Logistics & transportation",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Software Architecture",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Python",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "REST APIs",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Golang",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "SQL",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "PostgreSQL",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Software Engineer",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Platform Engineer",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/y5nL4tuCXyFgYgrBMEyCpFhAuwxOlDInVBVdmDL4.png",
+      "entity_id": "0a966300-086c-46ae-8700-25b9eca2ac97",
+      "entity_slug": "youtap-indonesia",
+      "id": "f2b624d9-a433-4767-8450-017be7605f90",
+      "name": "Youtap Indonesia"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><strong>Description:</strong></p>\n<ul><li>Create and maintain product backend and web application.</li>\n  <li>Develop and bug fix for feature by following company’s design pattern, architecture and guideline.</li>\n  <li>Deliver high-quality backend and web application based on requirements. Interact with product managers, designers and cross functional teams.</li>\n  <li>Communicate complicated technical problems to both technical and business audiences.</li>\n  <li>Manage backend and web application release</li>\n</ul>\n\n<p><strong>Requirements:</strong></p>\n<ul><li>Proficient understanding in <strong>Go </strong></li>\n  <li>min. 1 years experience in <strong>tech product management</strong>, especially in <strong>payment product</strong> ( <strong>payment gateway, qris, edc</strong>)</li>\n  <li>Experience in State Management and Server Side Rendering. Experience in SQL and NoSQL</li>\n  <li>Experience working with REST API, gRPC and GraphQL Experience in message and event broker</li>\n  <li>Experience in microservices architecture</li>\n  <li>Experience working with CI/CD automation tools</li>\n  <li>Knowledge in ORM framework</li>\n  <li>Experience of cloud solution such GCP and AWS is nice to have</li>\n  <li>Knowledge in OWASP framework, secure development and application security is a plus</li>\n  <li>Understand with programming concept like OOP, DDD, Solid Principle, Clean Architecture, etc.</li>\n  <li>Understand peer code reviews, unit testing, Git repository and a preference for agile development.</li>\n  <li>Strong analytical and problem-solving skills. </li>\n  <li>Attention to detail.</li>\n</ul>\n\n<p><br></p>",
+    "experience": "1-4",
+    "experience_max": 4,
+    "experience_min": 1,
+    "expires_at": "2023-12-08 02:35:42",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "16a69f1d-6b50-4e38-828e-45ba0d28e581",
+    "industries": [
+      {
+        "id": "8709022d-fcc6-4c0b-9257-7f35419b6020",
+        "name": "Financial product comparison",
+        "slug": "financial-product-comparison",
+        "vertical_name": "Financial tech"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "677e54b0-87fe-4b7f-bec8-053127f450d7",
+        "name": "REST APIs"
+      },
+      {
+        "id": "70e6c52c-07ea-4179-94ab-3b57413a091c",
+        "name": "Golang"
+      },
+      {
+        "id": "c3f77bd8-340b-4f27-bdbb-26c16c764bfe",
+        "name": "Node.js"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "d5c4cd55-c8dc-4892-a886-63c1241a3ed1",
+      "name": "Software Engineer"
+    },
+    "published_at": "2023-10-09 02:35:42",
+    "salary_avg": 0,
+    "salary_max": 0,
+    "salary_min": 0,
+    "starts_featuring_at": "2023-11-20 02:11:58",
+    "taxonomies": [],
+    "title": "Backend Developer - Payment Gateway",
+    "vacancy_count": 1,
+    "objectID": "16a69f1d-6b50-4e38-828e-45ba0d28e581",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Youtap Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Financial product comparison",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Financial tech",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "REST APIs",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Golang",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Node.js",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Software Engineer",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Backend Developer - Payment Gateway",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/IOWb3yYtN7n4rGm8UTEteoNVSUzrwxSa9QYDwgvq.png",
+      "entity_id": "6dc8d5d8-b25d-44c3-877d-4cfa220a9cde",
+      "entity_slug": "hypefast",
+      "id": "9adac2ca-d3e9-4030-b804-cc3a1adc55e5",
+      "name": "Hypefast"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><strong>Job Description</strong></p>\n<ol><li>Handle data analysing &amp; processing for offline channel including distributor and reseller.</li>\n  <li>Make sure all offline channel data is input well and accurate.</li>\n  <li>Compile data from all brand admins and remind sales team about sales update.</li>\n  <li>Update weekly sales achievement for sales team and update day to day sales.</li>\n  <li>Record and assure all invoicing and administration work.</li>\n  <li>Compile and proceed baby shop PO, inventory report, sales report.</li>\n  <li>Maintain good relationship with all stakeholders.</li>\n  <li>Support event in general.</li>\n</ol>\n\n<p><br></p>\n<p><strong>Requirements</strong></p>\n<ol><li>Capable at analysing and processing data, starting from data import export to result and summary</li>\n  <li>Capable at Ms. Excel (including formula and data), Ms. Word, Ms. Power Point</li>\n  <li>Thorough, agile, and careful with data and number</li>\n  <li>Have an analyst skill, beginners are welcome</li>\n  <li>Pay attention to details and assure data validity</li>\n  <li>Capable to handle administration work, inventory, data record, and legal data</li>\n  <li>Good attitude and initiative, work well with other departments</li>\n</ol>",
+    "experience": "1-4",
+    "experience_max": 4,
+    "experience_min": 1,
+    "expires_at": "2024-01-20 04:38:26",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "43f42f89-79eb-4524-b8fb-717b6c66d6dd",
+    "industries": [
+      {
+        "id": "b690e388-169a-4cfa-bb7b-0ce08ad3de1f",
+        "name": "Ecommerce aggregators",
+        "slug": "ecommerce-price-comparison",
+        "vertical_name": "Ecommerce"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "30fe432e-10bd-4ae3-97e5-a6650e543457",
+        "name": "Data Entry"
+      },
+      {
+        "id": "6dc58101-a75a-452b-afa2-7384840c33cb",
+        "name": "Microsoft Office"
+      },
+      {
+        "id": "93f8a250-2ccf-4fc7-952d-f0e58f9b4a04",
+        "name": "Sales Support"
+      },
+      {
+        "id": "da2e638c-ed28-4832-b624-017b016c6482",
+        "name": "Data Analysis"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "15a79b0a-6c9c-4b7c-8dc3-e5d9700e1921",
+      "name": "Retail & Wholesale"
+    },
+    "published_at": "2023-11-21 04:38:26",
+    "salary_avg": 0,
+    "salary_max": 0,
+    "salary_min": 0,
+    "starts_featuring_at": null,
+    "taxonomies": [],
+    "title": "GTMT Analyst Admin",
+    "vacancy_count": 1,
+    "objectID": "43f42f89-79eb-4524-b8fb-717b6c66d6dd",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Hypefast",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Ecommerce aggregators",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Ecommerce",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Data Entry",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Microsoft Office",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Sales Support",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Data Analysis",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Retail & Wholesale",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "GTMT Analyst Admin",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/PuyWL4tR9LqDECqjlitpdlqR6U0HEnoTUpIz9JIL.png",
+      "entity_id": "9288c982-f6b8-4a6f-8443-654407eb22c2",
+      "entity_slug": "boleh-dicoba-digital",
+      "id": "b4c79951-8f95-473a-8b9a-8aae1c661763",
+      "name": "Boleh Dicoba Digital"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p>We are looking for resourceful, enthusiastic, and driven Business Development who are ready to spread their wings in the digital world. A Business Development plays a strategic role in growing the business at BDD. You will supply qualified leads of prospective clients by pitch our product and bring the value proposition that we can offer to them.</p>\n<p><strong>Responsibilities:</strong></p>\n<ul><li>Support Boleh Dicoba Digital (BDD)'s creative business development efforts, focusing on client acquisition and growth opportunities.</li>\n  <li>Collaborate with the core creative team and other departments to develop innovative strategies and solutions for clients.</li>\n  <li>Conduct market research and analysis to identify trends, consumer insights, and competitive landscape in the digital marketing industry.</li>\n  <li>Assist in the creation and management of comprehensive business proposals, presentations, and pitches to potential clients.</li>\n  <li>Actively participate in brainstorming sessions and contribute creative ideas for marketing campaigns and initiatives.</li>\n  <li>Develop and maintain strong relationships with clients, ensuring exceptional customer service and satisfaction</li>\n  <li>Stay up-to-date with industry best practices, emerging technologies, and digital marketing trends</li>\n  <li>Lead client meetings, presentations, and negotiations, showcasing BDD's capabilities and services.</li>\n</ul>\n\n<p><strong>Requirements:</strong></p>\n<ul><li>Bachelor's degree in Marketing, Advertising, Business, or a related field.</li>\n  <li>Proven experience in business development, sales, or marketing within the creative industry.</li>\n  <li>Solid understanding of digital marketing channels, trends, and technologies.</li>\n  <li>Strong analytical and problem-solving skills to identify opportunities and provide data-driven recommendations.</li>\n  <li>Proficiency in presentation software, project management tools, and Microsoft Office Suite.</li>\n  <li>Ability to work independently as well as collaboratively in a fast-paced, deadline-driven environment.</li>\n  <li>Positive attitude, self-motivated, and adaptable to changing priorities.</li>\n  <li>Ability to effectively communicate and articulate creative concepts, strategies, and business ideas to clients and internal teams</li>\n  <li>Strong presentation skills with the ability to present complex information in a clear and compelling manner.</li>\n  <li>Excellent written and verbal communication skills to create persuasive proposals and understand client requirements and translate them into actionable strategies.</li>\n  <li>Collaborate with cross-functional teams, including creative, marketing, and account management, to deliver exceptional results</li>\n  <li>Proactively identify client needs, provide strategic recommendations, and propose innovative solutions.</li>\n</ul>\n\n<p><br></p>",
+    "experience": "1-4",
+    "experience_max": 4,
+    "experience_min": 1,
+    "expires_at": "2024-01-20 04:29:22",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "6f61ccfe-4795-44d8-9efe-1b2aecebadee",
+    "industries": [
+      {
+        "id": "dc8a7eac-5c46-404d-b54b-daf0cd1aaf42",
+        "name": "Social Media Marketing",
+        "slug": "social-media-marketing",
+        "vertical_name": "Ad tech"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "04712876-6722-4d28-b857-8f39ef064379",
+        "name": "Business Development & Partnerships"
+      },
+      {
+        "id": "0bb65880-73ef-4f35-859e-57327f8988f0",
+        "name": "Marketing Strategy"
+      },
+      {
+        "id": "4b3f7364-c112-49c4-b51c-5f8ffe25c07d",
+        "name": "Sales Strategy & Management"
+      },
+      {
+        "id": "700070fe-b981-4cc4-bc64-2a03af127fdf",
+        "name": "Business Analysis"
+      },
+      {
+        "id": "8cee9310-a380-4d4d-ac76-a612cdb49e81",
+        "name": "Business Development"
+      },
+      {
+        "id": "99c9576b-4483-4930-99f3-9487742b88ec",
+        "name": "Business Planning"
+      },
+      {
+        "id": "c93e386c-260a-41e1-aacb-b4772ffe54b5",
+        "name": "Communication Skills"
+      },
+      {
+        "id": "f22d04b4-23d6-42fd-b0ad-255a491b08f3",
+        "name": "Marketing Communications"
+      },
+      {
+        "id": "f6ce96f7-3b51-4867-bab4-5a50aabc4a8c",
+        "name": "Sales & Marketing"
+      },
+      {
+        "id": "f7e57b0a-9a01-4663-8fed-1fa5309f6bf8",
+        "name": "Project Management"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "8f7f42f6-34c6-4dbe-a571-a0489d500bc0",
+      "name": "Sales & Business Development"
+    },
+    "published_at": "2023-11-21 04:29:22",
+    "salary_avg": 14750000,
+    "salary_max": 17000000,
+    "salary_min": 12500000,
+    "starts_featuring_at": null,
+    "taxonomies": [],
+    "title": "Account Executive (Creative Services)",
+    "vacancy_count": 1,
+    "objectID": "6f61ccfe-4795-44d8-9efe-1b2aecebadee",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Boleh Dicoba Digital",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Social Media Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Ad tech",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Business Development & Partnerships",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Marketing Strategy",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Sales Strategy & Management",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Business Analysis",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Business Development",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Business Planning",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Communication Skills",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Marketing Communications",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Sales & Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Project Management",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Sales & Business Development",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "14750000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "12500000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Account Executive (Creative Services)",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/KvjNCFcHDHZjXBlUxmRwqZUiau8r5zWF3JQ4jkmQ.png",
+      "entity_id": "657b6684-9e5f-48b6-916f-534f5712274d",
+      "entity_slug": "sigmatech-1",
+      "id": "ec8e1a4c-3fdb-4f72-913b-ec2e8f9961e3",
+      "name": "SIGMATECH"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><strong>Requirements :</strong></p>\n<p>• Minimal lulusan SMA/SMK Ilmu Komputer. pengalaman &lt; dari 1 tahun.</p>\n<p>• Kandidat memahami cara kerja, operasional dan konsep infrastruktur Data Center seperti : Genset, UPS, PAC, Fire System, Access Door Lock, Surveillance Camera, WLDS.</p>\n<p>• Kandidat mengerti konsep dan operasional Structure Cabling untuk Data Network.</p>\n<p>• Kandidat terbiasa bekerja dengan komputer.</p>\n<p>• Kandidat mengetahui mengenai hardware server.</p>\n<p>• Kandidat mengetahui perintah dasar Linux.</p>\n<p>• Bersedia bekerja dalam pola shift 3</p>\n<p>• Bersedia bekerja di hari libur nasional/ cuti bersama (Idul Fitri, Hari Natal, Tahun Baru, dll)</p>",
+    "experience": "0-1",
+    "experience_max": 1,
+    "experience_min": 0,
+    "expires_at": "2024-01-20 03:48:06",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "82c27f9e-6416-45e9-b348-f590e4a54210",
+    "industries": [
+      {
+        "id": "36819ad7-e4b4-4ca8-bf63-2fa9f72e2c90",
+        "name": "Clean Technology IT",
+        "slug": "clean-technology-it",
+        "vertical_name": "Clean tech"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "263b5b63-3c81-4d33-8200-1a2b95b2c63e",
+        "name": "Computer Vision"
+      },
+      {
+        "id": "6935bf65-cf17-4669-bfdf-9d0e06358c53",
+        "name": "Linux System Administration"
+      },
+      {
+        "id": "7f3169a6-2926-4c19-9876-9860e329d43e",
+        "name": "Linux"
+      },
+      {
+        "id": "ac47b224-951e-4cf2-bc28-08f2d0f78dfd",
+        "name": "Hardware Engineering"
+      }
+    ],
+    "job_type": {
+      "id": "c083592d-7d77-476f-8682-f62007c93851",
+      "name": "Contract"
+    },
+    "position": {
+      "id": "8841e5d1-af18-47a8-9eb6-ecbd12863b87",
+      "name": "Logistics & Operations"
+    },
+    "published_at": "2023-11-21 03:48:06",
+    "salary_avg": 5250000,
+    "salary_max": 5500000,
+    "salary_min": 5000000,
+    "starts_featuring_at": null,
+    "taxonomies": [],
+    "title": "Data Center Operations ",
+    "vacancy_count": 1,
+    "objectID": "82c27f9e-6416-45e9-b348-f590e4a54210",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "SIGMATECH",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Clean Technology IT",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Clean tech",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Computer Vision",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Linux System Administration",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Linux",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Hardware Engineering",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Contract",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Logistics & Operations",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "5250000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "5000000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Data Center Operations ",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/djE0BRS4Vu0Bf8PWzIJ4hTUl6MQ20yNnhFb4V9J4.jpeg",
+      "entity_id": "dab312e2-7bed-4aaf-9650-0e2fe2348291",
+      "entity_slug": "pt-asli-rancangan-indonesia",
+      "id": "3f0ed5e6-b845-4d1d-8dba-1a221cf88ab6",
+      "name": "PT. ASLI Rancangan Indonesia"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><u><strong>Job Descriptions :</strong></u></p>\n<ul><li>Own overall relationship with assigned clients, which includes managing on-boarding, training, increasing adoption, ensuring retention, farming and high levels of customer satisfaction </li>\n  <li>Maintain and support existing customers to ensure they continue using our products effectively, leading to the success of their own businesses.</li>\n  <li>Collaborate, problem solve, and/or strategize upcoming client meetings with team members</li>\n  <li>Spot trends from our data analytics tool to carry out operations while managing client expectations</li>\n  <li>Team up with product team to address and fulfill clients' needs </li>\n</ul>\n\n<p><u><strong>Requirements :</strong></u></p>\n<ul><li>Bachelor’s Degree, preferably in a related field (e.q Marketing, Business etc). Fresh graduates are welcome to apply</li>\n  <li>Passionate in learning about sales, marketing or business development in IT solutions</li>\n  <li>Knowledge of principles of sales, sales techniques, and sales terminology</li>\n  <li>Knowledge of requirements within financial industry regulatory environment</li>\n  <li>Fluent in both Bahasa Indonesia and English (both written and spoken)</li>\n  <li>Firm understanding of and experience using Microsoft Excel or Google Spreadsheet</li>\n  <li>WFO 100% in Kebayoran Baru, Jakarta Selatan</li>\n</ul>\n\n<p><br></p>",
+    "experience": "1-4",
+    "experience_max": 4,
+    "experience_min": 1,
+    "expires_at": "2024-01-20 03:30:38",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "4ad260de-34ec-40e9-b0ce-52e5c1ee803b",
+    "industries": [
+      {
+        "id": "33261a18-479d-426f-8788-684f1c3b0146",
+        "name": "Internet Technology",
+        "slug": "internet-technology",
+        "vertical_name": "General internet"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "368906ea-1c94-432c-96f9-ef577eb37550",
+        "name": "Client Relations"
+      },
+      {
+        "id": "4b3f7364-c112-49c4-b51c-5f8ffe25c07d",
+        "name": "Sales Strategy & Management"
+      },
+      {
+        "id": "93f8a250-2ccf-4fc7-952d-f0e58f9b4a04",
+        "name": "Sales Support"
+      },
+      {
+        "id": "f6ce96f7-3b51-4867-bab4-5a50aabc4a8c",
+        "name": "Sales & Marketing"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "8f7f42f6-34c6-4dbe-a571-a0489d500bc0",
+      "name": "Sales & Business Development"
+    },
+    "published_at": "2023-11-21 03:30:38",
+    "salary_avg": 0,
+    "salary_max": 0,
+    "salary_min": 0,
+    "starts_featuring_at": null,
+    "taxonomies": [],
+    "title": "Client Relationship Manager",
+    "vacancy_count": 1,
+    "objectID": "4ad260de-34ec-40e9-b0ce-52e5c1ee803b",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "PT. ASLI Rancangan Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Internet Technology",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "General internet",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Client Relations",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Sales Strategy & Management",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Sales Support",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Sales & Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Sales & Business Development",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Client Relationship Manager",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 14,
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Remote"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/IJXHEMOkT2MS11kKgDCBq5e7rPYcUkAYvDsIyjWX.png",
+      "entity_id": "618c9411-07d6-445d-bc32-5c21830488ea",
+      "entity_slug": "ack-tech-1",
+      "id": "de0df94a-0a3c-400f-b4fa-98d3b74f1342",
+      "name": "Ack Tech"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><em>Location: Hybrid remote</em></p>\n<p><strong>Tech Stack </strong></p>\n<ul><li>Ruby, JavaScript, TypeScript, SQL, HTML, CSS, GraphQL, REST</li>\n  <li>RedwoodJS, React, Postgresql, Prism, Jest, Tailwind</li>\n  <li>Docker, Git, CI/CD</li>\n</ul>\n\n<p><strong>Duties and Responsibilities </strong></p>\n<ul><li>Code up to common global community's and/or project team’s standards and practices</li>\n  <li>Write Unit Tests</li>\n  <li>Adhere to the web industry security standards and data protection best practices</li>\n  <li>Maintain bug fixes</li>\n  <li>Ensure code development to deployment in production</li>\n</ul>\n\n<p><strong>Requirements &amp; Skills </strong></p>\n<ul><li>Experience developing web applications using the Tech Stack listed or other relevant framework</li>\n  <li>Willingness to grow team’s knowledge by learning and sharing</li>\n  <li>Have strong abilities in problem solving and iterating feedback</li>\n  <li>Communicate clearly and ask questions</li>\n  <li>Possess proactive mindset</li>\n  <li>Work closely within the Technology team and outside with product managers, designers, marketing, and sales teams</li>\n  <li>Occasional interaction with clients/users</li>\n  <li>English proficiency is required</li>\n</ul>\n\n<p><br></p>\n<p><strong>About KIQS </strong></p>\n<p>KIQS is a leading Southeast Asia's learning platform powered by trusted and accredited educational partners around the world.</p>\n<p>Our platform is designed to help families access quality learning experiences with ease.</p>\n<p>Whether you're looking for a reliable &amp; cost-effective platform to understand your child's development or accelerate your child's holistic development with progressive technology for a hyper personalized learning experience; KiQS has got you covered.</p>\n<p>KIQS provides digital learning materials, worksheets and hands-on activities from the world's best international schools. </p>\n<p><br></p>",
+    "experience": "1-4",
+    "experience_max": 4,
+    "experience_min": 1,
+    "expires_at": "2024-01-19 14:24:37",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "e21f8869-36ae-47c5-80bd-1f794f98cbb0",
+    "industries": [
+      {
+        "id": "67cbfda6-2554-418e-963c-a8d4613fc1d2",
+        "name": "Education Tech",
+        "slug": "education-tech",
+        "vertical_name": "Education"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 1,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "109bcc71-ad97-4b29-bebc-8ff1c556c386",
+        "name": "HTML+CSS"
+      },
+      {
+        "id": "2a4e9b28-dae5-461f-8678-adf2384a1abf",
+        "name": "Javascript"
+      },
+      {
+        "id": "36068d57-bb55-4f18-ae43-6f771347d9ba",
+        "name": "PHP"
+      },
+      {
+        "id": "68c84cf3-54e1-4436-b96d-2b7b172d231b",
+        "name": "Ruby"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "52698ef2-bfb6-4f8b-9eb0-fc2404f84ddd",
+      "name": "Web Development"
+    },
+    "published_at": "2023-11-20 14:24:37",
+    "salary_avg": 10,
+    "salary_max": 15,
+    "salary_min": 6,
+    "starts_featuring_at": null,
+    "taxonomies": [],
+    "title": "Full Stack Developer (Junior to Mid-level)",
+    "vacancy_count": 1,
+    "objectID": "e21f8869-36ae-47c5-80bd-1f794f98cbb0",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Remote",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Ack Tech",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Education Tech",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Education",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "HTML+CSS",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Javascript",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "PHP",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Ruby",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Web Development",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "10",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "6",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Full Stack Developer (Junior to Mid-level)",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 41,
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/77mfnxxObSdsQYudn2GOxJfS9novc9nG9XFFo9tu.jpeg",
+      "entity_id": "6b84cb2c-e7bd-4dd2-89de-ef2804a4976b",
+      "entity_slug": "akar-inti-enterprise",
+      "id": "9555af2e-3ac5-4cee-9367-5d1ac93d723f",
+      "name": "AKAR INTI ENTERPRISE"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><strong>Requirement: </strong></p>\n<ul><li>Must have work experience for 5+ years as Network Engineer or Infrastructure Engineer</li>\n  <li>Have deep understanding and working experience in implementing virtualization technologies (VMWare/ESXi/ Vsphere, Hyper-V, VirtualBox, Citrix, Microsoft)</li>\n  <li>Have working experience in handling hardwares like servers and storage (sizing, OS installation, setup/configuration, and troubleshooting).</li>\n  <li>Have a good understanding of backup and recovery solutions (Veeam, Veritas, Informix), a working knowledge would be an advantages.</li>\n  <li>Have experience working with major firewall platforms  (Palo Alto, Juniper, Cisco, Fortinet, etc). A certificate for any of the platforms is a plus.</li>\n  <li>Have a good knowledge of networking – either classic (switching, dynamic routing protocols, static and rule-based routing, etc.) or cloud (VPC, peering, gateways, SD-WAN secure fabric). A certificate in any networking area is a plus.</li>\n  <li>Have a good knowledge of encryption and tunneling protocols (PKI, IPSec, SSL VPN, TLS, IKE, IKEv2, etc.)</li>\n  <li>Understand application protocols in the context of OSI network layers and content inspection (Load-balancing, WAF, IPS, IDS, etc.)</li>\n  <li>Have good verbal and written communication skills (English) in both technical and non-technical communications.</li>\n  <li>Have good experience creating design documents (HLD, LLD), diagrams, and presentations (PPT)</li>\n  <li>Have a good analytical mindset for problem-solving under stress and time pressure.</li>\n</ul>\n\n<p><strong>Responsibles: </strong></p>\n<ul><li>Attending meetings and workshop with the client and/or principal to understand requirements, challenges and risks</li>\n  <li>Architecting &amp; developing infrastructure technology solutions in cooperation with various teams using existing industry standard and best practices</li>\n  <li>Aligning all those solutions to suit in company line of products and/ or services offered</li>\n  <li>Creating design and support documentation for the delivered services with adherence to the client’s processes and procedures</li>\n  <li>Perform daily duties as per the client’s project requirements such as infrastructure deployment, configuration, and support.</li>\n  <li>Involved throughout infrastructure testing, creating testing documentation and completion reports. </li>\n</ul>\n\n<p><br></p>",
+    "experience": "4-7",
+    "experience_max": 7,
+    "experience_min": 4,
+    "expires_at": "2024-01-19 10:04:44",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "333206ac-2268-4115-80c2-5a9fcffa8e52",
+    "industries": [
+      {
+        "id": "54c361d2-1cc2-4472-b73b-b8f603b81777",
+        "name": "IT & Cybersecurity",
+        "slug": "it-and-cybersecurity",
+        "vertical_name": "Security"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "00f02321-3035-467a-9753-f13aaf6de8be",
+        "name": "Infrastructure"
+      },
+      {
+        "id": "230c4964-433e-479f-8671-29efdd0b527c",
+        "name": "VMware ESXi"
+      },
+      {
+        "id": "32f148b9-7871-4ab9-b944-22e340b648fe",
+        "name": "VMware Server"
+      },
+      {
+        "id": "767e0e87-e60e-43de-ba88-b25c7054696e",
+        "name": "Networking"
+      },
+      {
+        "id": "9370f9a1-99e4-40b9-b5d4-b85b9fb6272c",
+        "name": "Troubleshooting"
+      },
+      {
+        "id": "d4654789-b053-41ec-94ec-04b16da8bcfa",
+        "name": "Information Technology"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "d3036aeb-fffd-11e6-92bf-06a2e72c5bb9",
+      "name": "DevOps & Cloud Management"
+    },
+    "published_at": "2023-11-20 10:04:44",
+    "salary_avg": 22500000,
+    "salary_max": 25000000,
+    "salary_min": 20000000,
+    "starts_featuring_at": null,
+    "taxonomies": [],
+    "title": "Senior Infrastructure Engineer",
+    "vacancy_count": 1,
+    "objectID": "333206ac-2268-4115-80c2-5a9fcffa8e52",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "AKAR INTI ENTERPRISE",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "IT & Cybersecurity",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Security",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Infrastructure",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "VMware ESXi",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "VMware Server",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Networking",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Troubleshooting",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Information Technology",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "DevOps & Cloud Management",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "22500000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "20000000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Senior Infrastructure Engineer",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 4,
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/77mfnxxObSdsQYudn2GOxJfS9novc9nG9XFFo9tu.jpeg",
+      "entity_id": "6b84cb2c-e7bd-4dd2-89de-ef2804a4976b",
+      "entity_slug": "akar-inti-enterprise",
+      "id": "9555af2e-3ac5-4cee-9367-5d1ac93d723f",
+      "name": "AKAR INTI ENTERPRISE"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p>Qualifications:</p>\n<ul><li>Bachelor’s degree in Computer Science, Engineering or a related field. Master’s degree is a plus</li>\n  <li>Proven experience 5+ years as QA Engineer or similar position, including experience with test automation</li>\n  <li>Strong proficiency in test automation tools and frameworks (e.g., Selenium, JUnit, TestNG, Appium, Katalon)</li>\n  <li>In depth knowledge of software quality assurance methodologies, processes, and best practices</li>\n  <li>Good understanding working concept of SLDC</li>\n  <li>Familiarity with Agile and DevOps principles and their application in quality assurance</li>\n  <li>Excellent problem solving skills and a proactive attitude towards identifying and addressing issues</li>\n  <li>Strong collaboration and communication skills to effectively work with cross functional teams </li>\n  <li>Experience with performance testing, security testing, and continuous integration is desirable</li>\n  <li>Certifications in quality assurance, testing, or related areas are a plus</li>\n</ul>\n\n<p><br></p>",
+    "experience": "4-7",
+    "experience_max": 7,
+    "experience_min": 4,
+    "expires_at": "2024-01-19 10:02:51",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "def5dfad-6a02-4c26-87c2-43732a8c8363",
+    "industries": [
+      {
+        "id": "54c361d2-1cc2-4472-b73b-b8f603b81777",
+        "name": "IT & Cybersecurity",
+        "slug": "it-and-cybersecurity",
+        "vertical_name": "Security"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "7f24680c-cdcb-4f98-ad3c-7e026dead46c",
+        "name": "Penetration Testing"
+      },
+      {
+        "id": "b7561b3f-f414-45a2-8a2c-e79a237ec0dd",
+        "name": "Unit Testing"
+      },
+      {
+        "id": "bbe77df5-7dcc-4398-9cf0-d4ecd9d08da0",
+        "name": "A/B Testing"
+      },
+      {
+        "id": "d1fb4119-cbe1-4d0d-b0e5-dea6b291bb00",
+        "name": "Usability Testing"
+      },
+      {
+        "id": "e14b9015-f651-492a-a5b1-26a6abc08cf6",
+        "name": "Software Testing"
+      },
+      {
+        "id": "fb152bd2-dca8-4972-9d3c-e7437cbed02c",
+        "name": "Functional Testing"
+      },
+      {
+        "id": "fbdeb96d-6b30-4d2c-ae1f-884e3e6488cf",
+        "name": "Regression Testing"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "d3134686-fffd-11e6-92bf-06a2e72c5bb9",
+      "name": "QA & Testing"
+    },
+    "published_at": "2023-11-20 10:02:51",
+    "salary_avg": 22500000,
+    "salary_max": 25000000,
+    "salary_min": 20000000,
+    "starts_featuring_at": null,
+    "taxonomies": [],
+    "title": "QA Manager",
+    "vacancy_count": 1,
+    "objectID": "def5dfad-6a02-4c26-87c2-43732a8c8363",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "AKAR INTI ENTERPRISE",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "IT & Cybersecurity",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Security",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Penetration Testing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Unit Testing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "A/B Testing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Usability Testing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Software Testing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Functional Testing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Regression Testing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "QA & Testing",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "22500000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "20000000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "QA Manager",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 14,
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "4bfed6fc-8ba2-48b5-b70b-c0050a3a9d41",
+      "name": "Jakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/yO4LkZ2Yj0woTBSscPoCnbqTs7qLLU6QHuJthfFD.jpeg",
+      "entity_id": "1173afa0-db28-436c-85a3-0a1142031c8a",
+      "entity_slug": "little-joy-indonesia-1",
+      "id": "a8fe1dc0-a830-4dca-a35d-dafdccd8a5ff",
+      "name": "Little Joy Indonesia"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<ol><li>develop and maintain data models &amp; key metric, </li>\n  <li>market &amp; customer analysis, </li>\n  <li>execute analytical project for business purposes to be more data-driven, </li>\n  <li>working closely with management to build and develop dashboard, report, queries day to day analysis, </li>\n  <li>comfortable with marketplaces and google analytic, </li>\n  <li>data-centric person, highly energetic individual, and able to have reasoning to every analysis.  </li>\n  <li>preferably last year program at the university with related major</li>\n</ol>\n\n<p><br></p>",
+    "experience": "0-1",
+    "experience_max": 1,
+    "experience_min": 0,
+    "expires_at": "2024-01-19 09:48:24",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "406ea64b-7fa0-428b-9b4d-fec180c38261",
+    "industries": [
+      {
+        "id": "300e6feb-4dd5-4dcc-a1c7-6345a4a4db53",
+        "name": "Retail (miscellaneous niche)",
+        "slug": "retail-miscellaneous-niche",
+        "vertical_name": "Ecommerce"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "18299f8d-7da2-4222-b93e-b42bc7add1db",
+        "name": "MySQL"
+      },
+      {
+        "id": "30fe432e-10bd-4ae3-97e5-a6650e543457",
+        "name": "Data Entry"
+      },
+      {
+        "id": "44b9bc04-3626-42bd-b9d2-fd61363ac317",
+        "name": "Data Visualization"
+      },
+      {
+        "id": "adcfa2f1-196b-4713-9a29-91a9a62c97b5",
+        "name": "Product Management"
+      },
+      {
+        "id": "da2e638c-ed28-4832-b624-017b016c6482",
+        "name": "Data Analysis"
+      }
+    ],
+    "job_type": {
+      "id": "3ba3899c-da16-48a8-8e22-c3e75e52af4c",
+      "name": "Internship"
+    },
+    "position": {
+      "id": "e2a3d8ff-82d0-4c80-8138-e2c6a5a57434",
+      "name": "Data & Analytics"
+    },
+    "published_at": "2023-11-20 09:48:24",
+    "salary_avg": 1250000,
+    "salary_max": 1500000,
+    "salary_min": 1000000,
+    "starts_featuring_at": null,
+    "taxonomies": [],
+    "title": "Business & Data Analyst intern",
+    "vacancy_count": 1,
+    "objectID": "406ea64b-7fa0-428b-9b4d-fec180c38261",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Jakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Little Joy Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Retail (miscellaneous niche)",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Ecommerce",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "MySQL",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Data Entry",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Data Visualization",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Product Management",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Data Analysis",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Internship",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Data & Analytics",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "1250000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "1000000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Business & Data Analyst intern",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 32,
+    "city": {
+      "country_id": "365832f3-641f-4f3a-b8c6-6932d1deb5fe",
+      "country_name": "Indonesia",
+      "id": "59f5657e-340d-49f1-ad27-829f32aaa722",
+      "name": "Yogyakarta",
+      "work_country_name": "Indonesia"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/gXdY6bKEn6JuXCZsImMTbyPcMFwuMFRSjbLEgBFJ.png",
+      "entity_id": "1e5e6c20-b78c-49ac-a148-2c68858af32f",
+      "entity_slug": "jala-indonesia",
+      "id": "be72976a-4fdf-48c4-8f49-4eb87fcc0c75",
+      "name": "JALA Indonesia"
+    },
+    "currency": {
+      "currency_code": "IDR",
+      "currency_symbol": "Rp",
+      "id": "4886deb5-ba2b-4234-b7a2-f0776e1c9eb0",
+      "name": "Indonesian Rupiahs"
+    },
+    "description": "<p><strong>Job Descriptions:</strong></p>\n<p>1. Manage and compile financial reports, notes/invoices, and accounts.</p>\n<p>2. Perform billing and collection processes (eg rent, taxes, income).</p>\n<p>3. Recording financial transactions in the general ledger.</p>\n<p>4. Maintain and update accounting records and files.</p>\n<p>5. Analyze the budget to prevent waste and make financial reports.</p>\n<p>6. Analyze transactions with stake holders and share holders.</p>\n<p>7. Close the books at the end of the month and the end of the year.</p>\n<p>8. Prepare the documents needed in the audit of financial statements.</p>\n<p>9. Responsible to the accounting manager and report what is done to the manager.</p>\n<p><br></p>\n<p><strong>Qualifications:</strong></p>\n<p>• 1-2 years of experienced in accounting</p>\n<p>• System Accounting Knowledge ( Accurate System, Etc )</p>\n<p>• Familiar with Cost Accounting</p>\n<p>• Detail Oriented</p>\n<p>• Fast Learning, high interest in learning and growing up together</p>",
+    "experience": "1-4",
+    "experience_max": 4,
+    "experience_min": 1,
+    "expires_at": "2024-01-19 08:59:58",
+    "external_link": "http://docs.google.com/forms/d/e/1FAIpQLSckLXWMfHsDNJAFhGabyvc5fIM6TYOOiMAoik07MpAlrhzT5w/viewform?usp=sf_link",
+    "has_equity": 0,
+    "id": "ab0a8ea4-9cbd-4e9f-ac72-1358a879fdee",
+    "industries": [
+      {
+        "id": "33261a18-479d-426f-8788-684f1c3b0146",
+        "name": "Internet Technology",
+        "slug": "internet-technology",
+        "vertical_name": "General internet"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "1371c3e6-deb0-4ec0-82b0-e35269fad8dd",
+        "name": "Corporate Finance"
+      },
+      {
+        "id": "28e96523-6b14-4b1a-af14-25feb91f8cbd",
+        "name": "Accounting"
+      },
+      {
+        "id": "3131d3ab-c875-4346-98bc-f9e6bbe8e4df",
+        "name": "Accounts Payable"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "2485f8e0-68c6-49ab-92bd-1a692a9557ef",
+      "name": "Finance, Legal & Accounting"
+    },
+    "published_at": "2023-11-20 08:59:58",
+    "salary_avg": 3375000,
+    "salary_max": 3500000,
+    "salary_min": 3250000,
+    "starts_featuring_at": null,
+    "taxonomies": [],
+    "title": "Accountant",
+    "vacancy_count": 1,
+    "objectID": "ab0a8ea4-9cbd-4e9f-ac72-1358a879fdee",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Yogyakarta",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "JALA Indonesia",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Internet Technology",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "General internet",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Corporate Finance",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Accounting",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Accounts Payable",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Finance, Legal & Accounting",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "3375000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "3250000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Accountant",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 6,
+    "city": {
+      "country_id": "4ae2ddb6-b648-4c95-8beb-e6c95820bf94",
+      "country_name": "Malaysia",
+      "id": "3aae8b15-8116-4732-afbf-d6184b85f12e",
+      "name": "Kuala Lumpur",
+      "work_country_name": "Remote"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/lRrf5h5kK7YKS0yWEdafiPSNigRgJP5SFiuFlIDP.jpeg",
+      "entity_id": "d63a438c-1826-46bb-8acc-5b7d9ebc4638",
+      "entity_slug": "fintech-news-network",
+      "id": "cad5c7ea-f293-4bb1-ad09-52ee7c144d52",
+      "name": "Fintech News Network "
+    },
+    "currency": {
+      "currency_code": "USD",
+      "currency_symbol": "$",
+      "id": "755e9a1d-ab87-4792-bb2d-52226b705af9",
+      "name": "United States Dollars"
+    },
+    "description": "<p><strong>Company: Fintech News Network</strong></p>\n<p>Interested in the fintech industry? Want to be able to work remotely from the comfort of your own home? Would you like to play a part in this rapidly evolving industry?</p>\n<p><strong>The Fintech News Network</strong> </p>\n<p>The Fintech News Network covers stories and startups in the fintech ecosystem – i.e. mobile payment, personal finance, bitcoin, blockchain, robo advisory and lending. We run major fintech hub pages around the world, including Singapore, Switzerland, Hong Kong, Malaysia, Philippines, Baltic/Nordics, Middle East/Africa and America. We are a lean team operating out of more than 5 hubs and growing.</p>\n<p><strong>Day to Day Responsibilities:</strong></p>\n<ul><li>Work closely with the editor to manage content on Fintech News Network's Switzerland, Middle East, Africa, Nordics, Baltics and America publications.</li>\n  <li>Highly skilled at writing and editing press announcements in the region.</li>\n  <li>Curate topics based on the latest fintech trends and proactively proposing content ideas to the editor.</li>\n  <li>Produce creative captions for Social media and sponsored posts</li>\n  <li>Analyse web and social media traffic to understand audience’s preferences to improve content production and management.</li>\n</ul>\n\n<p><strong>Qualifications Required:</strong></p>\n<ul><li>Ability to work independently.</li>\n  <li>Strong attention to details.</li>\n  <li>Able to adopt SEO’s best practices in your writing.</li>\n  <li>Familiarity with Photoshop or any design skills are encouraged</li>\n  <li>German is a plus</li>\n</ul>\n\n<p>Interested? Send your CV to <strong>jobs@fintechnews.sg</strong></p>\n<p><br></p>",
+    "experience": "1-4",
+    "experience_max": 4,
+    "experience_min": 1,
+    "expires_at": "2024-01-19 08:47:33",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "c7ad60ad-95ad-4828-b1da-14ba21b9798e",
+    "industries": [
+      {
+        "id": "e5966cca-08d3-44d1-885d-8fb81c22812a",
+        "name": "News",
+        "slug": "news",
+        "vertical_name": "Media"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 1,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "161faf10-f410-42d9-8bd5-e5e57d74cb14",
+        "name": "Technical Writing"
+      },
+      {
+        "id": "54d9d7fe-7f31-40d8-a3c1-fb81a7d84d98",
+        "name": "Content Marketing"
+      },
+      {
+        "id": "87c6b2bf-f4cc-436c-b2e1-7328b1050e9b",
+        "name": "Digital Marketing"
+      },
+      {
+        "id": "9a287053-13ca-4e66-8d8d-1f8bc243f7cf",
+        "name": "Copywriting & Editing"
+      },
+      {
+        "id": "a20c52e4-a62a-4dd7-8be2-75f854185017",
+        "name": "Adobe Photoshop"
+      },
+      {
+        "id": "db83f508-bc81-4353-ba83-355aa012643d",
+        "name": "English Language"
+      },
+      {
+        "id": "f8805ec0-cf09-4ca8-9fff-7773188d2426",
+        "name": "SEO"
+      }
+    ],
+    "job_type": {
+      "id": "5124b71a-19ad-42ee-8779-de3433bf7f88",
+      "name": "Full-time"
+    },
+    "position": {
+      "id": "5621cfa2-a5fb-4769-852e-f2353cbefb17",
+      "name": "Media & Journalism"
+    },
+    "published_at": "2023-11-20 08:47:33",
+    "salary_avg": 2000,
+    "salary_max": 2500,
+    "salary_min": 1500,
+    "starts_featuring_at": null,
+    "taxonomies": [],
+    "title": "Fintech News Writer EMEA (Remote work, Part-time or Full-time)",
+    "vacancy_count": 1,
+    "objectID": "c7ad60ad-95ad-4828-b1da-14ba21b9798e",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Kuala Lumpur",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Remote",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Fintech News Network ",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "News",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Media",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Technical Writing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Content Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Digital Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Copywriting & Editing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Adobe Photoshop",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "English Language",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "SEO",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Full-time",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Media & Journalism",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "2000",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "1500",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Fintech News Writer EMEA (Remote work, Part-time or Full-time)",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  },
+  {
+    "rank": 29,
+    "city": {
+      "country_id": "a60f38e1-85ff-4771-9d7b-9628b2536f23",
+      "country_name": "Taiwan",
+      "id": "e2448f0a-3e7e-48d3-a0cb-ba0ea1017201",
+      "name": "Taipei",
+      "work_country_name": "Taiwan"
+    },
+    "company": {
+      "avatar": "https://cdn.techinasia.com/data/images/PhFzlhU2Fb0zFkEaPw8NiaM8WeQM7OAJLZD27qFW.jpeg",
+      "entity_id": "df21410f-4a9a-474e-9e1c-456cd0d7aeb3",
+      "entity_slug": "ematic-solutions",
+      "id": "c03218fc-271c-4bff-aada-1811896d5962",
+      "name": "Ematic Solutions"
+    },
+    "currency": {
+      "currency_code": "TWD",
+      "currency_symbol": "NT$",
+      "id": "ac8c4646-af77-4f2c-88d9-adb00acbe62c",
+      "name": "Taiwan New Dollars"
+    },
+    "description": "<p><strong>About Us</strong></p>\n<p>Ematic Solutions is a marketing and technology consultancy that helps B2C companies build a fully integrated, high-ROI digital ecosystem. We are a team of digital marketers, engineers, designers, copywriters, operations specialists, and customer success practitioners spread across the world.</p>\n<p>We’re entrepreneurial team players who take personal accountability for our business, our customers and ourselves.<br></p>\n<p><strong>What's The Gig?</strong></p>\n<ul><li>Apply your knowledge and experience in a real business setting in a tech startup</li>\n  <li>Be part of challenging assignments and internal projects</li>\n  <li>Assist in any customer/technical support related matter</li>\n  <li>Perform other related functions that may be assigned by your manager</li>\n  <li>Responsible for ad-hoc assignment, function and other related duties specified by your manager</li>\n</ul>\n\n<p><strong>What we’re looking for</strong></p>\n<ul><li>Available for a full time internship (minimum 3 months or 6 months, paid internship)</li>\n  <li>Preferably fresh graduate / currently pursuing a Bachelor or higher Degree in Information Technology in a recognized institution of higher learning, with good academic achievements</li>\n  <li>A fast and continuous learner, especially in this fast changing technology driven environment</li>\n  <li>Detail oriented and highly organized</li>\n  <li>Ability to prioritize, multi-task, and perform effectively under pressure</li>\n  <li>Have a strong Interest in problem solving translated from data . </li>\n  <li>A good team player and aims to continue improving with the team and also able to work within and cross departments</li>\n  <li>Have basic knowledge on Microsoft office and Google Suite</li>\n</ul>\n\n<p><strong>What We Offer</strong></p>\n<ul><li>Be exposed to and grow your knowledge across the Digital Marketing ecosystem, including Performance Marketing, SEO, Content Marketing, CRM and more</li>\n  <li>Competitive pay with an attractive, long-term compensation model</li>\n  <li>A flat and open culture that nurtures entrepreneurism and wants to unlock the best version of you.</li>\n  <li>Work with a diverse team of smart people who are also fun after work.</li>\n  <li>Opportunity to interact with colleagues from different countries and cultures.</li>\n</ul>\n\n<p><a href=\"https://www.ematicsolutions.com/\"><u>Ematic Solutions - Website</u></a> | <a href=\"https://www.linkedin.com/company/ematic-solutions/?viewAsMember=true\"><u>Ematic Solutions - Linkedin</u></a></p>\n<p><br></p>",
+    "experience": "0-1",
+    "experience_max": 1,
+    "experience_min": 0,
+    "expires_at": "2024-01-19 08:47:04",
+    "external_link": "",
+    "has_equity": 0,
+    "id": "a10897e4-ee7a-41ed-bf2c-d51d5dae1e1c",
+    "industries": [
+      {
+        "id": "2a66ab08-8602-491e-96f4-0e99915b02b7",
+        "name": "Internet Marketing",
+        "slug": "internet-marketing",
+        "vertical_name": "Ad tech"
+      }
+    ],
+    "is_boosted": true,
+    "is_remote": 0,
+    "is_salary_visible": 1,
+    "job_skills": [
+      {
+        "id": "1d169ffa-9db0-4eee-9732-0c58df868484",
+        "name": "Problem Solving"
+      },
+      {
+        "id": "87c6b2bf-f4cc-436c-b2e1-7328b1050e9b",
+        "name": "Digital Marketing"
+      },
+      {
+        "id": "c93e386c-260a-41e1-aacb-b4772ffe54b5",
+        "name": "Communication Skills"
+      },
+      {
+        "id": "f7e57b0a-9a01-4663-8fed-1fa5309f6bf8",
+        "name": "Project Management"
+      }
+    ],
+    "job_type": {
+      "id": "3ba3899c-da16-48a8-8e22-c3e75e52af4c",
+      "name": "Internship"
+    },
+    "position": {
+      "id": "58fd4d82-53e3-474f-9834-12b9494f3872",
+      "name": "Project & Product Management"
+    },
+    "published_at": "2023-11-20 08:47:04",
+    "salary_avg": 0,
+    "salary_max": 0,
+    "salary_min": 0,
+    "starts_featuring_at": null,
+    "taxonomies": [],
+    "title": "Solutions Engineer Intern",
+    "vacancy_count": 1,
+    "objectID": "a10897e4-ee7a-41ed-bf2c-d51d5dae1e1c",
+    "_highlightResult": {
+      "city": {
+        "name": {
+          "value": "Taipei",
+          "matchLevel": "none",
+          "matchedWords": []
+        },
+        "work_country_name": {
+          "value": "Taiwan",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "company": {
+        "name": {
+          "value": "Ematic Solutions",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "industries": [
+        {
+          "name": {
+            "value": "Internet Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          },
+          "vertical_name": {
+            "value": "Ad tech",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_skills": [
+        {
+          "name": {
+            "value": "Problem Solving",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Digital Marketing",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Communication Skills",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        },
+        {
+          "name": {
+            "value": "Project Management",
+            "matchLevel": "none",
+            "matchedWords": []
+          }
+        }
+      ],
+      "job_type": {
+        "name": {
+          "value": "Internship",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "position": {
+        "name": {
+          "value": "Project & Product Management",
+          "matchLevel": "none",
+          "matchedWords": []
+        }
+      },
+      "salary_avg": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "salary_min": {
+        "value": "0",
+        "matchLevel": "none",
+        "matchedWords": []
+      },
+      "title": {
+        "value": "Solutions Engineer Intern",
+        "matchLevel": "none",
+        "matchedWords": []
+      }
+    }
+  }
+]

@@ -1,0 +1,3 @@
+pull_data_from_tech_in_asia_job:
+  cron: "0 0 * * *"
+  class: "PullDataFromTechInAsia"

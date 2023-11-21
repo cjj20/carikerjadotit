@@ -41,9 +41,9 @@ type alias Job =
     , salary_min : String
     , salary_max : String
     , salary_is_undisclosed : Bool
+    , is_new : Bool
     , employment_type : String
     , location_type : String
-    , is_new : Bool
     , experience_level : String
     , type_of_work : String
     , job_description : String
@@ -88,14 +88,14 @@ jobDecoder =
         |> required "salary_min" string
         |> required "salary_max" string
         |> required "salary_is_undisclosed" bool
-        |> required "employment_type" string
-        |> required "location_type" string
         |> required "is_new" bool
+        |> optional "employment_type" string ""
+        |> required "location_type" string
         |> required "experience_level" string
-        |> required "type_of_work" string
+        |> optional "type_of_work" string ""
         |> required "job_description" string
-        |> required "apply_link" string
-        |> required "main_technology" string
+        |> optional "apply_link" string ""
+        |> optional "main_technology" string ""
         |> required "online_interview" bool
         |> required "tag_names" (list string)
         |> required "company_id" int

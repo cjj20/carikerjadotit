@@ -53,7 +53,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div [ class "relative z-10" ]
+    div [ class "relative z-50" ]
         [ div
             [ class "bg-slate-500 bg-opacity-20 fixed inset-0 transition-opacity"
             , if model.menuOpen then

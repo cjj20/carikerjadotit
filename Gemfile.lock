@@ -81,10 +81,16 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    algolia (2.3.3)
+      faraday (>= 0.15, < 3)
+      faraday-net_http_persistent (>= 0.15, < 3)
+      multi_json (~> 1.0)
+      net-http-persistent
     arbre (1.6.0)
       activesupport (>= 3.0.0, < 7.1)
       ruby2_keywords (>= 0.0.2, < 1.0)
     ast (2.4.2)
+    base64 (0.2.0)
     bcrypt (3.1.19)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -100,6 +106,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
@@ -123,13 +130,26 @@ GEM
       rails (>= 6.0)
       sprockets-rails (~> 3.0)
     erubi (1.12.0)
+    et-orbi (1.2.7)
+      tzinfo
+    faraday (2.7.11)
+      base64
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
+    faraday-net_http_persistent (2.1.0)
+      faraday (~> 2.5)
+      net-http-persistent (~> 4.0)
     ffi (1.16.2)
     formtastic (4.0.0)
       actionpack (>= 5.2.0)
     formtastic_i18n (0.7.0)
+    fugit (1.9.0)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     geocoder (1.8.2)
-    globalid (1.1.0)
-      activesupport (>= 5.0)
+    globalid (1.2.1)
+      activesupport (>= 6.1)
     gutentag (2.6.2)
       activerecord (>= 3.2.0)
     has_scope (0.8.1)
@@ -181,8 +201,11 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.5)
-    minitest (5.19.0)
+    minitest (5.20.0)
     msgpack (1.7.2)
+    multi_json (1.15.0)
+    net-http-persistent (4.0.2)
+      connection_pool (~> 2.2)
     net-imap (0.3.7)
       date
       net-protocol
@@ -195,8 +218,6 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.9)
     nodo (1.6.4)
-    nokogiri (1.15.4-arm64-darwin)
-      racc (~> 1.4)
     nokogiri (1.15.4-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -209,6 +230,7 @@ GEM
     public_suffix (5.0.3)
     puma (5.6.7)
       nio4r (~> 2.0)
+    raabro (1.4.0)
     racc (1.7.1)
     rack (2.2.8)
     rack-test (2.1.0)
@@ -251,6 +273,8 @@ GEM
       parser (>= 3.0.0)
       sorbet-runtime (>= 0.5.9204)
       unparser (>= 0.5.6)
+    redis-client (0.18.0)
+      connection_pool
     regexp_parser (2.8.1)
     reline (0.3.7)
       io-console (~> 0.5)
@@ -276,6 +300,15 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sidekiq (7.2.0)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
+    sidekiq-cron (1.11.0)
+      fugit (~> 1.8)
+      globalid (>= 1.0.1)
+      sidekiq (>= 6)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -304,14 +337,11 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.3-arm64-darwin)
     sqlite3 (1.6.3-x86_64-darwin)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     syntax_tree (6.1.1)
       prettier_print (>= 1.2.0)
-    tailwindcss-rails (2.0.30-arm64-darwin)
-      railties (>= 6.0.0)
     tailwindcss-rails (2.0.30-x86_64-darwin)
       railties (>= 6.0.0)
     tapioca (0.11.8)
@@ -356,15 +386,15 @@ GEM
     yard-sorbet (0.8.1)
       sorbet-runtime (>= 0.5)
       yard (>= 0.9)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
-  arm64-darwin-22
   x86_64-darwin-22
 
 DEPENDENCIES
   activeadmin (~> 3.0)
   activerecord-cockroachdb-adapter (= 7.0.3)
+  algolia (~> 2.3, >= 2.3.2)
   bootsnap
   capybara
   debug
@@ -380,6 +410,7 @@ DEPENDENCIES
   rails (~> 7.0.7)
   sassc-rails (~> 2.1)
   selenium-webdriver
+  sidekiq-cron
   simplecov (~> 0.22.0)
   simplecov-cobertura (~> 2.1)
   sprockets-rails
@@ -396,4 +427,4 @@ RUBY VERSION
    ruby 3.0.3p157
 
 BUNDLED WITH
-   2.2.32
+   2.4.20

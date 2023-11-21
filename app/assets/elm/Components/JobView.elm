@@ -3,20 +3,7 @@ module Components.JobView exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Models.Job exposing (Job, maxSkills, salaryUndisclosed)
-
-
-
--- EXPRESSION
-
-
-viewIsNew : Job -> Html msg
-viewIsNew job =
-    case job.is_new of
-        True ->
-            div [ class "bg-slate-300 px-1.5 py-0.5 rounded-xl text-xs text-slate-700 md:px-1.5" ] [ text "New" ]
-
-        False ->
-            div [] []
+import String exposing (isEmpty)
 
 
 
@@ -25,6 +12,30 @@ viewIsNew job =
 
 viewJob : Job -> Html msg
 viewJob job =
+    let
+        typeOfWorkLabel =
+            if not (isEmpty job.type_of_work) then
+                div [ class "bg-slate-300 flex gap-x-2 items-center px-2 py-1 rounded-xl truncate" ]
+                    [ i [ class "fa-solid fa-rss" ] []
+                    , span [ class "text-xs truncate md:text-md" ] [ text job.type_of_work ]
+                    ]
+
+            else if not (isEmpty job.employment_type) then
+                div [ class "bg-slate-300 flex gap-x-2 items-center px-2 py-1 rounded-xl truncate" ]
+                    [ i [ class "fa-solid fa-rss" ] []
+                    , span [ class "text-xs truncate md:text-md" ] [ text job.employment_type ]
+                    ]
+
+            else
+                div [] []
+
+        isNewLabel =
+            if job.is_new == True then
+                div [ class "bg-slate-300 px-1.5 py-0.5 rounded-xl text-xs text-slate-700 md:px-1.5" ] [ text "New" ]
+
+            else
+                div [] []
+    in
     div [ class "bg-white px-2 rounded-lg shadow-lg md:px-4 md:py-2" ]
         [ div [ class "flex gap-x-2 h-16 items-center" ]
             [ div [ class "px-1 md:px-3 md:py-4" ] [ img [ src job.company.image, class "w-14 md:w-20" ] [] ]
@@ -40,17 +51,14 @@ viewJob job =
                             [ i [ class "fa-solid fa-location-dot" ] []
                             , span [ class "text-xs truncate md:text-md" ] [ text job.company.country ]
                             ]
-                        , div [ class "bg-slate-300 flex gap-x-2 items-center px-2 py-1 rounded-xl truncate" ]
-                            [ i [ class "fa-solid fa-rss" ] []
-                            , span [ class "text-xs truncate md:text-md" ] [ text job.type_of_work ]
-                            ]
+                        , typeOfWorkLabel
                         ]
                     , span [ class "block text-[10px] text-green-400 truncate md:hidden" ] [ text (salaryUndisclosed job) ]
                     ]
                 , div [ class "space-y-1 truncate md:gap-y-1" ]
                     [ div [ class "flex items-center justify-end md:gap-x-2" ]
                         [ span [ class "hidden text-sm text-green-500 truncate md:block md:text-base" ] [ text (salaryUndisclosed job) ]
-                        , viewIsNew job
+                        , isNewLabel
                         ]
                     , div [ class "flex gap-x-1 items-center justify-end md:hidden" ]
                         [ span [ class "text-[10px] text-slate-500 truncate" ] [ text "Warszawa, +3," ]
