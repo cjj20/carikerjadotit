@@ -496,7 +496,7 @@ view { modalState, salaryMin, salaryMax, salaryMinValue, salaryMaxValue, salaryS
                                         ]
                                     ]
                                 ]
-                            , div [ class "flex flex-col gap-y-4 items-start text-slate-600" ]
+                            , div [ class "hidden flex flex-col gap-y-4 items-start text-slate-600" ]
                                 [ span [ class "font-medium text-xl" ] [ text "Friendly Offer" ]
                                 , friendlyOfferToggle
                                 ]
@@ -562,7 +562,7 @@ view { modalState, salaryMin, salaryMax, salaryMinValue, salaryMaxValue, salaryS
                                         ]
                                     ]
                                 ]
-                            , div [ class "flex flex-col gap-y-4 items-start text-slate-600" ]
+                            , div [ class "hidden flex flex-col gap-y-4 items-start text-slate-600" ]
                                 [ span [ class "font-medium text-xl" ] [ text "Friendly Offer" ]
                                 , friendlyOfferToggle
                                 ]
