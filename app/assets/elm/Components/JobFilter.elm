@@ -2,7 +2,7 @@ module Components.JobFilter exposing (..)
 
 import Components.JobMoreFilter as JobMoreFilter
 import Components.JobSearch as JobSearch exposing (InputGroupStateMsg(..))
-import Components.JobSortDropDown as JobSortDropDown
+import Components.JobSort as JobSort
 import Components.MainTechnology exposing (MainTechnology, emptyMainTechnology, listMainTechnology)
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -18,7 +18,7 @@ import String exposing (fromInt)
 type alias Model =
     { jobSearchModel : JobSearch.Model
     , selectedMainTechnology : MainTechnology
-    , jobSortDropDownModel : JobSortDropDown.Model
+    , jobSortModel : JobSort.Model
     , jobMoreFilterModel : JobMoreFilter.Model
     }
 
@@ -30,7 +30,7 @@ type alias Model =
 type Msg
     = JobSearchUpdateMsg JobSearch.Msg
     | SelectMainTechnologyState MainTechnology
-    | JobSortDropDownUpdateMsg JobSortDropDown.Msg
+    | JobSortUpdateMsg JobSort.Msg
     | JobMoreFilterUpdateMsg JobMoreFilter.Msg
 
 
@@ -42,7 +42,7 @@ init : Model
 init =
     { jobSearchModel = JobSearch.init
     , selectedMainTechnology = emptyMainTechnology
-    , jobSortDropDownModel = JobSortDropDown.init
+    , jobSortModel = JobSort.init
     , jobMoreFilterModel = JobMoreFilter.init
     }
 
@@ -72,12 +72,12 @@ update msg model =
             in
             ( newModel, Cmd.none )
 
-        JobSortDropDownUpdateMsg msg_ ->
+        JobSortUpdateMsg msg_ ->
             let
-                ( newJobSortDropDownUpdate, _ ) =
-                    JobSortDropDown.update msg_ model.jobSortDropDownModel
+                ( newJobSortUpdate, _ ) =
+                    JobSort.update msg_ model.jobSortModel
             in
-            ( { model | jobSortDropDownModel = newJobSortDropDownUpdate }, Cmd.none )
+            ( { model | jobSortModel = newJobSortUpdate }, Cmd.none )
 
         JobMoreFilterUpdateMsg msg_ ->
             let
@@ -92,7 +92,7 @@ update msg model =
 
 
 view : Model -> Html Msg
-view { jobMoreFilterModel, jobSearchModel, jobSortDropDownModel, selectedMainTechnology } =
+view { jobMoreFilterModel, jobSearchModel, jobSortModel, selectedMainTechnology } =
     let
         searchButtonMobile =
             a
@@ -146,57 +146,53 @@ view { jobMoreFilterModel, jobSearchModel, jobSortDropDownModel, selectedMainTec
     div [ class "relative z-10" ]
         [ div [ class "bg-white h-full" ]
             [ div [ class "block md:hidden" ] [ Html.map JobSearchUpdateMsg <| JobSearch.slideOverView jobSearchModel ]
-            , div []
-                [ div [ class "flex px-2.5 justify-between" ]
-                    [ div [ class "flex items-center px-1.5 py-2.5 gap-x-2 md:gap-x-4 md:w-[400px] overflow-x-scroll md:overflow-x-visible" ]
-                        [ div [ class "hidden relative md:block" ]
-                            [ Html.map JobSearchUpdateMsg <| JobSearch.desktopView jobSearchModel
+            , div [ class "flex px-2.5 justify-between" ]
+                [ div [ class "flex items-center px-1.5 py-2.5 gap-x-2 md:gap-x-4 overflow-x-auto md:w-[400px] md:overflow-x-visible" ]
+                    [ div [ class "hidden relative md:block" ]
+                        [ Html.map JobSearchUpdateMsg <| JobSearch.desktopView jobSearchModel
+                        ]
+                    , searchButtonMobile
+                    , a [ class "h-8 items-center no-underline outline outline-slate-200 px-4 rounded-3xl md:h-9 md:flex md:gap-x-2" ]
+                        [ div [ class "hidden items-center md:block" ]
+                            [ span [ class "fa-solid fa-location-dot text-slate-700" ] []
                             ]
-                        , searchButtonMobile
-                        , a [ class "h-8 items-center no-underline outline outline-slate-200 px-4 rounded-3xl md:h-9 md:flex md:gap-x-2" ]
-                            [ div [ class "hidden items-center md:block" ]
-                                [ span [ class "fa-solid fa-location-dot text-slate-700" ] []
-                                ]
-                            , span [ class "text-sm text-slate-700" ] [ text "Location" ]
-                            , div [ class "hidden items-center md:flex" ]
-                                [ i [ class "fa-solid fa-chevron-down text-sm text-slate-700" ] []
-                                ]
-                            ]
-                        , a [ class "flex h-8 items-center no-underline outline outline-slate-200 rounded-3xl md:hidden" ]
-                            [ span [ class "px-4 text-sm text-slate-700 truncate" ] [ text "Tech" ]
-                            ]
-                        , a
-                            [ class "flex h-8 items-center no-underline outline outline-slate-200 rounded-3xl md:hidden"
-                            , onClick (JobMoreFilterUpdateMsg JobMoreFilter.ModalState)
-                            ]
-                            [ span [ class "px-4 text-sm text-slate-700 truncate" ] [ text "More filters" ]
-                            ]
-                        , div []
-                            [ a
-                                [ class "flex h-8 items-center no-underline outline outline-slate-200 rounded-3xl md:hidden"
-                                , onClick (JobSortDropDownUpdateMsg JobSortDropDown.DropDownState)
-                                ]
-                                [ div [ class "px-4 text-sm text-slate-700 truncate" ] [ text "Sort by: Default" ]
-                                ]
-                            , Html.map JobSortDropDownUpdateMsg <| JobSortDropDown.dropDownView jobSortDropDownModel
+                        , span [ class "text-sm text-slate-700" ] [ text "Location" ]
+                        , div [ class "hidden items-center md:flex" ]
+                            [ i [ class "fa-solid fa-chevron-down text-sm text-slate-700" ] []
                             ]
                         ]
-                    , div [ class "hidden gap-x-4 px-1 md:flex md:justify-end overflow-x-auto" ]
-                        [ div [ class "flex flex-row gap-x-4 no-scrollbar overflow-x-scroll p-2" ]
-                            listMainTechnologyView
-                        , div [ class "flex items-center" ]
-                            [ a
-                                [ class "cursor-pointer h-8 items-center no-underline outline outline-slate-200 px-4 rounded-3xl w-40 md:flex md:gap-x-2 md:h-10"
-                                , onClick (JobMoreFilterUpdateMsg JobMoreFilter.ModalState)
-                                ]
-                                [ span [ class "fa-solid fa-sliders text-slate-700" ] []
-                                , span [ class "text-sm text-slate-700" ] [ text "More filters" ]
-                                , i [ class "fa-solid fa-chevron-down text-slate-700 text-sm" ] []
-                                ]
+                    , a [ class "flex h-8 items-center no-underline outline outline-slate-200 rounded-3xl md:hidden" ]
+                        [ span [ class "px-4 text-sm text-slate-700 truncate" ] [ text "Tech" ]
+                        ]
+                    , a
+                        [ class "flex h-8 items-center no-underline outline outline-slate-200 rounded-3xl md:hidden"
+                        , onClick (JobMoreFilterUpdateMsg JobMoreFilter.ModalState)
+                        ]
+                        [ span [ class "px-4 text-sm text-slate-700 truncate" ] [ text "More filters" ]
+                        ]
+                    , a
+                        [ class "flex h-8 items-center no-underline outline outline-slate-200 rounded-3xl md:hidden"
+                        , onClick (JobSortUpdateMsg JobSort.ButtonState)
+                        ]
+                        [ div [ class "px-4 text-sm text-slate-700 truncate" ] [ text "Sort by: Default" ]
+                        ]
+                    ]
+                , div [ class "hidden gap-x-4 px-1 md:flex md:justify-end overflow-x-auto" ]
+                    [ div [ class "flex flex-row gap-x-4 no-scrollbar overflow-x-scroll p-2" ]
+                        listMainTechnologyView
+                    , div [ class "flex items-center" ]
+                        [ a
+                            [ class "cursor-pointer h-8 items-center no-underline outline outline-slate-200 px-4 rounded-3xl w-40 md:flex md:gap-x-2 md:h-10"
+                            , onClick (JobMoreFilterUpdateMsg JobMoreFilter.ModalState)
+                            ]
+                            [ span [ class "fa-solid fa-sliders text-slate-700" ] []
+                            , span [ class "text-sm text-slate-700" ] [ text "More filters" ]
+                            , i [ class "fa-solid fa-chevron-down text-slate-700 text-sm" ] []
                             ]
                         ]
                     ]
                 , Html.map JobMoreFilterUpdateMsg <| JobMoreFilter.view jobMoreFilterModel
+                , div [ class "block md:hidden" ] [ Html.map JobSortUpdateMsg <| JobSort.slideOverView jobSortModel ]
                 ]
             ]
         ]

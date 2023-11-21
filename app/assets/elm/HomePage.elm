@@ -4,7 +4,7 @@ import Browser
 import Components.JobFilter as JobFilter
 import Components.JobMoreFilter exposing (Msg(..))
 import Components.JobSearch exposing (InputGroupStateMsg(..), Msg(..))
-import Components.JobSortDropDown as JobSortDropDown
+import Components.JobSort as JobSort
 import Components.JobTab as JobTab exposing (Msg(..), RemoteToggleMsg(..), TabMsg(..))
 import Components.JobView as JobView
 import Components.Navbar as Navbar
@@ -26,7 +26,7 @@ type alias Model =
     { error : Maybe Error
     , jobFilterModel : JobFilter.Model
     , jobTabModel : JobTab.Model
-    , jobSortDropDownModel : JobSortDropDown.Model
+    , jobSortModel : JobSort.Model
     , jobLoading : Bool
     , jobApiParameters : JobApi.Parameters
     , jobList : ListJob
@@ -61,7 +61,7 @@ init _ =
       , error = Nothing
       , jobApiParameters = JobApi.initParameters
       , jobList = []
-      , jobSortDropDownModel = JobSortDropDown.init
+      , jobSortModel = JobSort.init
       , jobAllTotal = 0
       , jobUndisclosedSalaryTotal = 0
       }
@@ -133,40 +133,47 @@ update msg model =
                             , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newJobApiModel
                             )
 
-                        JobSortDropDownUpdateMsg jobSortDropDownMsg ->
-                            case jobSortDropDownMsg of
-                                JobSortDropDown.DropDownState ->
+                        JobSortUpdateMsg jobSortMsg ->
+                            case jobSortMsg of
+                                JobSort.ButtonState ->
                                     let
-                                        ( newJobSortDropDownModel, _ ) =
-                                            JobSortDropDown.update jobSortDropDownMsg model.jobSortDropDownModel
-                                    in
-                                    ( { model
-                                        | jobTabModel = newJobTabModel
-                                        , jobSortDropDownModel = newJobSortDropDownModel
-                                      }
-                                    , Cmd.none
-                                    )
-
-                                JobSortDropDown.Select _ ->
-                                    let
-                                        ( newJobSortDropDownModel, _ ) =
-                                            JobSortDropDown.update jobSortDropDownMsg model.jobSortDropDownModel
-
-                                        newJobApiSortStateMsg =
-                                            JobApi.SortState model.jobSortDropDownModel.selected.column model.jobSortDropDownModel.selected.direction
-
-                                        ( newJobApiModel, _ ) =
-                                            JobApi.updateParameters newJobApiSortStateMsg model.jobApiParameters
+                                        ( newJobSortModel, _ ) =
+                                            JobSort.update jobSortMsg model.jobSortModel
 
                                         newJobFilterMsg =
-                                            JobFilter.JobSortDropDownUpdateMsg jobSortDropDownMsg
+                                            JobFilter.JobSortUpdateMsg jobSortMsg
 
                                         ( newJobFilterModel, _ ) =
                                             JobFilter.update newJobFilterMsg model.jobFilterModel
                                     in
                                     ( { model
                                         | jobTabModel = newJobTabModel
-                                        , jobSortDropDownModel = newJobSortDropDownModel
+                                        , jobSortModel = newJobSortModel
+                                        , jobFilterModel = newJobFilterModel
+                                      }
+                                    , Cmd.none
+                                    )
+
+                                JobSort.Select _ ->
+                                    let
+                                        ( newJobSortModel, _ ) =
+                                            JobSort.update jobSortMsg model.jobSortModel
+
+                                        newJobApiSortStateMsg =
+                                            JobApi.SortState model.jobSortModel.selected.column model.jobSortModel.selected.direction
+
+                                        ( newJobApiModel, _ ) =
+                                            JobApi.updateParameters newJobApiSortStateMsg model.jobApiParameters
+
+                                        newJobFilterMsg =
+                                            JobFilter.JobSortUpdateMsg jobSortMsg
+
+                                        ( newJobFilterModel, _ ) =
+                                            JobFilter.update newJobFilterMsg model.jobFilterModel
+                                    in
+                                    ( { model
+                                        | jobTabModel = newJobTabModel
+                                        , jobSortModel = newJobSortModel
                                         , jobApiParameters = newJobApiModel
                                         , jobFilterModel = newJobFilterModel
                                         , jobLoading = True
@@ -181,47 +188,48 @@ update msg model =
 
         JobFilterUpdateMsg msg_ ->
             case msg_ of
-                JobFilter.JobSortDropDownUpdateMsg jobSortDropDownMsg ->
+                JobFilter.JobSortUpdateMsg jobSortMsg ->
                     let
-                        newJobSortDropDownMsg =
-                            JobTab.JobSortDropDownUpdateMsg jobSortDropDownMsg
+                        newJobSortMsg =
+                            JobTab.JobSortUpdateMsg jobSortMsg
 
                         ( newJobTabModel, _ ) =
-                            JobTab.update newJobSortDropDownMsg model.jobTabModel
+                            JobTab.update newJobSortMsg model.jobTabModel
                     in
-                    case jobSortDropDownMsg of
-                        JobSortDropDown.DropDownState ->
+                    case jobSortMsg of
+                        JobSort.ButtonState ->
                             let
-                                ( newJobSortDropDownModel, _ ) =
-                                    JobSortDropDown.update jobSortDropDownMsg model.jobSortDropDownModel
+                                ( newJobSortModel, _ ) =
+                                    JobSort.update jobSortMsg model.jobSortModel
 
                                 ( newJobFilterModel, _ ) =
                                     JobFilter.update msg_ model.jobFilterModel
                             in
                             ( { model
                                 | jobFilterModel = newJobFilterModel
-                                , jobSortDropDownModel = newJobSortDropDownModel
+                                , jobSortModel = newJobSortModel
+                                , jobTabModel = newJobTabModel
                               }
                             , Cmd.none
                             )
 
-                        JobSortDropDown.Select _ ->
+                        JobSort.Select _ ->
                             let
                                 ( newJobFilterModel, _ ) =
                                     JobFilter.update msg_ model.jobFilterModel
 
-                                ( newJobSortDropDownModel, _ ) =
-                                    JobSortDropDown.update jobSortDropDownMsg model.jobSortDropDownModel
+                                ( newJobSortModel, _ ) =
+                                    JobSort.update jobSortMsg model.jobSortModel
 
-                                newJobApiSortDropDownMsg =
-                                    JobApi.SortState model.jobSortDropDownModel.selected.column model.jobSortDropDownModel.selected.direction
+                                newJobApiSortMsg =
+                                    JobApi.SortState model.jobSortModel.selected.column model.jobSortModel.selected.direction
 
                                 ( newJobApiModel, _ ) =
-                                    JobApi.updateParameters newJobApiSortDropDownMsg model.jobApiParameters
+                                    JobApi.updateParameters newJobApiSortMsg model.jobApiParameters
                             in
                             ( { model
                                 | jobFilterModel = newJobFilterModel
-                                , jobSortDropDownModel = newJobSortDropDownModel
+                                , jobSortModel = newJobSortModel
                                 , jobTabModel = newJobTabModel
                                 , jobApiParameters = newJobApiModel
                                 , jobLoading = True
