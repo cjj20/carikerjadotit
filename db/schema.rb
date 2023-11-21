@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_11_161604) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_21_062643) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_11_161604) do
     t.string "hq_location"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.string "city"
   end
 
   create_table "gutentag_taggings", force: :cascade do |t|
@@ -73,7 +74,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_11_161604) do
     t.boolean "salary_is_undisclosed"
     t.bigint "employment_type"
     t.bigint "location_type"
-    t.boolean "is_new"
     t.bigint "experience_level"
     t.bigint "type_of_work"
     t.text "job_description"
@@ -83,6 +83,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_11_161604) do
     t.string "main_technology"
     t.boolean "online_interview"
     t.bigint "company_id"
+    t.datetime "expires_at", precision: nil
+    t.boolean "boosted"
+    t.string "reference_id"
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
