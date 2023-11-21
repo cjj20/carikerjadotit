@@ -65,7 +65,7 @@ class Api::V1::JobsController < ApplicationController
       total_all_jobs: total_all_jobs
     }
 
-    data = source.as_json(include: [:company])
+    data = source.as_json(include: [:company], methods: [:is_new])
 
     render json: { meta: meta, data: data }
   end
