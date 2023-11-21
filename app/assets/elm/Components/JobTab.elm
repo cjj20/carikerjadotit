@@ -1,6 +1,6 @@
 module Components.JobTab exposing (..)
 
-import Components.JobSortDropDown as JobSortDropDown exposing (DropDownStateMsg(..))
+import Components.JobSort as JobSort exposing (ButtonStateMsg(..))
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
@@ -14,7 +14,7 @@ import String exposing (fromInt)
 type alias Model =
     { activeTab : TabMsg
     , remoteToggle : RemoteToggleMsg
-    , jobSortDropDownModel : JobSortDropDown.Model
+    , jobSortModel : JobSort.Model
     , jobAllTotal : Int
     }
 
@@ -26,7 +26,7 @@ type alias Model =
 type Msg
     = ActiveTab TabMsg
     | RemoteToggle
-    | JobSortDropDownUpdateMsg JobSortDropDown.Msg
+    | JobSortUpdateMsg JobSort.Msg
     | JobAllTotal Int
 
 
@@ -48,7 +48,7 @@ init : Model
 init =
     { activeTab = WithSalary
     , remoteToggle = Off
-    , jobSortDropDownModel = JobSortDropDown.init
+    , jobSortModel = JobSort.init
     , jobAllTotal = 0
     }
 
@@ -78,12 +78,12 @@ update msg model =
             in
             ( newModel, Cmd.none )
 
-        JobSortDropDownUpdateMsg msg_ ->
+        JobSortUpdateMsg msg_ ->
             let
-                ( newJobSortDropDownUpdate, _ ) =
-                    JobSortDropDown.update msg_ model.jobSortDropDownModel
+                ( newJobSortUpdate, _ ) =
+                    JobSort.update msg_ model.jobSortModel
             in
-            ( { model | jobSortDropDownModel = newJobSortDropDownUpdate }, Cmd.none )
+            ( { model | jobSortModel = newJobSortUpdate }, Cmd.none )
 
         JobAllTotal msg_ ->
             let
@@ -98,7 +98,7 @@ update msg model =
 
 
 view : Model -> Html Msg
-view { activeTab, remoteToggle, jobSortDropDownModel, jobAllTotal } =
+view { activeTab, remoteToggle, jobSortModel, jobAllTotal } =
     let
         activeTabWithSalaryClass =
             if activeTab == WithSalary then
@@ -155,7 +155,7 @@ view { activeTab, remoteToggle, jobSortDropDownModel, jobAllTotal } =
                 , div [ class "hidden md:block" ]
                     [ div
                         [ class "cursor-pointer flex gap-x-2 items-center px-2.5 py-1 rounded-xl hover:bg-gray-200"
-                        , onClick (JobSortDropDownUpdateMsg JobSortDropDown.DropDownState)
+                        , onClick (JobSortUpdateMsg JobSort.ButtonState)
                         ]
                         [ span [ class "text-sm text-slate-500" ] [ text "Default" ]
                         , i [ class "fa-solid fa-chevron-down text-sm text-slate-500" ] []
@@ -163,8 +163,8 @@ view { activeTab, remoteToggle, jobSortDropDownModel, jobAllTotal } =
                     ]
                 ]
             , div [ class "hidden md:flex md:justify-end" ]
-                [ Html.map JobSortDropDownUpdateMsg <|
-                    JobSortDropDown.dropDownView jobSortDropDownModel
+                [ Html.map JobSortUpdateMsg <|
+                    JobSort.dropDownView jobSortModel
                 ]
             ]
         ]
