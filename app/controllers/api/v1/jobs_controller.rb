@@ -3,11 +3,7 @@ class Api::V1::JobsController < ApplicationController
     source = Job.all
 
     if params[:search] && params[:search] != ""
-      array_search = params[:search].split(',').map(&:strip).map {|val| "#{val}%" }
-      source = source.where(
-        "title ILIKE ANY (array[?]) OR main_technology ILIKE ANY (array[?]) OR job_description ILIKE ANY (array[?])",
-        array_search, array_search, array_search
-      )
+      source = source.search(params[:search]).records
     end
 
     if params[:location] && params[:location] != ""
