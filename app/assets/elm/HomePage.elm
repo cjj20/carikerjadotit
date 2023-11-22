@@ -160,7 +160,7 @@ update msg model =
                                             JobSort.update jobSortMsg model.jobSortModel
 
                                         newJobApiSortStateMsg =
-                                            JobApi.SortState model.jobSortModel.selected.column model.jobSortModel.selected.direction
+                                            JobApi.SortState newJobSortModel.selected.column newJobSortModel.selected.direction
 
                                         ( newJobApiModel, _ ) =
                                             JobApi.updateParameters newJobApiSortStateMsg model.jobApiParameters
