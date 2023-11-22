@@ -49,7 +49,7 @@ viewJob job =
                             ]
                         , div [ class "flex gap-x-2 items-center truncate" ]
                             [ i [ class "fa-solid fa-location-dot" ] []
-                            , span [ class "text-xs truncate md:text-md" ] [ text job.company.country ]
+                            , span [ class "text-xs truncate md:text-md" ] [ text job.company.city ]
                             ]
                         , typeOfWorkLabel
                         ]
