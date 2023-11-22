@@ -1,4 +1,7 @@
 class Job < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   Gutentag::ActiveRecord.call self
 
   enum employment_type: [:permanent, :contract, :freelance]
