@@ -18,7 +18,7 @@ class Job < ApplicationRecord
   def employment_type
     read_attribute(:employment_type).titleize if read_attribute(:employment_type)
   end
-  
+
   def salary_min
     format_salary(read_attribute(:salary_min))
   end

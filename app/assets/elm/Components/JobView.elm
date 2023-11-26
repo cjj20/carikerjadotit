@@ -1,7 +1,6 @@
 module Components.JobView exposing (..)
 
 import Components.Icons exposing (buildingIcon, dotIcon, mapsGrayIcon)
-import Helpers.JobHelper exposing (formatSalary)
 import Html exposing (Html, div, img, span, text)
 import Html.Attributes exposing (class, src)
 import Models.Job exposing (Job)
@@ -44,7 +43,7 @@ view job =
         salaryLabel =
             if not job.salary_is_undisclosed then
                 div [ class "font-semibold text-sm text-[#54AF71] truncate" ]
-                    [ text (formatSalary job.salary_min ++ "jt" ++ " - " ++ formatSalary job.salary_max ++ "jt") ]
+                    [ text (job.salary_min ++ " - " ++ job.salary_max) ]
 
             else
                 div [] []

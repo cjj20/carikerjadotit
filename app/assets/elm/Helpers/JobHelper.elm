@@ -26,22 +26,3 @@ listEmploymentTypeMsgToString list =
 listTypeOfWorkMsgToString : List TypeOfWorkMsg -> String
 listTypeOfWorkMsgToString list =
     listStringToString (List.map typeOfWorkMsgToString list)
-
-
-formatSalary : String -> String
-formatSalary number =
-    let
-        floatNumber =
-            stringToFloat number
-
-        integerPart =
-            floor floatNumber
-
-        decimalPart =
-            floatNumber - toFloat integerPart
-    in
-    if decimalPart == 0.0 then
-        fromInt integerPart
-
-    else
-        number
