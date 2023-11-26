@@ -1,7 +1,7 @@
 module Components.SimilarOffers exposing (..)
 
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Html exposing (Html, div, span, text)
+import Html.Attributes exposing (class)
 
 
 

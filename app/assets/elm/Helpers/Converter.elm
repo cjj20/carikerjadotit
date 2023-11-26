@@ -23,6 +23,6 @@ isValueInArray value array =
     List.member value array
 
 
-mergedList : List String -> List String -> List String
-mergedList list1 list2 =
+mergeList : List String -> List String -> List String
+mergeList list1 list2 =
     List.append list1 (List.filter (\item -> not (List.member item list1)) list2)

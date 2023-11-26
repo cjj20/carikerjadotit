@@ -1,8 +1,10 @@
 module Components.Navbar exposing (..)
 
+import Components.Icons exposing (burgerMenuIcon)
 import Components.SidebarMenu as SidebarMenu
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Helpers.State exposing (OpenCloseStateMsg(..))
+import Html exposing (Html, div, nav, span, text)
+import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
 
 
@@ -11,8 +13,11 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-    { sidebarMenuModel : SidebarMenu.Model
-    }
+    { sidebarMenuModel : SidebarMenu.Model }
+
+
+
+-- MSG
 
 
 type Msg
@@ -37,10 +42,10 @@ update msg model =
     case msg of
         SidebarMenuUpdateMsg msg_ ->
             let
-                ( newUpdateModel, _ ) =
+                ( newSidebarMenuModel, _ ) =
                     SidebarMenu.update msg_ model.sidebarMenuModel
             in
-            ( { model | sidebarMenuModel = newUpdateModel }, Cmd.none )
+            ( { model | sidebarMenuModel = newSidebarMenuModel }, Cmd.none )
 
 
 
@@ -49,42 +54,25 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div [ class "bg-white" ]
-        [ nav [ class "border-b px-4" ]
-            [ div [ class "flex h-16 items-center justify-between" ]
+    div [ class "bg-white border-b" ]
+        [ nav [ class "px-4 lg:px-[140px]" ]
+            [ div [ class "flex h-20 items-center justify-between" ]
                 [ div [ class "flex gap-x-4 items-center" ]
-                    [ span [ class "font-semibold my-auto text-md text-gray-900 lg:text-[32px]" ] [ text "carikerja.it" ]
-                    , span [ class "hidden my-auto text-xs text-slate-700 lg:block" ] [ text "#1 Job Board for tech industry in Indonesia and SEA" ]
+                    [ span [ class "font-bold my-auto text-lg" ]
+                        [ span [ class "text-primary-1" ] [ text "Cari" ]
+                        , span [ class "text-black" ] [ text "Kerja.IT" ]
+                        ]
                     ]
-                , div [ class "flex flex-row gap-x-4 items-center" ]
-                    [ a [ class "font-medium hidden no-underline rounded-xl text-sm text-primary-2 hover:bg-slate-100 hover:cursor-pointer lg:flex" ]
-                        [ span [ class "p-2" ] [ text "Job offers" ]
-                        ]
-                    , a [ class "hidden no-underline rounded-xl text-sm text-slate-500 hover:bg-slate-100 hover:cursor-pointer lg:flex" ]
-                        [ span [ class "p-2" ] [ text "Top Companies" ]
-                        ]
-
-                    --, a [ class "hidden rounded-xl no-underline text-slate-500 text-sm hover:bg-slate-100 hover:cursor-pointer lg:flex" ] [ text "Geek" ]
-                    , a [ class "hidden items-center no-underline outline outline-slate-200 px-4 py-2 rounded-2xl hover:cursor-pointer hover:outline-slate-300 md:flex" ]
-                        [ span [ class "text-sm text-slate-700" ] [ text "Post a job" ]
-                        ]
-
-                    --, a [ class "flex items-center bg-pink-500 rounded-2xl px-4 py-2 no-underline hover:bg-pink-800 hover:cursor-pointer flex space-x-2" ]
-                    --[
-                    --    span [ class "text-sm text-slate-50" ] [ text "Sign In" ]
-                    --    , span [ class "fa-solid fa-chevron-down text-white text-sm" ] []
-                    --]
-                    , div [ class "h-10 hidden rounded-full w-12 hover:bg-slate-200 hover:cursor-pointer md:flex md:items-center md:justify-center" ]
-                        [ a [ class "font-medium no-underline text-sm text-slate-500" ] [ text "IDR" ]
-                        ]
+                , div [ class "flex flex-row gap-x-3 items-center md:gap-x-4" ]
+                    [ div [ class "bg-primary-1 cursor-pointer flex h-10 items-center justify-center rounded-3xl w-[78px] hover:bg-primary-2 lg:h-12 lg:w-[117px]" ]
+                        [ span [ class "font-semibold text-sm text-white lg:text-base" ] [ text "Sign In" ] ]
                     , div
-                        [ class "flex h-10 items-center justify-center rounded-full w-10 hover:cursor-pointer hover:bg-slate-200"
-                        , onClick (SidebarMenuUpdateMsg SidebarMenu.ToggleMenu)
+                        [ class "cursor-pointer flex h-6 items-center justify-center rounded-lg w-6 hover:bg-white-30"
+                        , onClick (SidebarMenuUpdateMsg (SidebarMenu.ButtonState Open))
                         ]
-                        [ a [ class "fa-solid fa-bars no-underline text-slate-700" ] []
-                        ]
+                        [ burgerMenuIcon ]
                     ]
                 ]
             ]
-        , Html.map SidebarMenuUpdateMsg <| SidebarMenu.view model.sidebarMenuModel
+        , div [] [ Html.map SidebarMenuUpdateMsg <| SidebarMenu.view model.sidebarMenuModel ]
         ]

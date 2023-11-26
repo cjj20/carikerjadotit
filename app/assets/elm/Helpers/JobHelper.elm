@@ -3,18 +3,19 @@ module Helpers.JobHelper exposing (..)
 import Components.JobMoreFilter
     exposing
         ( EmploymentTypeMsg(..)
-        , ExperienceMsg(..)
+        , ExperienceLevelMsg(..)
         , TypeOfWorkMsg(..)
         , employmentTypeMsgToString
-        , experienceMsgToString
+        , experienceLevelMsgToString
         , typeOfWorkMsgToString
         )
-import Helpers.Converter exposing (listStringToString)
+import Helpers.Converter exposing (listStringToString, stringToFloat)
+import String exposing (fromInt)
 
 
-listExperienceMsgToString : List ExperienceMsg -> String
+listExperienceMsgToString : List ExperienceLevelMsg -> String
 listExperienceMsgToString list =
-    listStringToString (List.map experienceMsgToString list)
+    listStringToString (List.map experienceLevelMsgToString list)
 
 
 listEmploymentTypeMsgToString : List EmploymentTypeMsg -> String
@@ -25,3 +26,22 @@ listEmploymentTypeMsgToString list =
 listTypeOfWorkMsgToString : List TypeOfWorkMsg -> String
 listTypeOfWorkMsgToString list =
     listStringToString (List.map typeOfWorkMsgToString list)
+
+
+formatSalary : String -> String
+formatSalary number =
+    let
+        floatNumber =
+            stringToFloat number
+
+        integerPart =
+            floor floatNumber
+
+        decimalPart =
+            floatNumber - toFloat integerPart
+    in
+    if decimalPart == 0.0 then
+        fromInt integerPart
+
+    else
+        number

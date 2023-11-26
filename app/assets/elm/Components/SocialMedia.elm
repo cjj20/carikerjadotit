@@ -1,7 +1,8 @@
 module Components.SocialMedia exposing (..)
 
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Components.Icons exposing (facebookIcon, instagramIcon, linkedInIcon, twitterIcon)
+import Html exposing (Html, div)
+import Html.Attributes exposing (class)
 
 
 
@@ -10,9 +11,15 @@ import Html.Attributes exposing (..)
 
 view : Html msg
 view =
-    div [ class "flex gap-x-6 text-2xl text-slate-500" ]
-        [ i [ class "fa-brands fa-facebook" ] []
-        , i [ class "fa-brands fa-instagram" ] []
-        , i [ class "fa-brands fa-linkedin" ] []
-        , i [ class "fa-brands fa-youtube" ] []
+    div [ class "flex gap-x-4" ]
+        [ div [ class "cursor-pointer flex h-9 items-center justify-center ring-1 ring-[#DBE0E5] rounded-full w-9 hover:bg-white-30" ]
+            [ facebookIcon
+            ]
+        , div [ class "cursor-pointer flex h-9 items-center justify-center ring-1 ring-[#DBE0E5] rounded-full w-9 hover:bg-white-30" ]
+            [ twitterIcon
+            ]
+        , div [ class "cursor-pointer flex h-9 items-center justify-center ring-1 ring-[#DBE0E5] rounded-full w-9 hover:bg-white-30" ]
+            [ instagramIcon ]
+        , div [ class "cursor-pointer flex h-9 items-center justify-center ring-1 ring-[#DBE0E5] rounded-full w-9 hover:bg-white-30" ]
+            [ linkedInIcon ]
         ]

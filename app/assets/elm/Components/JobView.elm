@@ -1,8 +1,10 @@
 module Components.JobView exposing (..)
 
-import Html exposing (..)
-import Html.Attributes exposing (..)
-import Models.Job exposing (Job, maxSkills, salaryUndisclosed)
+import Components.Icons exposing (buildingIcon, dotIcon, mapsGrayIcon)
+import Helpers.JobHelper exposing (formatSalary)
+import Html exposing (Html, div, img, span, text)
+import Html.Attributes exposing (class, src)
+import Models.Job exposing (Job)
 import String exposing (isEmpty)
 
 
@@ -10,68 +12,73 @@ import String exposing (isEmpty)
 -- VIEW
 
 
-viewJob : Job -> Html msg
-viewJob job =
+view : Job -> Html msg
+view job =
     let
-        typeOfWorkLabel =
-            if not (isEmpty job.type_of_work) then
-                div [ class "bg-slate-300 flex gap-x-2 items-center px-2 py-1 rounded-xl truncate" ]
-                    [ i [ class "fa-solid fa-rss" ] []
-                    , span [ class "text-xs truncate md:text-md" ] [ text job.type_of_work ]
-                    ]
+        isNewLabel =
+            if job.is_new == True then
+                div [ class "bg-white-30 flex font-semibold h-[22px] items-center justify-center rounded-xl text-xs text-black-90 w-[43px]" ]
+                    [ text "New" ]
 
-            else if not (isEmpty job.employment_type) then
-                div [ class "bg-slate-300 flex gap-x-2 items-center px-2 py-1 rounded-xl truncate" ]
-                    [ i [ class "fa-solid fa-rss" ] []
-                    , span [ class "text-xs truncate md:text-md" ] [ text job.employment_type ]
+            else
+                div [] []
+
+        employmentTypeLabel =
+            if not (isEmpty job.employment_type) then
+                div [ class "bg-white-30 flex gap-x-2 h-[22px] items-center justify-center px-4 py-1 rounded" ]
+                    [ span [ class "font-semibold text-xs text-black-90 truncate" ] [ text job.employment_type ]
                     ]
 
             else
                 div [] []
 
-        isNewLabel =
-            if job.is_new == True then
-                div [ class "bg-slate-300 px-1.5 py-0.5 rounded-xl text-xs text-slate-700 md:px-1.5" ] [ text "New" ]
+        typeOfWorkLabel =
+            if not (isEmpty job.type_of_work) then
+                div [ class "bg-white-30 flex gap-x-2 h-[22px] items-center justify-center px-4 py-1 rounded" ]
+                    [ span [ class "font-semibold text-xs text-black-90 truncate" ] [ text job.type_of_work ]
+                    ]
+
+            else
+                div [] []
+
+        salaryLabel =
+            if not job.salary_is_undisclosed then
+                div [ class "font-semibold text-sm text-[#54AF71] truncate" ]
+                    [ text (formatSalary job.salary_min ++ "jt" ++ " - " ++ formatSalary job.salary_max ++ "jt") ]
 
             else
                 div [] []
     in
-    div [ class "bg-white px-2 rounded-lg shadow-lg md:px-4 md:py-2" ]
-        [ div [ class "flex gap-x-2 h-16 items-center" ]
-            [ div [ class "px-1 md:px-3 md:py-4" ] [ img [ src job.company.image, class "w-14 md:w-20" ] [] ]
-            , div [ class "flex items-center justify-between truncate w-full md:space-x-4" ]
-                [ div [ class "text-slate-700 truncate md:space-y-1" ]
-                    [ span [ class "font-semibold text-sm text-slate-700 md:text-lg" ] [ text job.title ]
-                    , div [ class "hidden md:flex md:space-x-4" ]
-                        [ div [ class "flex gap-x-2 items-center truncate" ]
-                            [ i [ class "fa-solid fa-building" ] []
-                            , span [ class "text-xs truncate md:text-md" ] [ text job.company.name ]
+    div [ class "bg-white p-4 rounded-lg h-[110px]" ]
+        [ div [ class "flex flex-col gap-y-4" ]
+            [ div [ class "flex gap-x-2 justify-between" ]
+                [ div [ class "flex flex-row gap-x-4 truncate" ]
+                    [ div [ class "flex items-center" ] [ img [ src job.company.image, class "w-12" ] [] ]
+                    , div [ class "flex justify-between w-full truncate" ]
+                        [ div [ class "gap-y-1 truncate" ]
+                            [ span [ class "font-semibold text-sm text-black-90 md:text-base truncate" ] [ text job.title ]
+                            , div [ class "flex gap-x-2 text-[#A5A9B5] truncate" ]
+                                [ div [ class "flex gap-x-1 items-center truncate" ]
+                                    [ div [] [ buildingIcon ]
+                                    , span [ class "text-xs truncate" ] [ text job.company.name ]
+                                    ]
+                                , div [ class "flex items-center" ] [ dotIcon ]
+                                , div [ class "flex gap-x-1 items-center truncate" ]
+                                    [ div [] [ mapsGrayIcon ]
+                                    , span [ class "text-xs truncate" ] [ text job.company.city ]
+                                    ]
+                                ]
                             ]
-                        , div [ class "flex gap-x-2 items-center truncate" ]
-                            [ i [ class "fa-solid fa-location-dot" ] []
-                            , span [ class "text-xs truncate md:text-md" ] [ text job.company.city ]
-                            ]
-                        , typeOfWorkLabel
                         ]
-                    , span [ class "block text-[10px] text-green-400 truncate md:hidden" ] [ text (salaryUndisclosed job) ]
                     ]
-                , div [ class "space-y-1 truncate md:gap-y-1" ]
-                    [ div [ class "flex items-center justify-end md:gap-x-2" ]
-                        [ span [ class "hidden text-sm text-green-500 truncate md:block md:text-base" ] [ text (salaryUndisclosed job) ]
-                        , isNewLabel
-                        ]
-                    , div [ class "flex gap-x-1 items-center justify-end md:hidden" ]
-                        [ span [ class "text-[10px] text-slate-500 truncate" ] [ text "Warszawa, +3," ]
-                        , span [ class "text-[10px] text-slate-500 truncate" ] [ text "Remote" ]
-                        ]
-                    , div [ class "gap-x-2 hidden justify-end md:flex" ] <|
-                        List.map
-                            (\data ->
-                                span [ class "border border-slate-300 capitalize rounded-xl px-1 py-1 text-xs text-slate-700 truncate" ]
-                                    [ text data ]
-                            )
-                            (maxSkills job)
+                , div [] [ isNewLabel ]
+                ]
+            , div [ class "flex gap-x-4 justify-between" ]
+                [ div [ class "flex flex-row gap-x-2 truncate" ]
+                    [ div [ class "truncate" ] [ employmentTypeLabel ]
+                    , div [ class "truncate" ] [ typeOfWorkLabel ]
                     ]
+                , div [ class "truncate" ] [ salaryLabel ]
                 ]
             ]
         ]
@@ -79,42 +86,31 @@ viewJob job =
 
 loadingView : Int -> Html msg
 loadingView _ =
-    div [ class "bg-white px-2 rounded-lg shadow-lg md:px-4 md:py-2" ]
-        [ div [ class "animate-pulse flex gap-x-2 h-16 items-center" ]
-            [ div [ class "bg-slate-300 rounded-lg h-12 md:h-14 w-[104px] md:w-[84px]" ] []
-            , div
-                [ class "flex gap-x-2 items-center justify-between truncate w-full md:gap-x-4" ]
-                [ div [ class "flex flex-col truncate gap-y-1 md:gap-y-2" ]
-                    [ div [ class "bg-slate-300 h-6 rounded w-32 sm:w-48" ] []
-                    , div [ class "hidden md:flex md:space-x-2" ]
-                        [ div [ class "bg-slate-300 h-4 rounded w-24" ]
-                            []
-                        , div [ class "bg-slate-300 h-4 rounded w-24" ]
-                            []
-                        , div [ class "bg-slate-300 h-4 rounded w-24" ]
-                            []
+    div [ class "bg-white h-[110px] p-4 rounded-lg" ]
+        [ div [ class "flex flex-col gap-y-4" ]
+            [ div [ class "flex gap-x-2 justify-between" ]
+                [ div [ class "flex flex-row gap-x-4" ]
+                    [ div [ class "flex items-center" ]
+                        [ div [ class "animate-pulse bg-[#F2F6FD] h-10 rounded-xl w-10" ] []
                         ]
-                    , div [ class "bg-slate-300 block h-4 rounded truncate w-16 md:hidden" ]
-                        []
-                    ]
-                , div [ class "flex flex-col truncate gap-y-1 md:gap-y-2" ]
-                    [ div [ class "flex justify-end" ]
-                        [ div [ class "bg-slate-300 h-5 rounded w-20 md:w-36" ]
-                            []
-                        ]
-                    , div [ class "flex gap-x-1 items-center justify-end md:hidden" ]
-                        [ div [ class "bg-slate-300 block h-4 rounded w-16 md:hidden" ]
-                            []
-                        , div [ class "bg-slate-300 block h-4 rounded w-16 md:hidden" ]
-                            []
-                        ]
-                    , div [ class "gap-x-2 hidden justify-end md:flex" ]
-                        [ div [ class "bg-slate-300 h-4 rounded w-14" ]
-                            []
-                        , div [ class "bg-slate-300 h-4 rounded w-14" ]
-                            []
+                    , div [ class "flex justify-between w-full" ]
+                        [ div [ class "flex flex-col gap-y-1" ]
+                            [ div [ class "animate-pulse bg-[#F2F6FD] h-5 rounded-lg w-32 md:w-56" ] []
+                            , div [ class "flex gap-x-2" ]
+                                [ div [ class "animate-pulse bg-[#F2F6FD] h-5 rounded-lg w-14 md:w-20" ] []
+                                , div [ class "animate-pulse bg-[#F2F6FD] h-5 rounded-lg w-14 md:w-20" ] []
+                                ]
+                            ]
                         ]
                     ]
+                , div [ class "animate-pulse bg-[#F2F6FD] h-5 rounded-lg w-10" ] []
+                ]
+            , div [ class "flex gap-x-4 justify-between" ]
+                [ div [ class "flex flex-row gap-x-2" ]
+                    [ div [ class "animate-pulse bg-[#F2F6FD] h-5 rounded-lg w-20" ] []
+                    , div [ class "animate-pulse bg-[#F2F6FD] h-5 rounded-lg w-20" ] []
+                    ]
+                , div [ class "animate-pulse bg-[#F2F6FD] h-5 rounded-lg w-16" ] []
                 ]
             ]
         ]

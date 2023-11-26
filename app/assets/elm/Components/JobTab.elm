@@ -1,10 +1,11 @@
 module Components.JobTab exposing (..)
 
-import Components.JobSort as JobSort exposing (ButtonStateMsg(..))
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Components.Icons exposing (chevronDownBlueIcon, chevronDownGrayIcon, toggleOffIcon, toggleOnIcon)
+import Components.JobSort as JobSort exposing (..)
+import Helpers.State exposing (OpenCloseStateMsg(..))
+import Html exposing (Attribute, Html, div, span, text)
+import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
-import String exposing (fromInt)
 
 
 
@@ -12,10 +13,9 @@ import String exposing (fromInt)
 
 
 type alias Model =
-    { activeTab : TabMsg
+    { active : TabMsg
     , remoteToggle : RemoteToggleMsg
     , jobSortModel : JobSort.Model
-    , jobAllTotal : Int
     }
 
 
@@ -24,10 +24,9 @@ type alias Model =
 
 
 type Msg
-    = ActiveTab TabMsg
+    = Active TabMsg
     | RemoteToggle
     | JobSortUpdateMsg JobSort.Msg
-    | JobAllTotal Int
 
 
 type TabMsg
@@ -46,10 +45,9 @@ type RemoteToggleMsg
 
 init : Model
 init =
-    { activeTab = WithSalary
+    { active = WithSalary
     , remoteToggle = Off
     , jobSortModel = JobSort.init
-    , jobAllTotal = 0
     }
 
 
@@ -60,12 +58,8 @@ init =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        ActiveTab msg_ ->
-            let
-                newModel =
-                    { model | activeTab = msg_ }
-            in
-            ( newModel, Cmd.none )
+        Active msg_ ->
+            ( { model | active = msg_ }, Cmd.none )
 
         RemoteToggle ->
             let
@@ -85,12 +79,18 @@ update msg model =
             in
             ( { model | jobSortModel = newJobSortUpdate }, Cmd.none )
 
-        JobAllTotal msg_ ->
-            let
-                newModel =
-                    { model | jobAllTotal = msg_ }
-            in
-            ( newModel, Cmd.none )
+
+
+-- HELPER
+
+
+tabActiveClass : Model -> TabMsg -> Attribute Msg
+tabActiveClass { active } tab =
+    if active == tab then
+        class "bg-white-30 font-semibold rounded-t-xl md:rounded-t-xl"
+
+    else
+        class "bg-white hover:bg-gray-200 hover:rounded-t-xl hover:md:rounded-t-xl"
 
 
 
@@ -98,73 +98,74 @@ update msg model =
 
 
 view : Model -> Html Msg
-view { activeTab, remoteToggle, jobSortModel, jobAllTotal } =
-    let
-        activeTabWithSalaryClass =
-            if activeTab == WithSalary then
-                class "bg-gray-100 rounded-t-xl md:rounded-t-3xl"
-
-            else
-                class "bg-white hover:bg-gray-200 hover:rounded-t-xl hover:md:rounded-t-3xl"
-
-        activeTabAllOffersClass =
-            if activeTab == AllOffers then
-                class "bg-gray-100 rounded-t-xl md:rounded-t-3xl"
-
-            else
-                class "bg-white hover:bg-gray-200 hover:rounded-t-xl hover:md:rounded-t-3xl"
-
-        remoteToggleClass =
-            if remoteToggle == On then
-                class "fa-toggle-on"
-
-            else
-                class "fa-toggle-off"
-
-        jobAllTotalText =
-            fromInt jobAllTotal
-    in
-    div [ class "bg-white px-4 flex gap-x-1.5 justify-between no-scrollbar overflow-x-scroll" ]
-        [ div [ class "flex gap-x-1.5 justify-between no-scrollbar overflow-x-scroll" ]
-            [ div
-                [ class "cursor-pointer flex items-center px-4 py-2 md:px-6 md:py-2.5"
-                , activeTabWithSalaryClass
-                , onClick (ActiveTab WithSalary)
-                ]
-                [ span [ class "text-sm text-slate-500 truncate" ] [ text "With salary" ]
-                ]
-            , div
-                [ class "cursor-pointer flex items-center px-4 py-2 md:px-6 md:py-2.5"
-                , activeTabAllOffersClass
-                , onClick (ActiveTab AllOffers)
-                ]
-                [ span [ class "text-sm text-slate-500 truncate" ]
-                    [ text "All offers"
-                    , span [ class "font-medium pl-2 text-primary-2" ] [ text (jobAllTotalText ++ " offers") ]
-                    ]
-                ]
-            ]
-        , div []
-            [ div [ class "flex gap-x-4 items-center justify-end" ]
-                [ div [ class "cursor-pointer flex gap-x-2 items-center", onClick RemoteToggle ]
-                    [ span [ class "text-sm text-slate-500" ] [ text "Remote" ]
-                    , i
-                        [ class "hidden fa-solid text-xl text-slate-400 lg:block", remoteToggleClass ]
-                        []
-                    ]
-                , div [ class "hidden md:block" ]
+view model =
+    div [ class "relative z-10" ]
+        [ div [ class "bg-white h-12 pt-2 px-4 lg:px-[140px] overflow-x-auto" ]
+            [ div [ class "flex gap-x-2.5 justify-between" ]
+                [ div [ class "flex" ]
                     [ div
-                        [ class "cursor-pointer flex gap-x-2 items-center px-2.5 py-1 rounded-xl hover:bg-gray-200"
-                        , onClick (JobSortUpdateMsg JobSort.ButtonState)
+                        [ class "cursor-pointer flex items-center justify-center py-2.5 w-[120px] lg:w-[157px]"
+                        , tabActiveClass model WithSalary
+                        , onClick (Active WithSalary)
                         ]
-                        [ span [ class "text-sm text-slate-500" ] [ text "Default" ]
-                        , i [ class "fa-solid fa-chevron-down text-sm text-slate-500" ] []
+                        [ span [ class "text-sm text-black-90 truncate" ] [ text "With salary" ] ]
+                    , div
+                        [ class "cursor-pointer flex items-center justify-center py-2.5 w-[120px] lg:w-[157px]"
+                        , tabActiveClass model AllOffers
+                        , onClick (Active AllOffers)
+                        ]
+                        [ span [ class "text-sm text-black-90 truncate" ] [ text "All offers" ] ]
+                    ]
+                , div [ class "flex gap-x-4 items-center justify-end pt-2.5 lg:pt-1.5" ]
+                    [ div [] [ remoteButton model ]
+                    , div [ class "hidden md:block" ]
+                        [ div [] [ jobSortButton model ]
+                        , div [ class "flex justify-end" ]
+                            [ Html.map JobSortUpdateMsg <| JobSort.dropDownView model.jobSortModel ]
                         ]
                     ]
                 ]
-            , div [ class "hidden md:flex md:justify-end" ]
-                [ Html.map JobSortUpdateMsg <|
-                    JobSort.dropDownView jobSortModel
-                ]
             ]
+        ]
+
+
+remoteButton : Model -> Html Msg
+remoteButton { remoteToggle } =
+    let
+        remoteToggleIcon =
+            if remoteToggle == On then
+                toggleOnIcon
+
+            else
+                toggleOffIcon
+    in
+    div [ class "cursor-pointer flex gap-x-2 items-center", onClick RemoteToggle ]
+        [ span [ class "text-sm text-black-90" ] [ text "Remote" ]
+        , span [] [ remoteToggleIcon ]
+        ]
+
+
+jobSortButton : Model -> Html Msg
+jobSortButton { jobSortModel } =
+    let
+        labelClass =
+            if jobSortModel /= JobSort.init then
+                class "text-primary-1 font-semibold"
+
+            else
+                class "text-black-90"
+
+        chevronDownIcon =
+            if jobSortModel /= JobSort.init then
+                chevronDownBlueIcon
+
+            else
+                chevronDownGrayIcon
+    in
+    div
+        [ class "cursor-pointer flex gap-x-3 items-center px-3 py-1 rounded-xl hover:bg-white-30"
+        , onClick (JobSortUpdateMsg (JobSort.ButtonState Open))
+        ]
+        [ span [ class "text-sm", labelClass ] [ text (sortItemMsgToSortItemModel jobSortModel.selected.name).text ]
+        , span [] [ chevronDownIcon ]
         ]
