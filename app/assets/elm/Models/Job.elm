@@ -1,34 +1,8 @@
 module Models.Job exposing (..)
 
-import Array exposing (fromList, slice, toList)
 import Json.Decode as Decode exposing (Decoder, Value, bool, decodeString, field, int, list, map2, string)
 import Json.Decode.Pipeline exposing (optional, required)
-import List exposing (length)
 import Models.Company exposing (Company, companyDecoder)
-
-
-
--- Helpers
-
-
-maxSkills : Job -> List String
-maxSkills job =
-    case length job.tag_names > 2 of
-        True ->
-            toList (slice 0 3 (fromList job.tag_names))
-
-        False ->
-            job.tag_names
-
-
-salaryUndisclosed : Job -> String
-salaryUndisclosed job =
-    case job.salary_is_undisclosed of
-        True ->
-            "Undisclosed Salary"
-
-        False ->
-            job.salary_min ++ " - " ++ job.salary_max ++ " IDR"
 
 
 
@@ -61,8 +35,7 @@ type alias Job =
 type alias Meta =
     { limit_value : Int
     , total_pages : Int
-    , total_undisclosed_salary_jobs : Int
-    , total_all_jobs : Int
+    , total_jobs : Int
     }
 
 
@@ -114,8 +87,7 @@ metaDecoder =
     Decode.succeed Meta
         |> optional "limit_value" int 0
         |> optional "total_pages" int 0
-        |> optional "total_undisclosed_salary_jobs" int 0
-        |> optional "total_all_jobs" int 0
+        |> optional "total_jobs" int 0
 
 
 apiDecoder : Decoder ApiResponse
@@ -139,8 +111,7 @@ jobsDecodeString data =
             { meta =
                 { limit_value = 0
                 , total_pages = 0
-                , total_undisclosed_salary_jobs = 0
-                , total_all_jobs = 0
+                , total_jobs = 0
                 }
             , data = []
             }

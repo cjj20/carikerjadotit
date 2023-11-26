@@ -3,10 +3,9 @@ module Integrations.JobApi exposing (..)
 import Components.JobMoreFilter
     exposing
         ( EmploymentTypeMsg
-        , ExperienceMsg
+        , ExperienceLevelMsg
         , TypeOfWorkMsg
         )
-import Components.MainTechnology exposing (MainTechnology, emptyMainTechnology)
 import Helpers.Converter exposing (listStringToString)
 import Helpers.JobHelper
     exposing
@@ -15,7 +14,7 @@ import Helpers.JobHelper
         , listTypeOfWorkMsgToString
         )
 import Http exposing (get)
-import String exposing (String)
+import String exposing (String, fromInt)
 
 
 
@@ -34,17 +33,24 @@ baseUrl =
 type alias Parameters =
     { company_name : String
     , location_type : String
-    , main_technology : MainTechnology
+    , main_technology : String
     , salary_is_undisclosed : String
     , sort_column : String
     , sort_direction : String
     , search : List String
     , salary_min : String
     , salary_max : String
-    , experience : List ExperienceMsg
+    , experience : List ExperienceLevelMsg
     , employment_type : List EmploymentTypeMsg
     , type_of_work : List TypeOfWorkMsg
+    , location_name : String
+    , page : Int
+    , per_page : Int
     }
+
+
+
+-- MSG
 
 
 type Msg
@@ -54,16 +60,18 @@ type Msg
 type ParametersMsg
     = CompanyNameState String
     | LocationTypeState String
-    | MainTechnologyState MainTechnology
+    | MainTechnologyState String
     | SalaryIsUndisclosedState String
     | SortState String String
     | SearchState (List String)
     | SalaryMinState String
     | SalaryMaxState String
-    | ExperienceState (List ExperienceMsg)
+    | ExperienceState (List ExperienceLevelMsg)
     | EmploymentTypeState (List EmploymentTypeMsg)
     | TypeOfWorkState (List TypeOfWorkMsg)
+    | LocationNameState String
     | ClearMoreFilterState
+    | NextPage
 
 
 
@@ -79,7 +87,7 @@ initParameters : Parameters
 initParameters =
     { company_name = ""
     , location_type = ""
-    , main_technology = emptyMainTechnology
+    , main_technology = ""
     , salary_is_undisclosed = "false"
     , sort_column = "created_at"
     , sort_direction = "desc"
@@ -89,6 +97,9 @@ initParameters =
     , experience = []
     , employment_type = []
     , type_of_work = []
+    , location_name = ""
+    , page = 1
+    , per_page = 20
     }
 
 
@@ -132,6 +143,9 @@ updateParameters parametersMsg parameters =
         TypeOfWorkState msg_ ->
             ( { parameters | type_of_work = msg_ }, Cmd.none )
 
+        LocationNameState msg_ ->
+            ( { parameters | location_name = msg_ }, Cmd.none )
+
         ClearMoreFilterState ->
             ( { parameters
                 | salary_min = ""
@@ -142,6 +156,9 @@ updateParameters parametersMsg parameters =
               }
             , Cmd.none
             )
+
+        NextPage ->
+            ( { parameters | page = parameters.page + 1 }, Cmd.none )
 
 
 
@@ -155,7 +172,7 @@ parametersToString jobParameters =
         ++ "&location_type="
         ++ jobParameters.location_type
         ++ "&main_technology="
-        ++ jobParameters.main_technology.name
+        ++ jobParameters.main_technology
         ++ "&salary_is_undisclosed="
         ++ jobParameters.salary_is_undisclosed
         ++ "&sort_column="
@@ -174,6 +191,12 @@ parametersToString jobParameters =
         ++ listEmploymentTypeMsgToString jobParameters.employment_type
         ++ "&type_of_work="
         ++ listTypeOfWorkMsgToString jobParameters.type_of_work
+        ++ "&location_name="
+        ++ jobParameters.location_name
+        ++ "&page="
+        ++ fromInt jobParameters.page
+        ++ "&per_page="
+        ++ fromInt jobParameters.per_page
 
 
 

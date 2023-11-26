@@ -27,7 +27,7 @@ class TechInAsiaRepository
       title: data[:title],
       salary_min: data[:salary_min],
       salary_max: data[:salary_max],
-      salary_is_undisclosed: data[:is_salary_visible],
+      salary_is_undisclosed: salary_is_undisclosed_format(data[:is_salary_visible]),
       employment_type: employment_type_format(data[:job_type][:name]),
       location_type: location_type_format(data[:is_remote]),
       experience_level: experience_level_format(max: data[:experience_max]),
@@ -43,6 +43,15 @@ class TechInAsiaRepository
     }
   end
 
+  def salary_is_undisclosed_format(is_salary_visible)
+    if is_salary_visible == true
+      salary_is_undisclosed = false
+    else
+      salary_is_undisclosed = true
+    end
+
+    salary_is_undisclosed
+  end
 
   def employment_type_format(job_type_name)
     if job_type_name == "Permanent"

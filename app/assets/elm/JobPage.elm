@@ -2,10 +2,10 @@ module JobPage exposing (..)
 
 import Browser
 import Components.Footer as Footer
+import Components.Maps as Maps
 import Components.Navbar as Navbar
-import Components.OpenStreetMap as OpenStreetMap
 import Components.SimilarOffers as SimilarOffers
-import Html exposing (..)
+import Html exposing (Html, a, div, i, img, li, p, span, text, ul)
 import Html.Attributes exposing (class, src)
 import Json.Decode as Decode exposing (Decoder, Error, Value, bool, decodeValue, int, string)
 import Json.Decode.Pipeline exposing (required)
@@ -79,7 +79,7 @@ update msg model =
 
         NavbarUpdateMsg msg_ ->
             let
-                ( newUpdateModel, newCmd ) =
+                ( newUpdateModel, _ ) =
                     Navbar.update msg_ model.navbarModel
             in
             ( { model | navbarModel = newUpdateModel }, Cmd.none )
@@ -243,7 +243,7 @@ view model =
                     ]
                 , div [ class "md:hidden" ]
                     [ div [ class "h-48" ]
-                        [ OpenStreetMap.view
+                        [ Maps.view
                         ]
                     ]
                 , div [ class "bg-white flex flex-col gap-y-4 px-4 py-6 md:flex-row md:rounded-lg md:space-x-8" ]
@@ -327,7 +327,7 @@ view model =
                 ]
             , div [ class "hidden lg:flex lg:flex-col lg:gap-y-6" ]
                 [ div [ class "h-20 w-50 lg:h-[calc(100vh-135px)]" ]
-                    [ OpenStreetMap.view
+                    [ Maps.view
                     ]
                 , div [ class "block px-4 sticky top-36" ]
                     [ SimilarOffers.view
