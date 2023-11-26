@@ -1,7 +1,5 @@
 module Integrations.JobApi exposing (..)
 
---import Components.MainTechnology exposing (MainTechnology, emptyMainTechnology)
-
 import Components.JobMoreFilter
     exposing
         ( EmploymentTypeMsg
@@ -49,6 +47,10 @@ type alias Parameters =
     , page : Int
     , per_page : Int
     }
+
+
+
+-- MSG
 
 
 type Msg
