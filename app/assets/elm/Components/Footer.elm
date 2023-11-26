@@ -1,8 +1,8 @@
 module Components.Footer exposing (..)
 
 import Components.SocialMedia as SocialMedia
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Html exposing (Html, div, h5, h6, span, text)
+import Html.Attributes exposing (class)
 
 
 

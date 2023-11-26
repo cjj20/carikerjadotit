@@ -97,3 +97,7 @@ gem 'gutentag', '~> 2.6'
 gem "sidekiq-cron"
 
 gem 'algolia', '~> 2.3', '>= 2.3.2'
+
+gem 'elasticsearch-model', '~> 7.2', '>= 7.2.1'
+
+gem 'elasticsearch-rails', '~> 7.2', '>= 7.2.1'

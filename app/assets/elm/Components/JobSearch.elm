@@ -1,13 +1,16 @@
 module Components.JobSearch exposing (..)
 
-import Components.Icons exposing (keywordIcon, positionIcon, skillIcon)
-import Helpers.Converter exposing (isValueInArray, mergedList)
-import Html exposing (..)
-import Html.Attributes exposing (..)
+import Components.Badge exposing (more, searchWord)
+import Components.Icons exposing (keywordIcon, magnifyingGlassBlueIcon, positionIcon, skillIcon)
+import Components.Modal as Modal
+import Components.SlideOver as SlideOver
+import Helpers.Converter exposing (isValueInArray)
+import Helpers.State exposing (OpenCloseStateMsg(..))
+import Html exposing (Attribute, Html, div, input, span, text)
+import Html.Attributes exposing (class, placeholder, value)
 import Html.Events exposing (onClick, onInput, onMouseLeave)
 import List exposing (isEmpty, length)
 import List.Extra exposing (getAt)
-import String exposing (fromInt)
 
 
 
@@ -15,13 +18,12 @@ import String exposing (fromInt)
 
 
 type alias Model =
-    { inputGroupState : InputGroupStateMsg
+    { dropDownState : OpenCloseStateMsg
+    , slideOverState : OpenCloseStateMsg
+    , keyword : String
     , inputValue : String
-    , inputFocus : Bool
     , listInputTemp : List String
     , listInputValue : List String
-    , lastSearchList : List String
-    , keyword : String
     , listSkill : List String
     , listPosition : List String
     }
@@ -32,22 +34,12 @@ type alias Model =
 
 
 type Msg
-    = InputGroupState InputGroupStateMsg
-    | LastSearchListState String
-    | InputFocusState InputGroup Bool
+    = DropDownState OpenCloseStateMsg
+    | SlideOverState OpenCloseStateMsg
     | KeywordState String
-    | ListInputValueState InputGroup String
+    | AddInputTempState String
+    | RemoveInputValueState String
     | SearchState
-
-
-type InputGroupStateMsg
-    = Open
-    | Close
-
-
-type InputGroup
-    = Desktop
-    | Mobile
 
 
 
@@ -56,13 +48,12 @@ type InputGroup
 
 init : Model
 init =
-    { inputGroupState = Close
+    { dropDownState = Close
+    , slideOverState = Close
+    , keyword = ""
     , inputValue = ""
-    , inputFocus = False
     , listInputTemp = []
     , listInputValue = []
-    , lastSearchList = []
-    , keyword = ""
     , listSkill = [ "Data Analysis Engineering", "Prompt Engineering", "Quality Engineering" ]
     , listPosition = [ "Active Directory Engineer", "AI Research Engineer" ]
     }
@@ -75,429 +66,293 @@ init =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        InputGroupState msg_ ->
-            let
-                newModel =
-                    if msg_ == Open then
-                        { model
-                            | inputGroupState = msg_
-                            , inputFocus = False
-                            , listInputTemp = model.listInputValue
-                        }
+        DropDownState msg_ ->
+            ( { model | dropDownState = msg_, listInputValue = model.listInputTemp }, Cmd.none )
 
-                    else
-                        { model
-                            | inputGroupState = msg_
-                            , inputFocus = False
-                            , listInputTemp = model.listInputTemp
-                        }
-            in
-            ( newModel, Cmd.none )
-
-        ListInputValueState inputGroup inputValue ->
-            let
-                newListInputValue =
-                    if isValueInArray inputValue model.listInputTemp then
-                        { model
-                            | listInputTemp = List.filter (\item -> item /= inputValue) model.listInputTemp
-                        }
-
-                    else
-                        { model
-                            | listInputTemp = inputValue :: model.listInputTemp
-                        }
-
-                newInputGroupStateModel =
-                    if inputGroup == Desktop then
-                        { model
-                            | inputGroupState = Close
-                            , listInputValue = newListInputValue.listInputTemp
-                            , lastSearchList = mergedList model.lastSearchList model.listInputValue
-                        }
-
-                    else
-                        model
-
-                newModel =
-                    { model
-                        | inputGroupState = newInputGroupStateModel.inputGroupState
-                        , inputFocus = False
-                        , listInputTemp = newListInputValue.listInputTemp
-                        , listInputValue = newInputGroupStateModel.listInputValue
-                        , lastSearchList = newInputGroupStateModel.lastSearchList
-                        , inputValue = ""
-                        , keyword = ""
-                    }
-            in
-            ( newModel, Cmd.none )
-
-        InputFocusState inputGroup inputFocus ->
-            let
-                newModel =
-                    if inputGroup == Desktop then
-                        { model | inputFocus = inputFocus, inputGroupState = Open }
-
-                    else
-                        { model | inputFocus = inputFocus, inputGroupState = Open }
-            in
-            ( newModel, Cmd.none )
-
-        LastSearchListState msg_ ->
-            let
-                newModel =
-                    { model
-                        | inputValue = ""
-                        , lastSearchList = List.filter (\item -> item /= msg_) model.lastSearchList
-                        , keyword = ""
-                    }
-            in
-            ( newModel, Cmd.none )
+        SlideOverState msg_ ->
+            ( { model | slideOverState = msg_ }, Cmd.none )
 
         KeywordState msg_ ->
+            ( { model | inputValue = msg_, keyword = msg_ }, Cmd.none )
+
+        AddInputTempState msg_ ->
             let
                 newModel =
-                    { model
-                        | inputValue = msg_
-                        , inputFocus = True
-                        , keyword = msg_
-                    }
+                    if isValueInArray msg_ model.listInputTemp then
+                        model
+
+                    else
+                        { model | listInputTemp = msg_ :: model.listInputTemp }
             in
-            ( newModel, Cmd.none )
+            ( { newModel | keyword = "", inputValue = "", dropDownState = Close }, Cmd.none )
+
+        RemoveInputValueState msg_ ->
+            ( { model
+                | listInputTemp = List.filter (\item -> item /= msg_) model.listInputTemp
+                , dropDownState = Close
+              }
+            , Cmd.none
+            )
 
         SearchState ->
-            let
-                newModel =
-                    { model
-                        | inputGroupState = Close
-                        , lastSearchList = mergedList model.lastSearchList model.listInputTemp
-                        , listInputValue = model.listInputTemp
-                    }
-            in
-            ( newModel, Cmd.none )
+            ( { model | slideOverState = Close, listInputValue = model.listInputTemp }, Cmd.none )
+
+
+
+-- HELPER
+
+
+placeholderClass : Model -> OpenCloseStateMsg -> Attribute msg
+placeholderClass { listInputTemp } state =
+    if not (isEmpty listInputTemp) && state == Close then
+        class "placeholder:opacity-0"
+
+    else
+        class "placeholder:opacity-100"
+
+
+listInputTempClass : Model -> Attribute msg
+listInputTempClass { listInputTemp } =
+    if not (List.isEmpty listInputTemp) then
+        class "flex"
+
+    else
+        class "hidden"
+
+
+listLastSearchClass : Model -> Attribute msg
+listLastSearchClass { listInputValue } =
+    if not (List.isEmpty listInputValue) then
+        class "flex"
+
+    else
+        class "hidden"
+
+
+keywordClass : Model -> Attribute msg
+keywordClass { inputValue } =
+    if not (String.isEmpty inputValue) then
+        class "flex"
+
+    else
+        class "hidden"
 
 
 
 -- VIEW
 
 
-inputView : InputGroup -> Model -> Html Msg
-inputView inputGroup { inputValue, inputFocus, listInputTemp } =
+view : Model -> Html Msg
+view model =
+    div [] [ dropDownView model, slideOverView model ]
+
+
+dropDownView : Model -> Html Msg
+dropDownView model =
     let
-        wordBadgeOnInput =
-            if not (isEmpty listInputTemp) then
-                div
-                    [ class " flex-row gap-x-2"
-                    , if inputFocus == True then
-                        class "hidden"
-
-                      else
-                        class "flex"
-                    ]
-                    [ div [ class "bg-black flex gap-x-1 h-6 items-center pl-2 pr-1 rounded-[30px] max-w-[80px]" ]
-                        [ span
-                            [ class "leading-3 text-xs text-white truncate" ]
-                            [ text (Maybe.withDefault "" (getAt 0 listInputTemp))
-                            ]
-                        , i
-                            [ class "cursor-pointer fa-solid fa-close text-sm p-1"
-                            , onClick
-                                (ListInputValueState inputGroup
-                                    (Maybe.withDefault "" (getAt 0 listInputTemp))
-                                )
-                            ]
-                            []
-                        ]
-                    , div
-                        [ class "bg-black gap-x-1 h-6 items-center px-2 rounded-[30px]"
-                        , if length listInputTemp < 2 then
-                            class "hidden"
-
-                          else
-                            class "flex"
-                        ]
-                        [ span [ class "leading-3 text-xs text-white" ]
-                            [ text ("+ " ++ fromInt (length listInputTemp - 1))
-                            ]
-                        ]
-                    , div
-                        [ class "flex items-center text-sm text-slate-400"
-                        , onClick (InputFocusState inputGroup True)
-                        ]
-                        [ text "Search" ]
-                    ]
+        inputGroupClass =
+            if model.dropDownState == Open then
+                class "absolute hidden md:block"
 
             else
-                div [] []
-
-        placeholderDisplay =
-            if isEmpty listInputTemp then
-                class "placeholder:text-[#A5A9B5]"
-
-            else
-                class "placeholder:text-slate-100"
+                class "hidden"
     in
-    div [ class "relative" ]
-        [ div [ class "absolute flex gap-x-2 inset-y-0 items-center left-0 pl-4" ]
-            [ span [ class "text-gray-500 sm:text-sm" ]
-                [ i [ class "fa-solid fa-magnifying-glass text-primary-1" ] []
-                ]
-            , wordBadgeOnInput
+    div [ class "hidden relative z-50 md:block" ]
+        [ div [ class "opacity-0", onClick (DropDownState Close) ] [ Modal.backBackground model.dropDownState ]
+        , div
+            [ class "bg-white max-h-[calc(100vh-200px)] px-6 py-6 rounded-xl shadow-lg overflow-y-auto -top-[20px] w-[371px]"
+            , inputGroupClass
+            , onMouseLeave (DropDownState Close)
             ]
-        , input
-            [ placeholder "Search"
-            , class "bg-slate-100 border-1 border-slate-200 h-12 mt-2 pl-11 rounded-3xl text-[#242632] w-full md:h-9 md:w-[231px] focus:outline-none text-sm"
-            , placeholderDisplay
-            , onInput KeywordState
-            , onClick (InputFocusState inputGroup True)
-            , value inputValue
+            [ div [ class "flex flex-col gap-y-6 px-0.5 py-0.5" ]
+                [ div [ listLastSearchClass model ] [ listLastSearchDesktopView model ]
+                , div [ keywordClass model ] [ keywordView model ]
+                , div [] [ listSkillView model ]
+                , div [] [ listPositionView model ]
+                ]
             ]
-            []
-        ]
-
-
-desktopView : Model -> Html Msg
-desktopView model =
-    let
-        inputGroupComponent =
-            div
-                [ class "bg-white px-6 rounded-xl shadow-lg w-[371px] top-[50px] z-50 "
-                , if model.inputGroupState == Open then
-                    class "absolute hidden md:block"
-
-                  else
-                    class "hidden"
-                ]
-                [ div [ class "py-6" ]
-                    [ inputGroupComponentView Desktop model ]
-                ]
-    in
-    div [ class "relative", onMouseLeave (InputGroupState Close) ]
-        [ inputView Desktop model
-        , inputGroupComponent
         ]
 
 
 slideOverView : Model -> Html Msg
 slideOverView model =
-    let
-        closeSlideOverButton =
-            a
-                [ class "border cursor-pointer flex h-10 items-center justify-center no-underline rounded-full w-10 hover:bg-slate-200"
-                , onClick (InputGroupState Close)
-                ]
-                [ i [ class "fa-solid fa-close text-2xl text-slate-700" ] []
-                ]
-
-        slideOverBackground =
-            if model.inputGroupState == Open then
-                class "block"
-
-            else
-                class "hidden"
-
-        slideOverAnimation =
-            if model.inputGroupState == Open then
-                class "translate-y-0"
-
-            else
-                class "translate-y-full"
-
-        searchButton =
-            div
-                [ class "bg-primary-1 cursor-pointer flex h-10 items-center justify-center py-2 rounded-3xl text-sm text-white w-full"
-                , onClick SearchState
-                ]
-                [ text "Search" ]
-    in
-    div []
-        [ div
-            [ class "bg-gray-500 bg-opacity-75 fixed inset-0 transition-opacity"
-            , slideOverBackground
-            ]
-            []
-        , div
-            [ class "duration-500 ease-in-out fixed inset-0 transition z-10 md:hidden"
-            , slideOverAnimation
-            ]
+    div [ class "block relative z-50 md:hidden" ]
+        [ SlideOver.backBackground model.slideOverState
+        , div [ SlideOver.animationMobile model.slideOverState ]
             [ div [ class "flex items-end justify-center min-h-full" ]
-                [ div [ class "bg-white flex flex-col rounded-t-3xl w-full" ]
-                    [ div [ class "flex flex-col gap-y-6 px-4 py-6" ]
-                        [ div [ class "flex items-center" ]
+                [ div [ class "bg-white flex flex-col rounded-t-xl w-full" ]
+                    [ div [ class "flex flex-col gap-y-6 px-4 py-6 overflow-y-auto" ]
+                        [ div [ class "flex items-center justify-between" ]
                             [ div [ class "flex gap-x-4 items-center" ]
-                                [ closeSlideOverButton
-                                , span [ class "font-medium leading-5 text-[#242632] text-xl" ] [ text "Search" ]
+                                [ div [ onClick (SlideOverState Close) ] [ SlideOver.closeButton ]
+                                , span [ class "font-semibold text-xl text-black-90" ] [ text "Search" ]
                                 ]
                             ]
-                        , inputView Mobile model
-                        , div [ class "h-[100vh-200px] overflow-y-scroll" ]
-                            [ inputGroupComponentView Mobile model
+                        , div [ class "flex flex-col gap-y-6 max-h-[calc(100vh-250px)] overflow-y-auto px-0.5 py-0.5" ]
+                            [ div [] [ inputMobileView model ]
+                            , div [ class "flex flex-col divide-y gap-y-6" ]
+                                [ div [ listInputTempClass model ] [ listInputTempView model ]
+                                , div [ listLastSearchClass model ] [ listLastSearchMobileView model ]
+                                , div [ keywordClass model ] [ keywordView model ]
+                                , div [] [ listSkillView model ]
+                                , div [] [ listPositionView model ]
+                                ]
                             ]
+                        , div [ onClick SearchState ] [ SlideOver.confirmButton "Show Offers" ]
                         ]
-                    , div [ class "flex h-20 items-center justify-center px-4 py-4" ]
-                        [ searchButton ]
                     ]
                 ]
             ]
         ]
 
 
-inputGroupComponentView : InputGroup -> Model -> Html Msg
-inputGroupComponentView inputGroup model =
+inputDesktopView : Model -> Html Msg
+inputDesktopView model =
     let
-        listInputValueComponent =
-            div
-                [ if not (isEmpty model.listInputTemp) && model.inputFocus == True then
-                    class "flex"
+        wordBadgeList =
+            if not (isEmpty model.listInputTemp) && model.dropDownState == Close then
+                wordBadgeOnInput model
 
-                  else
-                    class "hidden"
-                ]
-                [ listInputValueView inputGroup model
-                ]
-
-        lastSearchListComponent =
-            div
-                [ if not (isEmpty model.lastSearchList) then
-                    class "flex"
-
-                  else
-                    class "hidden"
-                ]
-                [ lastSearchListView model ]
-
-        inputValueComponent =
-            div
-                [ if model.inputValue /= "" then
-                    class "flex"
-
-                  else
-                    class "hidden"
-                ]
-                [ keywordView inputGroup model ]
+            else
+                div [] []
     in
-    div [ class "flex flex-col divide-y gap-y-4" ]
-        [ listInputValueComponent
-        , lastSearchListComponent
-        , inputValueComponent
-        , listSkillView inputGroup model
-        , listPositionView inputGroup model
-        ]
-
-
-wordBadge : String -> Msg -> Html Msg
-wordBadge word msg =
-    div [ class "bg-black flex gap-x-2 h-6 items-center pl-2 pr-1 rounded-[30px]" ]
-        [ span
-            [ class "leading-3 text-xs text-white" ]
-            [ text word ]
-        , i
-            [ class "cursor-pointer fa-solid fa-close p-1 text-sm"
-            , onClick msg
+    div
+        [ class "relative" ]
+        [ div [ class "absolute flex gap-x-2 inset-y-0 left-0 pl-3" ]
+            [ span [ class "pt-2.5" ] [ magnifyingGlassBlueIcon ]
+            , div [ class "pt-1.5" ] [ wordBadgeList ]
+            ]
+        , input
+            [ placeholder "Search"
+            , class "bg-white border-0 h-9 min-w-[180px] outline outline-[#DBE0E5] pl-9 rounded-3xl text-sm text-black-90 disabled:bg-white"
+            , placeholderClass model model.dropDownState
+            , onInput KeywordState
+            , value model.inputValue
             ]
             []
         ]
 
 
-listInputValueView : InputGroup -> Model -> Html Msg
-listInputValueView inputGroup model =
+inputMobileView : Model -> Html Msg
+inputMobileView model =
     let
-        listInputValue =
-            model.listInputTemp
+        wordBadgeList =
+            if not (isEmpty model.listInputTemp) && model.slideOverState == Close then
+                wordBadgeOnInput model
 
-        listInputValueBadge =
-            listInputValue
-                |> List.map
-                    (\word ->
-                        wordBadge word (ListInputValueState inputGroup word)
-                    )
+            else
+                div [] []
     in
     div
-        [ class "flex-col gap-y-6" ]
-        [ div [ class "flex flex-wrap gap-2" ]
-            listInputValueBadge
+        [ class "relative" ]
+        [ div [ class "absolute flex gap-x-2 inset-y-0 left-0 pl-4" ]
+            [ span [ class "pt-4" ] [ magnifyingGlassBlueIcon ]
+            , div [ class "pt-2" ] [ wordBadgeList ]
+            ]
+        , input
+            [ placeholder "Search"
+            , class "bg-white border-0 h-12 outline outline-[#DBE0E5] pl-11 rounded-3xl text-sm text-black-90 w-full disabled:bg-white"
+            , placeholderClass model model.slideOverState
+            , onInput KeywordState
+            , value model.inputValue
+            ]
+            []
         ]
 
 
-lastSearchListView : Model -> Html Msg
-lastSearchListView model =
-    let
-        lastSearchList =
-            model.lastSearchList
+wordBadgeOnInput : Model -> Html msg
+wordBadgeOnInput { listInputTemp } =
+    div [ class "flex flex-row gap-x-1" ]
+        [ div [ class "md:w-20" ] [ searchWord (Maybe.withDefault "" (getAt 0 listInputTemp)) True ]
+        , if length listInputTemp > 1 then
+            div [] [ more (length listInputTemp - 1) ]
 
-        lastSearchListBadge =
-            lastSearchList
-                |> List.map
-                    (\word ->
-                        wordBadge word (LastSearchListState word)
-                    )
-    in
-    div
-        [ class "flex flex-col pt-4 gap-y-6" ]
-        [ span
-            [ class "font-semibold text-base text-[#242632]" ]
-            [ text "Last Searches" ]
-        , div [ class "flex flex-wrap gap-2" ]
-            lastSearchListBadge
+          else
+            div [] []
         ]
 
 
-keywordView : InputGroup -> Model -> Html Msg
-keywordView inputGroup { keyword } =
-    div
-        [ class "flex flex-col pt-4 gap-y-6" ]
-        [ span [ class "font-semibold text-base text-[#242632]" ] [ text "Keyword" ]
-        , div [ class "flex flex-col gap-y-4" ]
-            [ div
-                [ class "cursor-pointer flex flex-row gap-x-2", onClick (ListInputValueState inputGroup keyword) ]
-                [ div [ class "flex gap-x-2 items-center" ]
+listInputTempView : Model -> Html Msg
+listInputTempView { listInputTemp } =
+    div [ class "flex flex-row flex-wrap gap-2" ]
+        (listInputTemp
+            |> List.map
+                (\value -> div [ onClick (RemoveInputValueState value) ] [ searchWord value True ])
+        )
+
+
+listLastSearchDesktopView : Model -> Html Msg
+listLastSearchDesktopView { listInputValue } =
+    div [ class "flex flex-col gap-y-4 items-start text-black-90 pt-4" ]
+        [ span [ class "font-semibold text-base" ] [ text "Last Searches" ]
+        , div [ class "flex flex-row flex-wrap gap-2" ]
+            (listInputValue
+                |> List.map
+                    (\value ->
+                        div [ onClick (RemoveInputValueState value) ] [ searchWord value True ]
+                    )
+            )
+        ]
+
+
+listLastSearchMobileView : Model -> Html Msg
+listLastSearchMobileView { listInputValue } =
+    div [ class "flex flex-col gap-y-4 items-start text-black-90 pt-4" ]
+        [ span [ class "font-semibold text-base" ] [ text "Last Searches" ]
+        , div [ class "flex flex-row flex-wrap gap-2" ]
+            (listInputValue
+                |> List.map
+                    (\value ->
+                        div [ onClick (AddInputTempState value) ] [ searchWord value False ]
+                    )
+            )
+        ]
+
+
+keywordView : Model -> Html Msg
+keywordView { keyword, inputValue } =
+    div [ class "flex flex-col gap-y-4 items-start text-black-90 pt-4 w-full" ]
+        [ span [ class "font-semibold text-base" ] [ text "Keyword" ]
+        , div [ class "flex flex-col gap-y-4 w-full" ]
+            [ div [ class "cursor-pointer flex flex-row gap-x-2 rounded-lg hover:bg-white-30", onClick (AddInputTempState keyword) ]
+                [ div [ class "flex gap-x-2 items-center p-1" ]
                     [ keywordIcon
-                    , span [ class "leading-6 text-sm text-[#242632]" ] [ text keyword ]
+                    , span [ class "text-sm text-black-90" ] [ text keyword ]
                     ]
                 ]
             ]
         ]
 
 
-listSkillView : InputGroup -> Model -> Html Msg
-listSkillView inputGroup { listSkill } =
-    let
-        listSkillText =
-            listSkill
+listSkillView : Model -> Html Msg
+listSkillView { listSkill } =
+    div [ class "flex flex-col gap-y-4 items-start text-black-90 pt-4" ]
+        [ span [ class "font-semibold text-base" ] [ text "Skills" ]
+        , div [ class "flex flex-col gap-y-4 w-full" ]
+            (listSkill
                 |> List.map
-                    (\skill ->
-                        div [ class "cursor-pointer flex flex-row gap-x-2", onClick (ListInputValueState inputGroup skill) ]
-                            [ div [ class "flex gap-x-2 items-center" ]
-                                [ skillIcon
-                                , span [ class "leading-6 text-sm text-[#242632]" ] [ text skill ]
-                                ]
+                    (\value ->
+                        div [ class "cursor-pointer flex flex-row gap-x-2 rounded-lg hover:bg-white-30", onClick (AddInputTempState value) ]
+                            [ div [ class "flex gap-x-2 items-center p-1" ]
+                                [ skillIcon, span [ class "text-sm text-black-90" ] [ text value ] ]
                             ]
                     )
-    in
-    div
-        [ class "flex flex-col pt-4 gap-y-6" ]
-        [ span [ class "font-semibold text-base text-[#242632]" ] [ text "Skills" ]
-        , div [ class "flex flex-col gap-y-4" ]
-            listSkillText
+            )
         ]
 
 
-listPositionView : InputGroup -> Model -> Html Msg
-listPositionView inputGroup { listPosition } =
-    let
-        listPositionText =
-            listPosition
+listPositionView : Model -> Html Msg
+listPositionView { listPosition } =
+    div [ class "flex flex-col gap-y-4 items-start text-black-90 pt-4" ]
+        [ span [ class "font-semibold text-base" ] [ text "Position" ]
+        , div [ class "flex flex-col gap-y-4 w-full" ]
+            (listPosition
                 |> List.map
-                    (\position ->
-                        div [ class "cursor-pointer flex flex-row gap-x-2", onClick (ListInputValueState inputGroup position) ]
-                            [ div [ class "flex gap-x-2 items-center" ]
-                                [ positionIcon
-                                , span [ class "leading-6 text-sm text-[#242632]" ] [ text position ]
-                                ]
+                    (\value ->
+                        div [ class "cursor-pointer flex flex-row gap-x-2 rounded-lg hover:bg-white-30", onClick (AddInputTempState value) ]
+                            [ div [ class "flex gap-x-2 items-center p-1" ]
+                                [ positionIcon, span [ class "text-sm text-black-90" ] [ text value ] ]
                             ]
                     )
-    in
-    div [ class "flex flex-col pt-4 gap-y-6" ]
-        [ span [ class "font-semibold text-base text-[#242632]" ] [ text "Position" ]
-        , div [ class "flex flex-col gap-y-4" ]
-            listPositionText
+            )
         ]
