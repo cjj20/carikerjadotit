@@ -12,6 +12,7 @@ import Components.JobView as JobView
 import Components.Maps as OpenStreetMap exposing (mobileView)
 import Components.Navbar as Navbar
 import Helpers.Converter exposing (floatToString)
+import Helpers.State exposing (OpenCloseStateMsg(..))
 import Html exposing (Html, div, span, text)
 import Html.Attributes exposing (class)
 import Http exposing (Error)
@@ -334,7 +335,7 @@ update msg model =
                             JobFilter.update newJobSearchMsg model.jobFilterModel
 
                         newJobApiSearchStateMsg =
-                            JobApi.SearchState newJobFilterModel.jobSearchModel.listInputValue
+                            JobApi.SearchState newJobFilterModel.jobSearchModel.listInputTemp
 
                         ( newJobApiModel, _ ) =
                             JobApi.updateParameters newJobApiSearchStateMsg model.jobApiParameters
@@ -349,10 +350,7 @@ update msg model =
                         AddInputTempState _ ->
                             let
                                 newModelWithCmd =
-                                    if
-                                        newJobFilterModel.jobSearchModel.listInputTemp
-                                            /= model.jobFilterModel.jobSearchModel.listInputTemp
-                                    then
+                                    if newJobFilterModel.jobSearchModel.slideOverState /= Open then
                                         ( { model
                                             | jobFilterModel = newJobFilterModel
                                             , jobLoading = True
@@ -367,7 +365,21 @@ update msg model =
                             newModelWithCmd
 
                         RemoveInputValueState _ ->
-                            ( { model | jobFilterModel = newJobFilterModel }, Cmd.none )
+                            let
+                                newModelWithCmd =
+                                    if newJobFilterModel.jobSearchModel.slideOverState /= Open then
+                                        ( { model
+                                            | jobFilterModel = newJobFilterModel
+                                            , jobLoading = True
+                                            , jobApiParameters = newJobApiModel
+                                          }
+                                        , Cmd.map JobApiGetJobRequestMsg <| JobApi.getJobs newJobApiModel
+                                        )
+
+                                    else
+                                        ( { model | jobFilterModel = newJobFilterModel }, Cmd.none )
+                            in
+                            newModelWithCmd
 
                         KeywordState _ ->
                             ( { model | jobFilterModel = newJobFilterModel }, Cmd.none )
