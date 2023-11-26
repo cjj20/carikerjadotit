@@ -18,6 +18,14 @@ class Job < ApplicationRecord
   def employment_type
     read_attribute(:employment_type).titleize if read_attribute(:employment_type)
   end
+  
+  def salary_min
+    format_salary(read_attribute(:salary_min))
+  end
+
+  def salary_max
+    format_salary(read_attribute(:salary_max))
+  end
 
   def is_new
     date_created_at = Time.zone.parse(self.created_at.to_s).to_date
@@ -25,4 +33,10 @@ class Job < ApplicationRecord
 
     date_created_at == date_today
   end
+
+  private
+
+    def format_salary(number)
+      ActiveSupport::NumberHelper.number_to_human(number, units: { thousand: 'rb', million: 'jt' }, precision: 10)
+    end
 end
