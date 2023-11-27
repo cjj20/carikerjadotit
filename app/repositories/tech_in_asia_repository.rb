@@ -25,6 +25,7 @@ class TechInAsiaRepository
   def job_format(data)
     {
       title: data[:title],
+      currency_code: data[:currency][:currency_code],
       salary_min: data[:salary_min],
       salary_max: data[:salary_max],
       salary_is_undisclosed: salary_is_undisclosed_format(data[:is_salary_visible]),
@@ -33,7 +34,7 @@ class TechInAsiaRepository
       experience_level: experience_level_format(max: data[:experience_max]),
       type_of_work: type_of_work_format(data[:job_type][:name]),
       job_description: data[:description],
-      apply_link: data[:external_link],
+      apply_link: apply_link_format(data[:external_link], data[:objectID]),
       main_technology: "",
       online_interview: false,
       boosted: data[:is_boosted],
@@ -110,5 +111,13 @@ class TechInAsiaRepository
     end
 
     tags
+  end
+
+  def apply_link_format(external_link, object_id)
+    if external_link
+      external_link
+    else
+      "#{ENV["TECH_IN_ASIA_URL_DETAIL_JOB"]}#{object_id}"
+    end
   end
 end
