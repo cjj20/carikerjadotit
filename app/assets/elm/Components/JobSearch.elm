@@ -37,9 +37,14 @@ type Msg
     = DropDownState OpenCloseStateMsg
     | SlideOverState OpenCloseStateMsg
     | KeywordState String
-    | AddInputTempState String
-    | RemoveInputValueState String
+    | AddInputTempState String Component
+    | RemoveInputValueState String Component
     | SearchState
+
+
+type Component
+    = DropDown
+    | SlideOver
 
 
 
@@ -67,7 +72,7 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         DropDownState msg_ ->
-            ( { model | dropDownState = msg_, listInputValue = model.listInputTemp }, Cmd.none )
+            ( { model | dropDownState = msg_ }, Cmd.none )
 
         SlideOverState msg_ ->
             ( { model | slideOverState = msg_ }, Cmd.none )
@@ -75,24 +80,37 @@ update msg model =
         KeywordState msg_ ->
             ( { model | inputValue = msg_, keyword = msg_ }, Cmd.none )
 
-        AddInputTempState msg_ ->
+        AddInputTempState msg_ cpn_ ->
             let
-                newModel =
+                newListInputTemp =
                     if isValueInArray msg_ model.listInputTemp then
                         model
 
                     else
                         { model | listInputTemp = msg_ :: model.listInputTemp }
-            in
-            ( { newModel | keyword = "", inputValue = "", dropDownState = Close }, Cmd.none )
 
-        RemoveInputValueState msg_ ->
-            ( { model
-                | listInputTemp = List.filter (\item -> item /= msg_) model.listInputTemp
-                , dropDownState = Close
-              }
-            , Cmd.none
-            )
+                newModel =
+                    if cpn_ == DropDown then
+                        { model | dropDownState = Close, listInputValue = newListInputTemp.listInputTemp }
+
+                    else
+                        model
+            in
+            ( { newModel | keyword = "", inputValue = "", listInputTemp = newListInputTemp.listInputTemp }, Cmd.none )
+
+        RemoveInputValueState msg_ cpn_ ->
+            let
+                newListInputTemp =
+                    List.filter (\item -> item /= msg_) model.listInputTemp
+
+                newModel =
+                    if cpn_ == DropDown then
+                        { model | dropDownState = Close, listInputValue = newListInputTemp }
+
+                    else
+                        model
+            in
+            ( { newModel | listInputTemp = newListInputTemp }, Cmd.none )
 
         SearchState ->
             ( { model | slideOverState = Close, listInputValue = model.listInputTemp }, Cmd.none )
@@ -165,10 +183,10 @@ dropDownView model =
             , onMouseLeave (DropDownState Close)
             ]
             [ div [ class "flex flex-col gap-y-6 px-0.5 py-0.5" ]
-                [ div [ listLastSearchClass model ] [ listLastSearchDesktopView model ]
-                , div [ keywordClass model ] [ keywordView model ]
-                , div [] [ listSkillView model ]
-                , div [] [ listPositionView model ]
+                [ div [ listLastSearchClass model ] [ listLastSearchDesktopView model DropDown ]
+                , div [ keywordClass model ] [ keywordView model DropDown ]
+                , div [] [ listSkillView model DropDown ]
+                , div [] [ listPositionView model DropDown ]
                 ]
             ]
         ]
@@ -191,11 +209,11 @@ slideOverView model =
                         , div [ class "flex flex-col gap-y-6 max-h-[calc(100vh-250px)] overflow-y-auto px-0.5 py-0.5" ]
                             [ div [] [ inputMobileView model ]
                             , div [ class "flex flex-col divide-y gap-y-6" ]
-                                [ div [ listInputTempClass model ] [ listInputTempView model ]
-                                , div [ listLastSearchClass model ] [ listLastSearchMobileView model ]
-                                , div [ keywordClass model ] [ keywordView model ]
-                                , div [] [ listSkillView model ]
-                                , div [] [ listPositionView model ]
+                                [ div [ listInputTempClass model ] [ listInputTempView model SlideOver ]
+                                , div [ listLastSearchClass model ] [ listLastSearchMobileView model SlideOver ]
+                                , div [ keywordClass model ] [ keywordView model SlideOver ]
+                                , div [] [ listSkillView model SlideOver ]
+                                , div [] [ listPositionView model SlideOver ]
                                 ]
                             ]
                         , div [ onClick SearchState ] [ SlideOver.confirmButton "Show Offers" ]
@@ -235,20 +253,10 @@ inputDesktopView model =
 
 inputMobileView : Model -> Html Msg
 inputMobileView model =
-    let
-        wordBadgeList =
-            if not (isEmpty model.listInputTemp) && model.slideOverState == Close then
-                wordBadgeOnInput model
-
-            else
-                div [] []
-    in
     div
         [ class "relative" ]
         [ div [ class "absolute flex gap-x-2 inset-y-0 left-0 pl-4" ]
-            [ span [ class "pt-4" ] [ magnifyingGlassBlueIcon ]
-            , div [ class "pt-2" ] [ wordBadgeList ]
-            ]
+            [ span [ class "pt-4" ] [ magnifyingGlassBlueIcon ] ]
         , input
             [ placeholder "Search"
             , class "bg-white border-0 h-12 outline outline-[#DBE0E5] pl-11 rounded-3xl text-sm text-black-90 w-full disabled:bg-white"
@@ -272,49 +280,52 @@ wordBadgeOnInput { listInputTemp } =
         ]
 
 
-listInputTempView : Model -> Html Msg
-listInputTempView { listInputTemp } =
+listInputTempView : Model -> Component -> Html Msg
+listInputTempView { listInputTemp } component =
     div [ class "flex flex-row flex-wrap gap-2" ]
         (listInputTemp
             |> List.map
-                (\value -> div [ onClick (RemoveInputValueState value) ] [ searchWord value True ])
+                (\value -> div [ onClick (RemoveInputValueState value component) ] [ searchWord value True ])
         )
 
 
-listLastSearchDesktopView : Model -> Html Msg
-listLastSearchDesktopView { listInputValue } =
+listLastSearchDesktopView : Model -> Component -> Html Msg
+listLastSearchDesktopView { listInputValue } component =
     div [ class "flex flex-col gap-y-4 items-start text-black-90 pt-4" ]
         [ span [ class "font-semibold text-base" ] [ text "Last Searches" ]
         , div [ class "flex flex-row flex-wrap gap-2" ]
             (listInputValue
                 |> List.map
                     (\value ->
-                        div [ onClick (RemoveInputValueState value) ] [ searchWord value True ]
+                        div [ onClick (RemoveInputValueState value component) ] [ searchWord value True ]
                     )
             )
         ]
 
 
-listLastSearchMobileView : Model -> Html Msg
-listLastSearchMobileView { listInputValue } =
+listLastSearchMobileView : Model -> Component -> Html Msg
+listLastSearchMobileView { listInputValue } component =
     div [ class "flex flex-col gap-y-4 items-start text-black-90 pt-4" ]
         [ span [ class "font-semibold text-base" ] [ text "Last Searches" ]
         , div [ class "flex flex-row flex-wrap gap-2" ]
             (listInputValue
                 |> List.map
                     (\value ->
-                        div [ onClick (AddInputTempState value) ] [ searchWord value False ]
+                        div [ onClick (AddInputTempState value component) ] [ searchWord value False ]
                     )
             )
         ]
 
 
-keywordView : Model -> Html Msg
-keywordView { keyword, inputValue } =
+keywordView : Model -> Component -> Html Msg
+keywordView { keyword, inputValue } component =
     div [ class "flex flex-col gap-y-4 items-start text-black-90 pt-4 w-full" ]
         [ span [ class "font-semibold text-base" ] [ text "Keyword" ]
         , div [ class "flex flex-col gap-y-4 w-full" ]
-            [ div [ class "cursor-pointer flex flex-row gap-x-2 rounded-lg hover:bg-white-30", onClick (AddInputTempState keyword) ]
+            [ div
+                [ class "cursor-pointer flex flex-row gap-x-2 rounded-lg hover:bg-white-30"
+                , onClick (AddInputTempState keyword component)
+                ]
                 [ div [ class "flex gap-x-2 items-center p-1" ]
                     [ keywordIcon
                     , span [ class "text-sm text-black-90" ] [ text keyword ]
@@ -324,15 +335,18 @@ keywordView { keyword, inputValue } =
         ]
 
 
-listSkillView : Model -> Html Msg
-listSkillView { listSkill } =
+listSkillView : Model -> Component -> Html Msg
+listSkillView { listSkill } component =
     div [ class "flex flex-col gap-y-4 items-start text-black-90 pt-4" ]
         [ span [ class "font-semibold text-base" ] [ text "Skills" ]
         , div [ class "flex flex-col gap-y-4 w-full" ]
             (listSkill
                 |> List.map
                     (\value ->
-                        div [ class "cursor-pointer flex flex-row gap-x-2 rounded-lg hover:bg-white-30", onClick (AddInputTempState value) ]
+                        div
+                            [ class "cursor-pointer flex flex-row gap-x-2 rounded-lg hover:bg-white-30"
+                            , onClick (AddInputTempState value component)
+                            ]
                             [ div [ class "flex gap-x-2 items-center p-1" ]
                                 [ skillIcon, span [ class "text-sm text-black-90" ] [ text value ] ]
                             ]
@@ -341,15 +355,18 @@ listSkillView { listSkill } =
         ]
 
 
-listPositionView : Model -> Html Msg
-listPositionView { listPosition } =
+listPositionView : Model -> Component -> Html Msg
+listPositionView { listPosition } component =
     div [ class "flex flex-col gap-y-4 items-start text-black-90 pt-4" ]
         [ span [ class "font-semibold text-base" ] [ text "Position" ]
         , div [ class "flex flex-col gap-y-4 w-full" ]
             (listPosition
                 |> List.map
                     (\value ->
-                        div [ class "cursor-pointer flex flex-row gap-x-2 rounded-lg hover:bg-white-30", onClick (AddInputTempState value) ]
+                        div
+                            [ class "cursor-pointer flex flex-row gap-x-2 rounded-lg hover:bg-white-30"
+                            , onClick (AddInputTempState value component)
+                            ]
                             [ div [ class "flex gap-x-2 items-center p-1" ]
                                 [ positionIcon, span [ class "text-sm text-black-90" ] [ text value ] ]
                             ]

@@ -11,12 +11,12 @@ searchWord label icon =
     let
         closeIconDisplay =
             if icon == True then
-                span [ class "cursor-pointer h-4 text-sm w-4 flex items-center" ] [ close16Icon ]
+                span [ class "cursor-pointer h-4 ml-2 text-sm w-4 flex items-center" ] [ close16Icon ]
 
             else
                 span [] []
     in
-    div [ class "bg-black cursor-pointer flex flex-row gap-x-2 h-8 md:h-6 items-center px-3 rounded-[30px]" ]
+    div [ class "bg-black cursor-pointer flex flex-row h-8 md:h-6 items-center px-3 rounded-[30px]" ]
         [ span [ class "leading-3 text-xs text-white truncate" ] [ text label ]
         , closeIconDisplay
         ]
