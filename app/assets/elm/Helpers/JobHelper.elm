@@ -9,8 +9,7 @@ import Components.JobMoreFilter
         , experienceLevelMsgToString
         , typeOfWorkMsgToString
         )
-import Helpers.Converter exposing (listStringToString, stringToFloat)
-import String exposing (fromInt)
+import Helpers.Converter exposing (listStringToString)
 
 
 listExperienceMsgToString : List ExperienceLevelMsg -> String

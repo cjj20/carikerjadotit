@@ -5,7 +5,7 @@ import Components.JobFilter as JobFilter
 import Components.JobLocation as JobLocation
 import Components.JobMainTechnology as JobMainTechnology exposing (Msg(..))
 import Components.JobMoreFilter as JobMoreFilter exposing (Msg(..))
-import Components.JobSearch exposing (Msg(..))
+import Components.JobSearch exposing (Component(..), Msg(..))
 import Components.JobSort as JobSort
 import Components.JobTab as JobTab exposing (Msg(..), RemoteToggleMsg(..), TabMsg(..))
 import Components.JobView as JobView
@@ -335,7 +335,7 @@ update msg model =
                             JobFilter.update newJobSearchMsg model.jobFilterModel
 
                         newJobApiSearchStateMsg =
-                            JobApi.SearchState newJobFilterModel.jobSearchModel.listInputTemp
+                            JobApi.SearchState newJobFilterModel.jobSearchModel.listInputValue
 
                         ( newJobApiModel, _ ) =
                             JobApi.updateParameters newJobApiSearchStateMsg model.jobApiParameters
@@ -347,10 +347,10 @@ update msg model =
                         SlideOverState _ ->
                             ( { model | jobFilterModel = newJobFilterModel }, Cmd.none )
 
-                        AddInputTempState _ ->
+                        AddInputTempState _ cpn_ ->
                             let
                                 newModelWithCmd =
-                                    if newJobFilterModel.jobSearchModel.slideOverState /= Open then
+                                    if cpn_ == DropDown then
                                         ( { model
                                             | jobFilterModel = newJobFilterModel
                                             , jobLoading = True
@@ -364,10 +364,10 @@ update msg model =
                             in
                             newModelWithCmd
 
-                        RemoveInputValueState _ ->
+                        RemoveInputValueState _ cpn_ ->
                             let
                                 newModelWithCmd =
-                                    if newJobFilterModel.jobSearchModel.slideOverState /= Open then
+                                    if cpn_ == DropDown then
                                         ( { model
                                             | jobFilterModel = newJobFilterModel
                                             , jobLoading = True
@@ -515,16 +515,16 @@ view { jobLoading, jobList, navbarModel, jobFilterModel, jobTabModel, jobTotal }
             , Html.map JobFilterUpdateMsg <| JobFilter.view jobFilterModel
             , Html.map JobTabUpdateMsg <| JobTab.view jobTabModel
             ]
-        , div [ class "bg-white-30 gap-x-4 h-[calc(100vh-210px)] lg:flex lg:h-[calc(100vh-230px)] lg:justify-between" ]
-            [ div [ class "flex flex-col gap-y-4 bg-white-30 w-full lg:w-1/2 px-4 lg:pl-[140px]" ]
+        , div [ class "bg-white-30 gap-x-4 md:flex lg:justify-between" ]
+            [ div [ class "bg-white-30 flex flex-col gap-y-4 px-4 w-full lg:pl-[140px] lg:w-1/2" ]
                 [ span [ class "text-sm text-black-90 lg:text-base" ] [ text ("Work: " ++ fromInt jobTotal ++ " offers") ]
-                , div [ class "flex flex-col gap-y-2 h-[calc(100vh-270px)] no-scrollbar overflow-y-scroll md:h-[calc(100vh-250px)]" ]
+                , div [ class "flex flex-col gap-y-2 h-[calc(100vh-245px)] no-scrollbar overflow-y-scroll md:h-[calc(100vh-257px)]" ]
                     [ div [ class "block lg:hidden" ] [ mobileView ]
                     , div [ class "flex flex-col gap-y-2 lg:gap-y-3 pb-4" ] <| listJobMap
                     ]
                 ]
-            , div [ class "flex justify-center lg:w-1/2 pt-2" ]
-                [ div [ class "hidden lg:block lg:h-[calc(100vh-250px)] rounded-xl w-full bg-[#F2F6FD] pr-[140px]" ]
+            , div [ class "flex justify-center lg:w-1/2" ]
+                [ div [ class "bg-[#F2F6FD] hidden pb-4 pr-[140px] py-2 rounded-xl w-full lg:block lg:h-[calc(100vh-225px)]" ]
                     [ OpenStreetMap.view
                     ]
                 ]
