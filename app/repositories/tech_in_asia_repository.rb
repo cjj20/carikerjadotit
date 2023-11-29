@@ -8,7 +8,7 @@ class TechInAsiaRepository
   def job_postings(query: "")
     client  = create_client
     index   = client.init_index('job_postings')
-    result  = index.search(query)
+    result  = index.search(query, { hitsPerPage: 1000 })
     result[:hits]
   end
 
