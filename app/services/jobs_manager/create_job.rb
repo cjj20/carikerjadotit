@@ -1,7 +1,7 @@
 module JobsManager
   class CreateJob
 
-    attr_accessor :data, :company_id
+    attr_accessor :data, :company
 
     def initialize(data:, company:)
       @data = data
@@ -11,6 +11,7 @@ module JobsManager
     def call
       new_job = Job.find_or_create_by!(
         title: @data[:title],
+        currency_code: @data[:currency_code],
         salary_min: @data[:salary_min],
         salary_max: @data[:salary_max],
         salary_is_undisclosed: @data[:salary_is_undisclosed],

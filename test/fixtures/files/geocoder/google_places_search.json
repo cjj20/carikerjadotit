@@ -1,0 +1,26 @@
+{ "business_status":"OPERATIONAL",
+  "formatted_address":"Jl. Tj. Duren Barat Raya No.360 C, RT.7/RW.3, Tj. Duren Utara, Kec. Grogol petamburan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11470, Indonesia",
+  "geometry":
+    {
+      "location":{"lat":-6.1736456, "lng":106.7834597},
+      "viewport":{"northeast": {"lat":-6.172379120107277, "lng":106.7848088798927}, "southwest": {"lat":-6.175078779892721, "lng":106.7821092201073}
+    }
+  },
+  "icon":"https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+  "name":"UENA (Tanjung Duren)",
+  "opening_hours":{"open_now":false},
+  "photos":
+    [
+      { "height":3240,
+        "html_attributions":["<a href=\"https://maps.google.com/maps/contrib/103859599603699465716\">A Google User</a>"],
+        "photo_reference": "AWU5eFgmFqHv3YHmGl5NcIP85X-pG3MRmMpdbl6vaJZTUA96UIrnQU2DNSXwVsg9yRLcy6iopFslQzw4th4CV74R9pNtctjYJcUSqUq02TZr2LCTLrChDN8siUHAvfzbI0mRGsGgBp4USozwbP_Z-SS5vvaFdUjYjNCL9W8s71JZDPBNLwox",
+        "width":3240
+      }
+    ],
+  "place_id":"ChIJUTBnU4T3aS4RaWTnoX685kg",
+  "plus_code":{"compound_code":"RQGM+G9 North Tanjung Duren, West Jakarta City, Jakarta", "global_code":"6P58RQGM+G9"},
+  "rating":4,
+  "reference":"ChIJUTBnU4T3aS4RaWTnoX685kg",
+  "types":["restaurant", "point_of_interest", "food", "establishment"],
+  "user_ratings_total":45
+}

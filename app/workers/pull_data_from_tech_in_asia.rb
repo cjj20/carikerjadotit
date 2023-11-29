@@ -1,5 +1,5 @@
 class PullDataFromTechInAsia
-  include Sidekiq::Worker
+  include Sidekiq::Job
 
   require 'algolia'
 

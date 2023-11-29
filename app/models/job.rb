@@ -10,7 +10,7 @@ class Job < ApplicationRecord
   enum type_of_work: [:full_time, :part_time, :internship]
   enum currency_format: {
     idr: { code: "IDR", symbol: "Rp", thousand: "rb", million: "jt" },
-    sgp: { code: "SGP", symbol: "$", thousand: "k", million: "m" },
+    sgd: { code: "SGD", symbol: "$", thousand: "k", million: "m" },
   }
 
   belongs_to :company
@@ -41,10 +41,12 @@ class Job < ApplicationRecord
   private
 
     def format_salary(number)
-      currency = Job.currency_formats[read_attribute(:currency_code).downcase]
-      if currency
+      currency_code = read_attribute(:currency_code).presence&.downcase || "idr"
+      currency_format = Job.currency_formats[currency_code]
+
+      if currency_format
         ActiveSupport::NumberHelper
-          .number_to_human(number, units: { thousand: currency[:thousand], million: currency[:million] }, precision: 10)
+          .number_to_human(number, units: { thousand: currency_format[:thousand], million: currency_format[:million] }, precision: 10)
       else
         number
       end
